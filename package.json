@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@directus/gatsby-source-directus": "^9.14.1",
     "@mdx-js/mdx": "v1",
     "@mdx-js/react": "v1",
     "gatsby": "^4.21.1",
@@ -33,7 +34,7 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.45",
+    "@types/node": "^18.7.14",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "typescript": "^4.8.2"
