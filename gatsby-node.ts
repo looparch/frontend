@@ -1,40 +1,62 @@
-import type { GatsbyNode } from 'gatsby'
 import path from 'path'
+import { GatsbyNode } from "gatsby";
 
-type Manufacturer = {
-  id: string
-  title: string
-  slug: string
+type TypeResult = {
+  directus: {
+    Manufacturers: [
+      {
+        id: string,
+        title: string,
+        slug: string,
+        products: [
+          {
+            id: string,
+            title: string,
+            slug: string,
+          }
+        ]
+      }
+    ]
+  }
 }
 
-type Product = {
-  id: string
-  title: string
-  slug: string
-}
-
-export const createPages = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage } = actions
   const manufacturerTemplate = path.resolve(`src/templates/manufacturer.tsx`)
-  const result = await graphql(`
+  const productTemplate = path.resolve(`src/templates/product.tsx`)
+  const result = await graphql<TypeResult>(`
     query AllManufacturers {
       directus {
         Manufacturers(filter: {status: {_eq: "published"}}) {
           id
           title
           slug
+          products {
+            id
+            title
+            slug
+          }
         }
       }
     }
   `)
 
-  result.data.directus.Manufacturers.forEach((manufacturer: Manufacturer) => {
+  result.data?.directus.Manufacturers.forEach((manufacturer) => {
     createPage({
       path: `/${manufacturer.slug}`,
       component: manufacturerTemplate,
       context: {
         id: manufacturer.id
       }
+    })
+    manufacturer.products.forEach((product) => {
+      createPage({
+        path: `/${manufacturer.slug}/${product.slug}`,
+        component: productTemplate,
+        context: {
+          id: product.id
+        }
+      })
     })
   })
 }

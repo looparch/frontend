@@ -1,6 +1,6 @@
 import * as React from 'react'
 import type { HeadFC, PageProps } from 'gatsby'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
 
 type ManufacturerProps = {
