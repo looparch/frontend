@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import type { PageProps } from 'gatsby'
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
 
 type DirectusImage = {
@@ -21,29 +21,28 @@ type DirectusLocalImage = {
 }
 
 type DataProps = {
-  directus: {
-    manufacturer: {
-      title: string
-      slug: string
-      description: string
-      tags: Array<string>
-      href: string
-      image_hero: DirectusImage
-      image_logo_dark: DirectusLocalImage
-      products: [
-        {
-          id: string
-          title: string
-          slug: string
-          image_primary: DirectusImage
-        }
-      ]
-    }
+  manufacturer: {
+    title: string
+    slug: string
+    description: string
+    tags: Array<string>
+    href: string
+    image_hero: DirectusImage
+    image_logo_dark: DirectusLocalImage
+    products: [
+      {
+        id: string
+        title: string
+        slug: string
+        image_thumbnail: DirectusImage
+      }
+    ]
   }
 }
 
-const Manufacturer = ({ data: { directus } }: PageProps<DataProps>) => {
-  const manufacturer = directus.manufacturer
+const Manufacturer = ({ data: { manufacturer }, pageContext }: PageProps<DataProps>) => {
+  console.log(pageContext)
+  const heroImage = getImage(manufacturer.image_hero.imageFile.childImageSharp)
   return (
     <div>
       <h1>{manufacturer.title}</h1>
@@ -53,12 +52,9 @@ const Manufacturer = ({ data: { directus } }: PageProps<DataProps>) => {
         alt={`${manufacturer.title} Logo`}
         width="300"
       />
-      <GatsbyImage
-        image={
-          manufacturer.image_hero.imageFile.childImageSharp.gatsbyImageData
-        }
-        alt={`${manufacturer.title} Banner`}
-      />
+      {heroImage && (
+        <GatsbyImage image={heroImage} alt={`${manufacturer.title} Banner`} />
+      )}
       <ReactMarkdown>{manufacturer.description}</ReactMarkdown>
       {manufacturer.tags.map((tag) => {
         return <div key={tag}>{tag}</div>
@@ -67,23 +63,28 @@ const Manufacturer = ({ data: { directus } }: PageProps<DataProps>) => {
         <a href={manufacturer.href}>Link</a>
       </p>
 
-      {manufacturer.products.map((product) => {
-        return (
-          <div key={product.id}>
-            <GatsbyImage
-              image={
-                product.image_primary.imageFile.childImageSharp.gatsbyImageData
-              }
-              alt={`${product.title} Thumbnail`}
-            />
-            <div>
-              <Link to={`/${manufacturer.slug}/${product.slug}`}>
-                {product.title}
-              </Link>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {manufacturer.products.map((product) => {
+          const thumbnailImage = getImage(
+            product.image_thumbnail.imageFile.childImageSharp
+          )
+          return (
+            <div key={product.id}>
+              {thumbnailImage && (
+                <GatsbyImage
+                  image={thumbnailImage}
+                  alt={`${product.title} Thumbnail`}
+                />
+              )}
+              <div>
+                <Link to={`/${manufacturer.slug}/${product.slug}`}>
+                  {product.title}
+                </Link>
+              </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </div>
   )
 }
@@ -91,38 +92,68 @@ const Manufacturer = ({ data: { directus } }: PageProps<DataProps>) => {
 export default Manufacturer
 
 export const pageQuery = graphql`
-  query ManufacturerById($id: ID!) {
-    directus {
-      manufacturer: Manufacturers_by_id(id: $id) {
-        id
-        title
-        slug
-        description
-        tags
-        href
-        image_hero {
-          id
-          imageFile {
-            childImageSharp {
-              gatsbyImageData(width: 300)
+  query JsonManufacturerById($id: String) {
+    manufacturer: manufacturersJson(id: { eq: $id }) {
+      id
+      jsonId
+      title
+      slug
+      href
+      description
+      image_hero {
+        imageFile {
+          childImageSharp {
+            gatsbyImageData {
+              backgroundColor
+              height
+              images {
+                fallback {
+                  sizes
+                  src
+                  srcSet
+                }
+                sources {
+                  sizes
+                  srcSet
+                  type
+                }
+              }
+              layout
+              width
             }
           }
         }
-        image_logo_dark {
-          id
-          imageFile {
-            publicURL
-          }
+      }
+      image_logo_dark {
+        imageFile {
+          publicURL
         }
-        products {
-          id
-          title
-          slug
-          image_primary {
-            id
-            imageFile {
-              childImageSharp {
-                gatsbyImageData(width: 300)
+      }
+      tags
+      products {
+        id
+        slug
+        title
+        image_thumbnail {
+          imageFile {
+            childImageSharp {
+              gatsbyImageData {
+                backgroundColor
+                height
+                images {
+                  fallback {
+                    sizes
+                    src
+                    srcSet
+                  }
+                  sources {
+                    sizes
+                    srcSet
+                    type
+                  }
+                }
+                layout
+                width
               }
             }
           }

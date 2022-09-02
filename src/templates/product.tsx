@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import type { PageProps } from 'gatsby'
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
 
 type DirectusImage = {
@@ -13,41 +13,42 @@ type DirectusImage = {
 }
 
 type DataProps = {
-  directus: {
-    product: {
-      title: string
-      slug: string
-      description: string
-      tags: Array<string>
-      href: string
-      image_primary: DirectusImage
-      image_secondary: DirectusImage
-    }
+  product: {
+    title: string
+    slug: string
+    description: string
+    tags: Array<string>
+    href: string
+    image_primary: DirectusImage
+    image_secondary: DirectusImage
   }
 }
 
-const Product = ({ data: { directus } }: PageProps<DataProps>) => {
-  const product = directus.product
+const Product = ({ data: { product } }: PageProps<DataProps>) => {
+  const primaryImage = getImage(product.image_primary.imageFile.childImageSharp)
+  let secondaryImage = undefined
+  if (product.image_secondary) {
+    secondaryImage = getImage(product.image_secondary.imageFile.childImageSharp)
+  }
   return (
     <div>
       <h1>{product.title}</h1>
       <p>{product.slug}</p>
-      <GatsbyImage
-        image={product.image_primary.imageFile.childImageSharp.gatsbyImageData}
-        alt={`${product.title} Primary`}
-      />
-      {product.image_secondary && (
+      {primaryImage && (
+        <GatsbyImage image={primaryImage} alt={`${product.title} Primary`} />
+      )}
+      {secondaryImage !== undefined && (
         <GatsbyImage
-          image={
-            product.image_secondary.imageFile.childImageSharp.gatsbyImageData
-          }
+          image={secondaryImage}
           alt={`${product.title} Secondary`}
         />
       )}
       <ReactMarkdown>{product.description}</ReactMarkdown>
-      {product.tags && product.tags.length > 0 && product.tags.map((tag) => {
-        return <div>{tag}</div>
-      })}
+      {product.tags &&
+        product.tags.length > 0 &&
+        product.tags.map((tag) => {
+          return <div key={tag}>{tag}</div>
+        })}
       <p>
         <a href={product.href}>Link</a>
       </p>
@@ -58,28 +59,60 @@ const Product = ({ data: { directus } }: PageProps<DataProps>) => {
 export default Product
 
 export const pageQuery = graphql`
-  query ProductById($id: ID!) {
-    directus {
-      product: Products_by_id(id: $id) {
+  query JsonProductById($id: String!) {
+    product: productsJson(jsonId: {eq: $id}) {
+      id
+      title
+      slug
+      description
+      tags
+      href
+      image_primary {
         id
-        title
-        slug
-        description
-        tags
-        href
-        image_primary {
-          id
-          imageFile {
-            childImageSharp {
-              gatsbyImageData
+        imageFile {
+          childImageSharp {
+            gatsbyImageData {
+              backgroundColor
+              height
+              images {
+                fallback {
+                  sizes
+                  src
+                  srcSet
+                }
+                sources {
+                  sizes
+                  srcSet
+                  type
+                }
+              }
+              layout
+              width
             }
           }
         }
-        image_secondary {
-          id
-          imageFile {
-            childImageSharp {
-              gatsbyImageData
+      }
+      image_secondary {
+        id
+        imageFile {
+          childImageSharp {
+            gatsbyImageData {
+              backgroundColor
+              height
+              images {
+                fallback {
+                  sizes
+                  src
+                  srcSet
+                }
+                sources {
+                  sizes
+                  srcSet
+                  type
+                }
+              }
+              layout
+              width
             }
           }
         }
