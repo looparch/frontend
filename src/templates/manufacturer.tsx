@@ -1,11 +1,12 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import type { PageProps } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
 
 type DirectusImage = {
   imageFile: {
+    id: string
     childImageSharp: {
       gatsbyImageData: IGatsbyImageData
     }
@@ -13,6 +14,7 @@ type DirectusImage = {
 }
 
 type DirectusLocalImage = {
+  id: string
   imageFile: {
     publicURL: string
   }
@@ -28,6 +30,14 @@ type DataProps = {
       href: string
       image_hero: DirectusImage
       image_logo_dark: DirectusLocalImage
+      products: [
+        {
+          id: string
+          title: string
+          slug: string
+          image_primary: DirectusImage
+        }
+      ]
     }
   }
 }
@@ -51,11 +61,29 @@ const Manufacturer = ({ data: { directus } }: PageProps<DataProps>) => {
       />
       <ReactMarkdown>{manufacturer.description}</ReactMarkdown>
       {manufacturer.tags.map((tag) => {
-        return <div>{tag}</div>
+        return <div key={tag}>{tag}</div>
       })}
       <p>
         <a href={manufacturer.href}>Link</a>
       </p>
+
+      {manufacturer.products.map((product) => {
+        return (
+          <div key={product.id}>
+            <GatsbyImage
+              image={
+                product.image_primary.imageFile.childImageSharp.gatsbyImageData
+              }
+              alt={`${product.title} Thumbnail`}
+            />
+            <div>
+              <Link to={`/${manufacturer.slug}/${product.slug}`}>
+                {product.title}
+              </Link>
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -84,6 +112,19 @@ export const pageQuery = graphql`
           id
           imageFile {
             publicURL
+          }
+        }
+        products {
+          id
+          title
+          slug
+          image_primary {
+            id
+            imageFile {
+              childImageSharp {
+                gatsbyImageData(width: 300)
+              }
+            }
           }
         }
       }
