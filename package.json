@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@directus/gatsby-source-directus": "./gatsby-source-directus",
+    "@headlessui/react": "^1.7.0",
+    "@heroicons/react": "^2.0.10",
     "@mdx-js/mdx": "v1",
     "@mdx-js/react": "v1",
     "gatsby": "^4.21.1",
@@ -37,6 +39,7 @@
     "react-medium-image-zoom": "^5.0.2"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "@types/mdx-js__react": "^1.5.5",
     "@types/node": "^18.7.14",
     "@types/react": "^18.0.17",
