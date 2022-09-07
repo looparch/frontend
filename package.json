@@ -16,7 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@directus/gatsby-source-directus": "^9.14.1",
+    "@directus/gatsby-source-directus": "./gatsby-source-directus",
     "@mdx-js/mdx": "v1",
     "@mdx-js/react": "v1",
     "gatsby": "^4.21.1",
@@ -33,7 +33,8 @@
     "postcss": "^8.4.16",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-markdown": "^8.0.3"
+    "react-markdown": "^8.0.3",
+    "react-medium-image-zoom": "^5.0.2"
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.5",

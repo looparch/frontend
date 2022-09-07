@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import type { PageProps } from 'gatsby'
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { getImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
+
+import ZoomedImage from '../components/zoomed-image'
 
 type DirectusImage = {
   imageFile: {
@@ -13,18 +15,20 @@ type DirectusImage = {
 }
 
 type DataProps = {
-  product: {
-    title: string
-    slug: string
-    description: string
-    tags: Array<string>
-    href: string
-    image_primary: DirectusImage
-    image_secondary: DirectusImage
+  directus: {
+    product: {
+      title: string
+      slug: string
+      description: string
+      tags: Array<string>
+      href: string
+      image_primary: DirectusImage
+      image_secondary: DirectusImage
+    }
   }
 }
 
-const Product = ({ data: { product } }: PageProps<DataProps>) => {
+const Product = ({ data: { directus: { product } } }: PageProps<DataProps>) => {
   const primaryImage = getImage(product.image_primary.imageFile.childImageSharp)
   let secondaryImage = undefined
   if (product.image_secondary) {
@@ -35,12 +39,13 @@ const Product = ({ data: { product } }: PageProps<DataProps>) => {
       <h1>{product.title}</h1>
       <p>{product.slug}</p>
       {primaryImage && (
-        <GatsbyImage image={primaryImage} alt={`${product.title} Primary`} />
+        <ZoomedImage image={primaryImage} alt={`${product.title} Primary`} style={{ width: '50%' }}/>
       )}
       {secondaryImage !== undefined && (
-        <GatsbyImage
+        <ZoomedImage
           image={secondaryImage}
           alt={`${product.title} Secondary`}
+          style={{ width: '50%' }}
         />
       )}
       <ReactMarkdown>{product.description}</ReactMarkdown>
@@ -59,63 +64,31 @@ const Product = ({ data: { product } }: PageProps<DataProps>) => {
 export default Product
 
 export const pageQuery = graphql`
-  query JsonProductById($id: String!) {
-    product: productsJson(jsonId: {eq: $id}) {
-      id
-      title
-      slug
-      description
-      tags
-      href
-      image_primary {
+  query ProductById($id: ID!) {
+    directus {
+      product: Products_by_id(id: $id) {
         id
-        imageFile {
-          childImageSharp {
-            gatsbyImageData {
-              backgroundColor
-              height
-              images {
-                fallback {
-                  sizes
-                  src
-                  srcSet
-                }
-                sources {
-                  sizes
-                  srcSet
-                  type
-                }
-              }
-              layout
-              width
+        title
+        slug
+        href
+        description
+        image_primary {
+          id
+          imageFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
         }
-      }
-      image_secondary {
-        id
-        imageFile {
-          childImageSharp {
-            gatsbyImageData {
-              backgroundColor
-              height
-              images {
-                fallback {
-                  sizes
-                  src
-                  srcSet
-                }
-                sources {
-                  sizes
-                  srcSet
-                  type
-                }
-              }
-              layout
-              width
+        image_secondary {
+          id
+          imageFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
         }
+        tags
       }
     }
   }

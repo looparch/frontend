@@ -21,27 +21,34 @@ type DirectusLocalImage = {
 }
 
 type DataProps = {
-  manufacturer: {
-    title: string
-    slug: string
-    description: string
-    tags: Array<string>
-    href: string
-    image_hero: DirectusImage
-    image_logo_dark: DirectusLocalImage
-    products: [
-      {
-        id: string
+  data: {
+    directus: {
+      manufacturer: {
         title: string
         slug: string
-        image_thumbnail: DirectusImage
+        description: string
+        tags: Array<string>
+        href: string
+        image_hero: DirectusImage
+        image_logo_dark: DirectusLocalImage
+        products: [
+          {
+            id: string
+            title: string
+            slug: string
+            image_thumbnail: DirectusImage
+          }
+        ]
       }
-    ]
+    }
   }
 }
 
-const Manufacturer = ({ data: { manufacturer }, pageContext }: PageProps<DataProps>) => {
-  console.log(pageContext)
+const Manufacturer = ({
+  data: {
+    directus: { manufacturer },
+  },
+}: DataProps) => {
   const heroImage = getImage(manufacturer.image_hero.imageFile.childImageSharp)
   return (
     <div>
@@ -92,68 +99,38 @@ const Manufacturer = ({ data: { manufacturer }, pageContext }: PageProps<DataPro
 export default Manufacturer
 
 export const pageQuery = graphql`
-  query JsonManufacturerById($id: String) {
-    manufacturer: manufacturersJson(id: { eq: $id }) {
-      id
-      jsonId
-      title
-      slug
-      href
-      description
-      image_hero {
-        imageFile {
-          childImageSharp {
-            gatsbyImageData {
-              backgroundColor
-              height
-              images {
-                fallback {
-                  sizes
-                  src
-                  srcSet
-                }
-                sources {
-                  sizes
-                  srcSet
-                  type
-                }
-              }
-              layout
-              width
+  query ManufacturerById($id: ID!) {
+    directus {
+      manufacturer: Manufacturers_by_id(id: $id) {
+        id
+        title
+        slug
+        href
+        description
+        image_hero {
+          id
+          imageFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
         }
-      }
-      image_logo_dark {
-        imageFile {
-          publicURL
-        }
-      }
-      tags
-      products {
-        id
-        slug
-        title
-        image_thumbnail {
+        image_logo_dark {
+          id
           imageFile {
-            childImageSharp {
-              gatsbyImageData {
-                backgroundColor
-                height
-                images {
-                  fallback {
-                    sizes
-                    src
-                    srcSet
-                  }
-                  sources {
-                    sizes
-                    srcSet
-                    type
-                  }
-                }
-                layout
-                width
+            publicURL
+          }
+        }
+        tags
+        products(limit: 25, sort: "featured") {
+          id
+          title
+          slug
+          image_thumbnail {
+            id
+            imageFile {
+              childImageSharp {
+                gatsbyImageData(width: 300)
               }
             }
           }
