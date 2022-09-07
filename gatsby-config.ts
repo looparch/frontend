@@ -57,15 +57,6 @@ const config: GatsbyConfig = {
       },
       __key: "pages"
     },
-    "gatsby-transformer-json",
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "data",
-        "path": "./src/data/"
-      },
-      __key: "data"
-    }
   ]
 };
 
