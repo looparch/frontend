@@ -100,7 +100,7 @@ const Manufacturer = ({
                   <dl className="flex flex-col justify-between flex-grow mt-1">
                     <dt className="sr-only">Tags</dt>
                     <dd className="mt-3">
-                      {product.tags.map((tag) => {
+                      {product.tags && product.tags.map((tag) => {
                         return (
                           <span
                             className="px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full"
