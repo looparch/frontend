@@ -4,7 +4,10 @@ const usePublishedManufacturers = () => {
   const { directus: { manufacturers } } = useStaticQuery(graphql`
     query PublishedManufacturersQuery {
       directus {
-        manufacturers: Manufacturers(filter: {status: {_eq: "published"}}) {
+        manufacturers: Manufacturers(
+          filter: {status: {_eq: "published"}}
+          sort: "title"
+        ) {
           id
           title
           slug

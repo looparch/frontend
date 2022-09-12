@@ -32,7 +32,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
           id
           title
           slug
-          products {
+          products(limit: -1) {
             id
             title
             slug
@@ -43,9 +43,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   `)
 
   result.data?.directus.Manufacturers.forEach(async (manufacturer) => {
-    // if (process.env.POPULATE_JSON) {
-    //   await writeFile(`src/data/manufacturers/${manufacturer.slug}.json`, JSON.stringify(manufacturer))
-    // }
     createPage({
       path: `/${manufacturer.slug}`,
       component: manufacturerTemplate,
@@ -54,9 +51,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
       }
     })
     manufacturer.products.forEach(async (product) => {
-      // if (process.env.POPULATE_JSON) {
-      //   await writeFile(`src/data/products/${manufacturer.slug}-${product.slug}.json`, JSON.stringify(product))
-      // }
       createPage({
         path: `/${manufacturer.slug}/${product.slug}`,
         component: productTemplate,
