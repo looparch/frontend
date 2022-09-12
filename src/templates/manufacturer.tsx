@@ -1,45 +1,14 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
-import type { PageProps } from 'gatsby'
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image'
-import ReactMarkdown from 'react-markdown'
-
-type DirectusImage = {
-  imageFile: {
-    id: string
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData
-    }
-  }
-}
-
-type DirectusLocalImage = {
-  id: string
-  imageFile: {
-    publicURL: string
-  }
-}
+import { graphql } from 'gatsby'
+import Layout from '../components/layout'
+import ProductCard from '../components/product-card'
+import ManufacturerHero from '../components/manufacturer-hero'
+import type { IManufacturerHero } from '../types'
 
 type DataProps = {
   data: {
     directus: {
-      manufacturer: {
-        title: string
-        slug: string
-        description: string
-        tags: Array<string>
-        href: string
-        image_hero: DirectusImage
-        image_logo_dark: DirectusLocalImage
-        products: [
-          {
-            id: string
-            title: string
-            slug: string
-            image_thumbnail: DirectusImage
-          }
-        ]
-      }
+      manufacturer: IManufacturerHero
     }
   }
 }
@@ -49,50 +18,20 @@ const Manufacturer = ({
     directus: { manufacturer },
   },
 }: DataProps) => {
-  const heroImage = getImage(manufacturer.image_hero.imageFile.childImageSharp)
   return (
-    <div>
-      <h1>{manufacturer.title}</h1>
-      <p>{manufacturer.slug}</p>
-      <img
-        src={manufacturer.image_logo_dark.imageFile.publicURL}
-        alt={`${manufacturer.title} Logo`}
-        width="300"
-      />
-      {heroImage && (
-        <GatsbyImage image={heroImage} alt={`${manufacturer.title} Banner`} />
-      )}
-      <ReactMarkdown>{manufacturer.description}</ReactMarkdown>
-      {manufacturer.tags.map((tag) => {
-        return <div key={tag}>{tag}</div>
-      })}
-      <p>
-        <a href={manufacturer.href}>Link</a>
-      </p>
-
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {manufacturer.products.map((product) => {
-          const thumbnailImage = getImage(
-            product.image_thumbnail.imageFile.childImageSharp
-          )
-          return (
-            <div key={product.id}>
-              {thumbnailImage && (
-                <GatsbyImage
-                  image={thumbnailImage}
-                  alt={`${product.title} Thumbnail`}
-                />
-              )}
-              <div>
-                <Link to={`/${manufacturer.slug}/${product.slug}`}>
-                  {product.title}
-                </Link>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </div>
+    <Layout>
+      <>
+        <ManufacturerHero {...manufacturer} />
+        <ul
+          role="list"
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        >
+          {manufacturer.products.map((product) => {
+            return <ProductCard {...product} />
+          })}
+        </ul>
+      </>
+    </Layout>
   )
 }
 
@@ -111,7 +50,7 @@ export const pageQuery = graphql`
           id
           imageFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(width: 300)
             }
           }
         }
@@ -122,7 +61,7 @@ export const pageQuery = graphql`
           }
         }
         tags
-        products(limit: 25, sort: "featured") {
+        products(limit: 100, sort: "featured") {
           id
           title
           slug
@@ -130,9 +69,15 @@ export const pageQuery = graphql`
             id
             imageFile {
               childImageSharp {
-                gatsbyImageData(width: 300)
+                gatsbyImageData(width: 500)
               }
             }
+          }
+          tags
+          manufacturer {
+            id
+            title
+            slug
           }
         }
       }

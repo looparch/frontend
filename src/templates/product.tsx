@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import type { PageProps } from 'gatsby'
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
+import Layout from '../components/layout'
 
 import ZoomedImage from '../components/zoomed-image'
 
@@ -28,36 +29,46 @@ type DataProps = {
   }
 }
 
-const Product = ({ data: { directus: { product } } }: PageProps<DataProps>) => {
+const Product = ({
+  data: {
+    directus: { product },
+  },
+}: PageProps<DataProps>) => {
   const primaryImage = getImage(product.image_primary.imageFile.childImageSharp)
   let secondaryImage = undefined
   if (product.image_secondary) {
     secondaryImage = getImage(product.image_secondary.imageFile.childImageSharp)
   }
   return (
-    <div>
-      <h1>{product.title}</h1>
-      <p>{product.slug}</p>
-      {primaryImage && (
-        <ZoomedImage image={primaryImage} alt={`${product.title} Primary`} style={{ width: '50%' }}/>
-      )}
-      {secondaryImage !== undefined && (
-        <ZoomedImage
-          image={secondaryImage}
-          alt={`${product.title} Secondary`}
-          style={{ width: '50%' }}
-        />
-      )}
-      <ReactMarkdown>{product.description}</ReactMarkdown>
-      {product.tags &&
-        product.tags.length > 0 &&
-        product.tags.map((tag) => {
-          return <div key={tag}>{tag}</div>
-        })}
-      <p>
-        <a href={product.href}>Link</a>
-      </p>
-    </div>
+    <Layout>
+      <div>
+        <h1>{product.title}</h1>
+        <p>{product.slug}</p>
+        {primaryImage && (
+          <ZoomedImage
+            image={primaryImage}
+            alt={`${product.title} Primary`}
+            style={{ width: '50%' }}
+          />
+        )}
+        {secondaryImage !== undefined && (
+          <ZoomedImage
+            image={secondaryImage}
+            alt={`${product.title} Secondary`}
+            style={{ width: '50%' }}
+          />
+        )}
+        <ReactMarkdown>{product.description}</ReactMarkdown>
+        {product.tags &&
+          product.tags.length > 0 &&
+          product.tags.map((tag) => {
+            return <div key={tag}>{tag}</div>
+          })}
+        <p>
+          <a href={product.href}>Link</a>
+        </p>
+      </div>
+    </Layout>
   )
 }
 

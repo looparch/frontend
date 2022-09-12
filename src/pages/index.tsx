@@ -2,6 +2,7 @@ import * as React from 'react'
 import type { HeadFC, PageProps } from 'gatsby'
 import { Link } from 'gatsby'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
+import Layout from '../components/layout'
 
 type ManufacturerProps = {
   id: string
@@ -12,17 +13,19 @@ type ManufacturerProps = {
 const IndexPage = () => {
   const manufacturers = usePublishedManufacturers()
   return (
-    <main>
-      <ul>
-        {manufacturers.map((manufacturer: ManufacturerProps) => {
-          return (
-            <li key={manufacturer.id}>
-              <Link to={`/${manufacturer.slug}`}>{manufacturer.title}</Link>
-            </li>
-          )
-        })}
-      </ul>
-    </main>
+    <Layout>
+      <div>
+        <ul>
+          {manufacturers.map((manufacturer: ManufacturerProps) => {
+            return (
+              <li key={manufacturer.id}>
+                <Link to={`/${manufacturer.slug}`}>{manufacturer.title}</Link>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </Layout>
   )
 }
 

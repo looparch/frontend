@@ -2,9 +2,9 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   flags: {
-    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    // PRESERVE_FILE_DOWNLOAD_CACHE: true,
     // DETECT_NODE_MUTATIONS: true,
-    LAZY_IMAGES: true,
+    // LAZY_IMAGES: true,
   },
   siteMetadata: {
     title: `Loop Architectural Materials`,
@@ -23,7 +23,7 @@ const config: GatsbyConfig = {
       }
     },
     {
-      resolve: '@directus/gatsby-source-directus',
+      resolve: 'gatsby-source-directus',
       options: {
         url: 'http://looparch.test:8055',
         auth: {
@@ -57,15 +57,6 @@ const config: GatsbyConfig = {
       },
       __key: "pages"
     },
-    "gatsby-transformer-json",
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "data",
-        "path": "./src/data/"
-      },
-      __key: "data"
-    }
   ]
 };
 
