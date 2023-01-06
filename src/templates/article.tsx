@@ -29,6 +29,7 @@ const Article = ({
             alt="hello"
           />
         </div>
+        <div dangerouslySetInnerHTML={{__html: article.body}}></div>
         <div>{article.body_markdown}</div>
       </>
     </Layout>
