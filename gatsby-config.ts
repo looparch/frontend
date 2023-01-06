@@ -23,7 +23,7 @@ const config: GatsbyConfig = {
       }
     },
     {
-      resolve: 'gatsby-source-directus',
+      resolve: '@directus/gatsby-source-directus',
       options: {
         url: 'http://looparch.test:8055',
         auth: {
