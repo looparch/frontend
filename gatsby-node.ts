@@ -18,6 +18,13 @@ type TypeResult = {
         ]
       }
     ]
+    Articles: [
+      {
+        id: string,
+        title: string,
+        slug: string,
+      }
+    ]
   }
 }
 
@@ -25,8 +32,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   const { createPage } = actions
   const manufacturerTemplate = path.resolve(`src/templates/manufacturer.tsx`)
   const productTemplate = path.resolve(`src/templates/product.tsx`)
+  const articleTemplate = path.resolve(`src/templates/article.tsx`)
   const result = await graphql<TypeResult>(`
-    query AllManufacturers {
+    query StartupQuery {
       directus {
         Manufacturers(filter: {status: {_eq: "published"}}) {
           id
@@ -37,6 +45,14 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
             title
             slug
           }
+        }
+        Articles(
+          filter: {status: {_eq: "published"}}
+          sort: "date_updated"
+        ) {
+          id
+          title
+          slug
         }
       }
     }
@@ -58,6 +74,16 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
           id: product.id,
         }
       })
+    })
+  })
+
+  result.data?.directus.Articles.forEach(async (article) => {
+    createPage({
+      path: `/articles/${article.slug}`,
+      component: articleTemplate,
+      context: {
+        id: article.id
+      }
     })
   })
 }
