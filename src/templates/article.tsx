@@ -19,15 +19,18 @@ const Article = ({
 }: DataProps) => {
   return (
     <Layout>
-      <h1>
-        {article.title} - {article.id}
-      </h1>
-      <div>
-        <GatsbyImage image={article.image_hero.imageFile.childImageSharp.gatsbyImageData} alt="hello" />
-      </div>
-      <div>
-        {article.body_markdown}
-      </div>
+      <>
+        <h1>
+          {article.title} - {article.id}
+        </h1>
+        <div>
+          <GatsbyImage
+            image={article.image_hero.imageFile.childImageSharp.gatsbyImageData}
+            alt="hello"
+          />
+        </div>
+        <div>{article.body_markdown}</div>
+      </>
     </Layout>
   )
 }
