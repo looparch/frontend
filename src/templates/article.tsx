@@ -6,17 +6,12 @@ import type { IArticle } from '../types'
 
 type DataProps = {
   data: {
-    directus: {
-      article: IArticle
-    }
+    article: IArticle
   }
 }
 
-const Article = ({
-  data: {
-    directus: { article },
-  },
-}: DataProps) => {
+const Article = ({ data: { article } }: DataProps) => {
+  console.log(article)
   return (
     <Layout>
       <>
@@ -24,12 +19,13 @@ const Article = ({
           {article.title} - {article.id}
         </h1>
         <div>
-          <GatsbyImage
-            image={article.image_hero.imageFile.childImageSharp.gatsbyImageData}
-            alt="hello"
-          />
+          <GatsbyImage image={article.heroImage.gatsbyImageData} alt="hello" />
         </div>
-        <div dangerouslySetInnerHTML={{__html: article.body}}></div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: article.body.childMarkdownRemark.html,
+          }}
+        ></div>
         <div>{article.body_markdown}</div>
       </>
     </Layout>
@@ -39,26 +35,20 @@ const Article = ({
 export default Article
 
 export const pageQuery = graphql`
-  query ArticleById($id: ID!) {
-    directus {
-      article: Articles_by_id(id: $id) {
-        id
-        title
-        slug
-        image_hero {
-          id
-          imageFile {
-            childImageSharp {
-              gatsbyImageData(width: 1200, height: 300)
-            }
-          }
-        }
-        description
-        tags
-        body
-        body_markdown
-        tags
+  query ArticleById($id: String!) {
+    article: contentfulBlogPost(id: { eq: $id }) {
+      id
+      title
+      slug
+      heroImage {
+        gatsbyImageData
       }
+      body {
+        childMarkdownRemark {
+          html
+        }
+      }
+      tags
     }
   }
 `

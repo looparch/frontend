@@ -1,13 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
 const usePublishedArticles = () => {
-  const { directus: { articles } } = useStaticQuery(graphql`
+  const { articles: { nodes } } = useStaticQuery(graphql`
     query PublishedArticlesQuery {
-      directus {
-        articles: Articles(
-          filter: {status: {_eq: "published"}}
-          sort: "date_updated"
-        ) {
+      articles: allContentfulBlogPost(sort: {updatedAt: ASC}) {
+        nodes {
           id
           title
           slug
@@ -16,7 +13,7 @@ const usePublishedArticles = () => {
     }
   `)
 
-  return articles
+  return nodes
 }
 
 export default usePublishedArticles

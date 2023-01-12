@@ -1,12 +1,19 @@
 import { IDirectusImageData } from "./IDirectusImageData";
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 export interface IArticle {
   id: string;
   title: string;
   slug: string;
-  image_hero: IDirectusImageData
+  heroImage: {
+    gatsbyImageData: IGatsbyImageData;
+  }
   description: string;
-  body: string,
+  body: {
+    childMarkdownRemark: {
+      html: string
+    }
+  }
   body_markdown: string,
   tags: Array<string>
 }

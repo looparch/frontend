@@ -1,4 +1,30 @@
 import type { GatsbyConfig } from "gatsby";
+import dotenv from 'dotenv'
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+// Contentful
+let contentfulConfig
+
+try {
+  contentfulConfig = require('./.contentful')
+} catch (_) {
+  contentfulConfig = {
+    spaceId: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    downloadLocal: false,
+  }
+} finally {
+  const { spaceId, accessToken } = contentfulConfig
+
+  if (!spaceId || !accessToken) {
+    throw new Error(
+      'Contentful spaceId and the delivery token need to be provided.'
+    )
+  }
+}
 
 const config: GatsbyConfig = {
   flags: {
@@ -23,6 +49,10 @@ const config: GatsbyConfig = {
       }
     },
     {
+      resolve: 'gatsby-source-contentful',
+      options: contentfulConfig,
+    },
+    {
       resolve: '@directus/gatsby-source-directus',
       options: {
         url: 'http://looparch.test:8055',
@@ -31,6 +61,7 @@ const config: GatsbyConfig = {
         }
       }
     },
+    "gatsby-transformer-remark",
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
     {

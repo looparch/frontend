@@ -18,13 +18,13 @@ type TypeResult = {
         ]
       }
     ]
-    Articles: [
-      {
-        id: string,
-        title: string,
-        slug: string,
-      }
-    ]
+  },
+  articles: {
+    nodes: [{
+      id: string,
+      title: string,
+      slug: string,
+    }]
   }
 }
 
@@ -46,10 +46,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
             slug
           }
         }
-        Articles(
-          filter: {status: {_eq: "published"}}
-          sort: "date_updated"
-        ) {
+      }
+      articles: allContentfulBlogPost(sort: {publishDate: ASC}) {
+        nodes {
           id
           title
           slug
@@ -77,7 +76,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     })
   })
 
-  result.data?.directus.Articles.forEach(async (article) => {
+  result.data?.articles.nodes.forEach(async (article) => {
     createPage({
       path: `/articles/${article.slug}`,
       component: articleTemplate,
