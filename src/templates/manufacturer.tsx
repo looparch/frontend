@@ -3,12 +3,12 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import ProductCard from '../components/product-card'
 import ManufacturerHero from '../components/manufacturer-hero'
-import type { IManufacturerHero } from '../types'
+import type { IManufacturer } from '../types'
 
 type DataProps = {
   data: {
     directus: {
-      manufacturer: IManufacturerHero
+      manufacturer: IManufacturer
     }
   }
 }

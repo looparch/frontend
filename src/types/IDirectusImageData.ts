@@ -7,7 +7,7 @@ export interface IDirectusImageData {
     publicURL: string;
     childImageSharp: {
       layout: string;
-      gatsbyImageData: IGatsbyImageData
+      gatsbyImageData: IGatsbyImageData;
     }
   }
 }

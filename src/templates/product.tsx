@@ -1,31 +1,16 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import type { PageProps } from 'gatsby'
-import { getImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { getImage } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
 import Layout from '../components/layout'
+import { IProduct } from '../types/IProduct'
 
 import ZoomedImage from '../components/zoomed-image'
 
-type DirectusImage = {
-  imageFile: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData
-    }
-  }
-}
-
 type DataProps = {
   directus: {
-    product: {
-      title: string
-      slug: string
-      description: string
-      tags: Array<string>
-      href: string
-      image_primary: DirectusImage
-      image_secondary: DirectusImage
-    }
+    product: IProduct;
   }
 }
 
