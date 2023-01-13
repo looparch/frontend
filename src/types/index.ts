@@ -1,4 +1,4 @@
 export * from './IArticle'
 export * from './IDirectusImageData'
-export * from './IProductCardProduct'
-export * from './IManufacturerHero'
+export * from './IProduct'
+export * from './IManufacturer'

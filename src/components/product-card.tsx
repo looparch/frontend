@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { IProductCardProduct } from '../types'
+import { IProduct } from '../types'
 
-export default function Layout(product: IProductCardProduct) {
+export default function Layout(product: IProduct) {
   return (
     <li
       key={product.id}

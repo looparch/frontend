@@ -50,7 +50,7 @@ export const pageQuery = graphql`
           id
           imageFile {
             childImageSharp {
-              gatsbyImageData(width: 300)
+              gatsbyImageData(width: 600)
             }
           }
         }
@@ -61,7 +61,7 @@ export const pageQuery = graphql`
           }
         }
         tags
-        products(limit: 100, sort: "featured") {
+        products(limit: -1, sort: "featured") {
           id
           title
           slug
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
             id
             imageFile {
               childImageSharp {
-                gatsbyImageData(width: 500)
+                gatsbyImageData(width: 250, height: 350)
               }
             }
           }
