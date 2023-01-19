@@ -8,7 +8,11 @@ export interface IArticle {
   heroImage: {
     gatsbyImageData: IGatsbyImageData;
   }
-  description: string;
+  description: {
+    childMarkdownRemark: {
+      html: string
+    }
+  }
   body: {
     childMarkdownRemark: {
       html: string

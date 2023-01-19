@@ -8,6 +8,14 @@ const usePublishedArticles = () => {
           id
           title
           slug
+          heroImage {
+            gatsbyImageData
+          }
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }

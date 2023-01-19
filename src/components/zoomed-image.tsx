@@ -1,5 +1,5 @@
 import React from 'react'
-import { GatsbyImage, GatsbyImageProps } from 'gatsby-plugin-image'
+import { GatsbyImage, GatsbyImageProps, getImage } from 'gatsby-plugin-image'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css';
 
@@ -11,7 +11,7 @@ const wrapperStyle = {
 const ZoomedImage = (props: GatsbyImageProps) => {
   return (
     <Zoom>
-      <GatsbyImage style={wrapperStyle} {...props} />
+      <GatsbyImage {...props}/>
     </Zoom>
   )
 }

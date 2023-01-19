@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
 import usePublishedArticles from '../hooks/use-published-articles'
 import Layout from '../components/layout'
+import IndexCarousel from '../components/index-carousel'
 
 type ManufacturerProps = {
   id: string
@@ -23,6 +24,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <div>
+        <IndexCarousel articles={articles.slice(0,1)}/>
         <ul>
           {manufacturers.map((manufacturer: ManufacturerProps) => {
             return (
@@ -34,7 +36,7 @@ const IndexPage = () => {
         </ul>
 
         <ul>
-          {articles.map((article: ManufacturerProps) => {
+          {articles.map((article: ArticleProps) => {
             return (
               <li key={article.id}>
                 <Link to={`/articles/${article.slug}`}>{article.title}</Link>

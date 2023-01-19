@@ -10,7 +10,7 @@ import ZoomedImage from '../components/zoomed-image'
 
 type DataProps = {
   directus: {
-    product: IProduct;
+    product: IProduct
   }
 }
 
@@ -27,28 +27,40 @@ const Product = ({
   return (
     <Layout>
       <div>
-        <h1>{product.title}</h1>
-        <p>{product.slug}</p>
-        {primaryImage && (
-          <ZoomedImage
-            image={primaryImage}
-            alt={`${product.title} Primary`}
-            style={{ width: '50%' }}
-          />
-        )}
-        {secondaryImage !== undefined && (
-          <ZoomedImage
-            image={secondaryImage}
-            alt={`${product.title} Secondary`}
-            style={{ width: '50%' }}
-          />
-        )}
+        <h1 className="text-xl">
+          {product.manufacturer.title} - {product.title}
+        </h1>
+        <div className={secondaryImage ? 'grid grid-cols-2 gap-6': 'grid grid-cols-1 align-content-center'}>
+          {primaryImage && (
+            <ZoomedImage
+              image={primaryImage}
+              alt={`${product.title} Primary`}
+              className={secondaryImage ? "aspect-square" : 'max-w-3xl'}
+              imgClassName='flex'
+            />
+          )}
+          {secondaryImage !== undefined && (
+            <ZoomedImage
+              image={secondaryImage}
+              alt={`${product.title} Secondary`}
+              className="aspect-square"
+            />
+          )}
+        </div>
         <ReactMarkdown>{product.description}</ReactMarkdown>
-        {product.tags &&
-          product.tags.length > 0 &&
-          product.tags.map((tag) => {
-            return <div key={tag}>{tag}</div>
-          })}
+        <div className="my-2">
+          {product.tags &&
+            product.tags.map((tag) => {
+              return (
+                <div
+                  key={tag}
+                  className="inline-block p-1 mr-2 text-xs bg-slate-100"
+                >
+                  {tag}
+                </div>
+              )
+            })}
+        </div>
         <p>
           <a href={product.href}>Link</a>
         </p>
@@ -85,6 +97,9 @@ export const pageQuery = graphql`
           }
         }
         tags
+        manufacturer {
+          title
+        }
       }
     }
   }

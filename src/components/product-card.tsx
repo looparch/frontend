@@ -7,22 +7,20 @@ export default function Layout(product: IProduct) {
   return (
     <li
       key={product.id}
-      className="flex flex-col flex-grow-0 col-span-1 text-center bg-white divide-y divide-gray-200 rounded-sm shadow flex-shrink-1 hover:shadow-lg"
+      className="max-w-md mx-auto overflow-hidden bg-white rounded-sm shadow"
     >
       <Link to={`/${product.manufacturer.slug}/${product.slug}`}>
-        <div className="flex flex-col flex-1 p-0">
-          <GatsbyImage
-            image={product.image_thumbnail.imageFile.childImageSharp.gatsbyImageData}
-            alt={`${product.title} Thumbnail`}
-            className="object-cover"
-          />
+        <GatsbyImage
+          image={
+            product.image_thumbnail.imageFile.childImageSharp.gatsbyImageData
+          }
+          alt={`${product.title} Thumbnail`}
+          className="object-cover w-full"
+        />
+        <div className="p-4">
+          <h3 className="font-medium text-gray-900 text-md">{product.title}</h3>
         </div>
       </Link>
-      <div className="flex items-center content-center justify-center flex-auto">
-        <div className="m-4 font-semibold text-gray-900 text-md">
-          {product.title}
-        </div>
-      </div>
     </li>
   )
 }

@@ -24,7 +24,7 @@ const Manufacturer = ({
         <ManufacturerHero {...manufacturer} />
         <ul
           role="list"
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          className="grid grid-cols-2 gap-2 md:gap-2 md:grid-cols-3 lg:grid-cols-4"
         >
           {manufacturer.products.map((product) => {
             return <ProductCard {...product} />
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
             id
             imageFile {
               childImageSharp {
-                gatsbyImageData(width: 250, height: 350)
+                gatsbyImageData(width: 300, height: 400)
               }
             }
           }

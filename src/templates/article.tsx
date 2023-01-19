@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
+import ArticleHero from '../components/article-hero'
 import type { IArticle } from '../types'
 
 type DataProps = {
@@ -15,6 +16,7 @@ const Article = ({ data: { article } }: DataProps) => {
   return (
     <Layout>
       <>
+        <ArticleHero {...article}/>
         <h1>
           {article.title} - {article.id}
         </h1>
@@ -44,6 +46,11 @@ export const pageQuery = graphql`
         gatsbyImageData
       }
       body {
+        childMarkdownRemark {
+          html
+        }
+      }
+      description {
         childMarkdownRemark {
           html
         }
