@@ -28,8 +28,9 @@ const Product = ({
     <Layout>
       <div>
         <h1 className="text-xl">
-          {product.manufacturer.title} - {product.title}
+          {product.title}
         </h1>
+        <p>by {product.manufacturer.title}</p>
         <div className={secondaryImage ? 'grid grid-cols-2 gap-6': 'grid grid-cols-1 align-content-center'}>
           {primaryImage && (
             <ZoomedImage
