@@ -3,18 +3,13 @@ import { graphql, useStaticQuery } from 'gatsby'
 const usePublishedArticles = () => {
   const { articles: { nodes } } = useStaticQuery(graphql`
     query PublishedArticlesQuery {
-      articles: allContentfulBlogPost(sort: {updatedAt: ASC}) {
+      articles: allContentfulArticle(sort: {updatedAt: ASC}) {
         nodes {
           id
           title
           slug
-          heroImage {
+          imageHero {
             gatsbyImageData
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
           }
         }
       }

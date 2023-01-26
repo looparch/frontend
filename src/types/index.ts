@@ -1,4 +1,5 @@
 export * from './IArticle'
+export * from './IBlogPost'
 export * from './IDirectusImageData'
 export * from './IProduct'
 export * from './IManufacturer'

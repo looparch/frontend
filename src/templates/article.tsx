@@ -16,19 +16,19 @@ const Article = ({ data: { article } }: DataProps) => {
   return (
     <Layout>
       <>
-        <ArticleHero {...article}/>
+        {/* <ArticleHero {...article}/> */}
         <h1>
           {article.title} - {article.id}
         </h1>
         <div>
-          <GatsbyImage image={article.heroImage.gatsbyImageData} alt="hello" />
+          <GatsbyImage image={article.imageHero.gatsbyImageData} alt="hello" />
         </div>
-        <div
+        {/* <div
           dangerouslySetInnerHTML={{
             __html: article.body.childMarkdownRemark.html,
           }}
         ></div>
-        <div>{article.body_markdown}</div>
+        <div>{article.body_markdown}</div> */}
       </>
     </Layout>
   )
@@ -38,24 +38,19 @@ export default Article
 
 export const pageQuery = graphql`
   query ArticleById($id: String!) {
-    article: contentfulBlogPost(id: { eq: $id }) {
+    article: contentfulArticle(id: {eq: $id}) {
       id
       title
       slug
-      heroImage {
+      imageHero {
         gatsbyImageData
       }
-      body {
-        childMarkdownRemark {
-          html
-        }
-      }
       description {
-        childMarkdownRemark {
-          html
-        }
+        raw
       }
-      tags
+      body {
+        raw
+      }
     }
   }
 `

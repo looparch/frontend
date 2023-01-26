@@ -3,6 +3,7 @@ import type { HeadFC, PageProps } from 'gatsby'
 import { Link } from 'gatsby'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
 import usePublishedArticles from '../hooks/use-published-articles'
+import usePublishedBlogPosts from '../hooks/use-published-blog-posts'
 import Layout from '../components/layout'
 import IndexCarousel from '../components/index-carousel'
 
@@ -20,11 +21,12 @@ type ArticleProps = {
 
 const IndexPage = () => {
   const manufacturers = usePublishedManufacturers()
+  const blogPosts = usePublishedBlogPosts()
   const articles = usePublishedArticles()
   return (
     <Layout>
       <div>
-        <IndexCarousel articles={articles.slice(0,1)}/>
+        <IndexCarousel articles={blogPosts.slice(0,1)}/>
         <ul>
           {manufacturers.map((manufacturer: ManufacturerProps) => {
             return (
@@ -39,7 +41,17 @@ const IndexPage = () => {
           {articles.map((article: ArticleProps) => {
             return (
               <li key={article.id}>
-                <Link to={`/articles/${article.slug}`}>{article.title}</Link>
+                <Link to={`/articles/${article.slug}`}>Article - {article.title}</Link>
+              </li>
+            )
+          })}
+        </ul>
+
+        <ul>
+          {blogPosts.map((article: ArticleProps) => {
+            return (
+              <li key={article.id}>
+                <Link to={`/blogPosts/${article.slug}`}>{article.title}</Link>
               </li>
             )
           })}

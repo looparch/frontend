@@ -1,17 +1,22 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 
-export interface IArticle {
+export interface IBlogPost {
   id: string;
   title: string;
   slug: string;
-  imageHero: {
+  heroImage: {
     gatsbyImageData: IGatsbyImageData;
   }
   description: {
-    raw: string;
+    childMarkdownRemark: {
+      html: string
+    }
   }
   body: {
-    raw: string;
+    childMarkdownRemark: {
+      html: string
+    }
   }
+  body_markdown: string,
   tags: Array<string>
 }
