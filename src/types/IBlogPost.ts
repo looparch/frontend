@@ -4,7 +4,12 @@ export interface IBlogPost {
   id: string;
   title: string;
   slug: string;
+  imageHero: {
+    url: string;
+    gatsbyImageData: IGatsbyImageData;
+  }
   heroImage: {
+    url: string;
     gatsbyImageData: IGatsbyImageData;
   }
   description: {

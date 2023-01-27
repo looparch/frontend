@@ -12,17 +12,10 @@ type DataProps = {
 }
 
 const BlogPost = ({ data: { blogPost } }: DataProps) => {
-  console.log(blogPost)
   return (
     <Layout>
       <>
-        {/* <ArticleHero {...blogPost}/> */}
-        <h1>
-          {blogPost.title} - {blogPost.id}
-        </h1>
-        <div>
-          <GatsbyImage image={blogPost.heroImage.gatsbyImageData} alt="hello" />
-        </div>
+        <ArticleHero {...blogPost}/>
         <div
           dangerouslySetInnerHTML={{
             __html: blogPost.body.childMarkdownRemark.html,
@@ -43,7 +36,7 @@ export const pageQuery = graphql`
       title
       slug
       heroImage {
-        gatsbyImageData
+        gatsbyImageData(width: 1200, height: 400)
       }
       body {
         childMarkdownRemark {

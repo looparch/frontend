@@ -11,6 +11,9 @@ const usePublishedArticles = () => {
           imageHero {
             gatsbyImageData
           }
+          heroImage {
+            gatsbyImageData(width: 1200)
+          }
         }
       }
     }

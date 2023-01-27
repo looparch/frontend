@@ -26,7 +26,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <div>
-        <IndexCarousel articles={blogPosts.slice(0,1)}/>
+        <IndexCarousel articles={blogPosts}/>
         <ul>
           {manufacturers.map((manufacturer: ManufacturerProps) => {
             return (

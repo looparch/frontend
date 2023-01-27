@@ -16,7 +16,6 @@ function classNames(...classes: any[]) {
 
 export default function Navbar() {
   const manufacturers = usePublishedManufacturers()
-  console.log(manufacturers)
   return (
     <Popover className="sticky top-0 z-30 bg-white">
       <div className="flex items-center justify-between max-w-6xl px-4 py-6 mx-auto sm:px-6 md:justify-start md:space-x-10">
@@ -90,7 +89,7 @@ export default function Navbar() {
                                 {item.tags && (
                                   <div className="break-before-avoid">
                                     {item.tags.map((tag: string) => (
-                                      <span className="inline-block p-1 mr-2 text-xs bg-slate-50">{tag}</span>
+                                      <span key={tag} className="inline-block p-1 mr-2 text-xs bg-slate-50">{tag}</span>
                                     ))}
                                   </div>
                                 )}

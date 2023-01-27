@@ -1,24 +1,42 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image'
 import { IArticle } from '../types'
 
 export default function ArticleHero(article: IArticle) {
-  console.log(article)
   return (
-    <div className="w-full h-56 mx-auto sm:h-64 xl:h-96 2xl:h-1/4">
+    <div
+      style={{
+        display: 'grid',
+      }}
+    >
       <GatsbyImage
         image={article.heroImage.gatsbyImageData}
         alt={`${article.title} Banner`}
-        className="object-cover w-full h-full"
-      />
-      <h1 className="">{article.title}</h1>
-      <div
-        className=""
-        dangerouslySetInnerHTML={{
-          __html: article.description.childMarkdownRemark.html,
+        className="object-cover"
+        style={{
+          gridArea: '1/1',
         }}
       />
+
+      <div
+        style={{
+          gridArea: '1/1',
+          position: 'relative',
+          placeItems: 'center',
+          display: 'grid',
+        }}
+        className="z-20"
+      >
+        <h1 className="mx-24 text-6xl font-bold leading-tight text-white">{article.title}</h1>
+      </div>
+      <div
+        style={{
+          gridArea: '1/1',
+          position: 'relative',
+        }}
+        className="z-10 opacity-50 bg-slate-600 mix-blend-multiply"
+      ></div>
     </div>
   )
 }

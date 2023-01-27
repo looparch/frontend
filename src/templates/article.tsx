@@ -4,6 +4,10 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
 import ArticleHero from '../components/article-hero'
 import type { IArticle } from '../types'
+import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+
 
 type DataProps = {
   data: {
@@ -11,24 +15,42 @@ type DataProps = {
   }
 }
 
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: (text: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined): JSX.Element => <b className="font-bold">{text}</b>,
+  },
+  renderNode: {
+    // [INLINES.HYPERLINK]: (node: any, children: any) => {
+    //   const { uri } = node.data
+    //   return (uri &&
+    //     <a href={uri} className="underline">
+    //       {children}
+    //     </a>
+    //   )
+    // },
+    [BLOCKS.HEADING_2]: (node: any, children: any) => {
+      return (children && <h2>{children}</h2>)
+    },
+    [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
+      const { gatsbyImageData, description } = node.data.target
+      const img = getImage(gatsbyImageData)
+      return (img && (
+        <GatsbyImage
+          image={img}
+          alt={description}
+        />
+      ))
+    },
+  },
+}
+
 const Article = ({ data: { article } }: DataProps) => {
-  console.log(article)
   return (
     <Layout>
       <>
-        {/* <ArticleHero {...article}/> */}
-        <h1>
-          {article.title} - {article.id}
-        </h1>
-        <div>
-          <GatsbyImage image={article.imageHero.gatsbyImageData} alt="hello" />
-        </div>
-        {/* <div
-          dangerouslySetInnerHTML={{
-            __html: article.body.childMarkdownRemark.html,
-          }}
-        ></div>
-        <div>{article.body_markdown}</div> */}
+        <ArticleHero {...article}/>
+        <div>{renderRichText(article.description, options)}</div>
+        <div>{renderRichText(article.body, options)}</div>
       </>
     </Layout>
   )
@@ -43,13 +65,27 @@ export const pageQuery = graphql`
       title
       slug
       imageHero {
+        url
         gatsbyImageData
+      }
+      heroImage {
+        url
+        gatsbyImageData(width: 1200, height: 400, resizingBehavior: CROP, placeholder: BLURRED)
       }
       description {
         raw
       }
       body {
         raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            title
+            description
+            gatsbyImageData(width: 1200)
+            __typename
+          }
+        }
       }
     }
   }
