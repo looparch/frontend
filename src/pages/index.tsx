@@ -26,36 +26,41 @@ const IndexPage = () => {
   return (
     <Layout>
       <div>
-        <IndexCarousel articles={blogPosts}/>
-        <ul>
-          {manufacturers.map((manufacturer: ManufacturerProps) => {
-            return (
-              <li key={manufacturer.id}>
-                <Link to={`/${manufacturer.slug}`}>{manufacturer.title}</Link>
-              </li>
-            )
-          })}
-        </ul>
+        <IndexCarousel articles={blogPosts.slice(0,1)}/>
 
-        <ul>
-          {articles.map((article: ArticleProps) => {
-            return (
-              <li key={article.id}>
-                <Link to={`/articles/${article.slug}`}>Article - {article.title}</Link>
-              </li>
-            )
-          })}
-        </ul>
+        <div className="px-2 mx-auto">
+          <ul>
+            {manufacturers.map((manufacturer: ManufacturerProps) => {
+              return (
+                <li key={manufacturer.id}>
+                  <Link to={`/${manufacturer.slug}`}>{manufacturer.title}</Link>
+                </li>
+              )
+            })}
+          </ul>
 
-        <ul>
-          {blogPosts.map((article: ArticleProps) => {
-            return (
-              <li key={article.id}>
-                <Link to={`/blogPosts/${article.slug}`}>{article.title}</Link>
-              </li>
-            )
-          })}
-        </ul>
+          <ul>
+            {articles.map((article: ArticleProps) => {
+              return (
+                <li key={article.id}>
+                  <Link to={`/articles/${article.slug}`}>
+                    Article - {article.title}
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+
+          <ul>
+            {blogPosts.map((article: ArticleProps) => {
+              return (
+                <li key={article.id}>
+                  <Link to={`/blogPosts/${article.slug}`}>{article.title}</Link>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
     </Layout>
   )

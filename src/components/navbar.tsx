@@ -17,8 +17,8 @@ function classNames(...classes: any[]) {
 export default function Navbar() {
   const manufacturers = usePublishedManufacturers()
   return (
-    <Popover className="sticky top-0 z-30 bg-white">
-      <div className="flex items-center justify-between max-w-6xl px-4 py-6 mx-auto sm:px-6 md:justify-start md:space-x-10">
+    <Popover className="sticky top-0 z-40 bg-white">
+      <div className="flex items-center justify-between px-4 py-6 mx-auto max-w-8xl sm:px-6 md:justify-start md:space-x-10">
         <div>
           <Link to="/" className="flex">
             <span className="sr-only">Loop Architectural Materials</span>
