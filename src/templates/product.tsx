@@ -20,24 +20,31 @@ const Product = ({
   },
 }: PageProps<DataProps>) => {
   const primaryImage = getImage(product.image_primary.imageFile.childImageSharp)
+  const designer = product.designer || product.manufacturer.title
   let secondaryImage = undefined
   if (product.image_secondary) {
     secondaryImage = getImage(product.image_secondary.imageFile.childImageSharp)
   }
   return (
     <Layout>
-      <div>
+      <div className="max-w-6xl px-8 mx-auto">
         <h1 className="text-xl">
-          {product.title}
+          {product.title} {product.id}
         </h1>
-        <p>by {product.manufacturer.title}</p>
-        <div className={secondaryImage ? 'grid grid-cols-2 gap-6': 'grid grid-cols-1 align-content-center'}>
+        <p>by {designer}</p>
+        <div
+          className={
+            secondaryImage
+              ? 'grid grid-cols-2 gap-6'
+              : 'grid grid-cols-1 align-content-center'
+          }
+        >
           {primaryImage && (
             <ZoomedImage
               image={primaryImage}
               alt={`${product.title} Primary`}
-              className={secondaryImage ? "aspect-square" : 'max-w-3xl'}
-              imgClassName='flex'
+              className={secondaryImage ? 'aspect-square' : 'max-w-3xl'}
+              imgClassName="flex"
             />
           )}
           {secondaryImage !== undefined && (
@@ -48,7 +55,9 @@ const Product = ({
             />
           )}
         </div>
-        <ReactMarkdown>{product.description}</ReactMarkdown>
+        <div className="min-w-full prose">
+          <ReactMarkdown>{product.description}</ReactMarkdown>
+        </div>
         <div className="my-2">
           {product.tags &&
             product.tags.map((tag) => {
@@ -81,6 +90,7 @@ export const pageQuery = graphql`
         slug
         href
         description
+        designer
         image_primary {
           id
           imageFile {

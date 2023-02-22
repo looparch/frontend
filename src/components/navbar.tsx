@@ -1,10 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment } from 'react'
+import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image'
 import { Popover, Transition } from '@headlessui/react'
-import {
-  Bars3Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'gatsby'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
@@ -17,15 +15,15 @@ function classNames(...classes: any[]) {
 export default function Navbar() {
   const manufacturers = usePublishedManufacturers()
   return (
-    <Popover className="sticky top-0 z-40 bg-white">
-      <div className="flex items-center justify-between px-4 py-6 mx-auto max-w-8xl sm:px-6 md:justify-start md:space-x-10">
+    <Popover className="bg-white">
+      <div className="flex items-center justify-between max-w-6xl px-4 py-6 mx-auto sm:px-6 md:justify-start md:space-x-10">
         <div>
           <Link to="/" className="flex">
             <span className="sr-only">Loop Architectural Materials</span>
             <img
-              className="w-auto h-8 sm:h-10"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
+              className="w-auto h-12"
+              src="/images/loop_solo.svg"
+              alt="Loop Architectural Materials Logo"
             />
           </Link>
         </div>
@@ -89,7 +87,12 @@ export default function Navbar() {
                                 {item.tags && (
                                   <div className="break-before-avoid">
                                     {item.tags.map((tag: string) => (
-                                      <span key={tag} className="inline-block p-1 mr-2 text-xs bg-slate-50">{tag}</span>
+                                      <span
+                                        key={tag}
+                                        className="inline-block p-1 mr-2 text-xs bg-slate-50"
+                                      >
+                                        {tag}
+                                      </span>
                                     ))}
                                   </div>
                                 )}
@@ -160,7 +163,12 @@ export default function Navbar() {
                       className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                     >
                       <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md">
-                        <img className="w-32 h-8" aria-hidden="true" src={item.image_logo_dark.imageFile.publicURL} alt=""/>
+                        <img
+                          className="w-32 h-8"
+                          aria-hidden="true"
+                          src={item.image_logo_dark.imageFile.publicURL}
+                          alt=""
+                        />
                       </div>
                       <div className="ml-4 text-base font-medium text-gray-900">
                         {item.title}

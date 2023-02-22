@@ -22,14 +22,16 @@ const Manufacturer = ({
     <Layout>
       <>
         <ManufacturerHero {...manufacturer} />
-        <ul
-          role="list"
-          className="grid grid-cols-2 gap-2 md:gap-2 md:grid-cols-3 lg:grid-cols-4"
-        >
-          {manufacturer.products.map((product) => {
-            return <ProductCard {...product} />
-          })}
-        </ul>
+        <div className="max-w-6xl mx-auto">
+          <ul
+            role="list"
+            className="grid grid-cols-2 gap-2 md:gap-2 md:grid-cols-3 lg:grid-cols-4"
+          >
+            {manufacturer.products.map((product) => {
+              return <ProductCard {...product} key={product.id} />
+            })}
+          </ul>
+        </div>
       </>
     </Layout>
   )
@@ -50,7 +52,7 @@ export const pageQuery = graphql`
           id
           imageFile {
             childImageSharp {
-              gatsbyImageData(width: 600)
+              gatsbyImageData(width: 1200)
             }
           }
         }
@@ -61,7 +63,11 @@ export const pageQuery = graphql`
           }
         }
         tags
-        products(limit: -1, sort: "featured") {
+        products(
+          limit: -1
+          sort: "featured, title"
+          filter: { status: { _eq: "published" } }
+        ) {
           id
           title
           slug

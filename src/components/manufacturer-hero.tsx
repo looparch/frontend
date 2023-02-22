@@ -6,7 +6,7 @@ import { IManufacturer } from '../types'
 
 export default function ManufacturerHero(manufacturer: IManufacturer) {
   return (
-    <div className="grid grid-cols-3 gap-6 mb-2">
+    <div className="grid max-w-6xl grid-cols-3 gap-6 mx-auto mb-2">
       <h1 className="sr-only">{manufacturer.title}</h1>
       <div>
         <img
@@ -16,9 +16,9 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
           height="100"
           className="mb-6"
         />
-        <div>
+        <article className="prose">
           <ReactMarkdown>{manufacturer.description}</ReactMarkdown>
-        </div>
+        </article>
         <div className="my-2">
           {manufacturer.tags &&
             manufacturer.tags.map((tag) => {

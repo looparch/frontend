@@ -49,8 +49,10 @@ const Article = ({ data: { article } }: DataProps) => {
     <Layout>
       <>
         <ArticleHero {...article}/>
-        <div>{renderRichText(article.description, options)}</div>
-        <div>{renderRichText(article.body, options)}</div>
+        {/* <div>{renderRichText(article.description, options)}</div> */}
+        <div className="max-w-6xl">
+          {renderRichText(article.body, options)}
+        </div>
       </>
     </Layout>
   )
@@ -64,10 +66,6 @@ export const pageQuery = graphql`
       id
       title
       slug
-      imageHero {
-        url
-        gatsbyImageData
-      }
       heroImage {
         url
         gatsbyImageData(width: 1200, height: 400, resizingBehavior: CROP, placeholder: BLURRED)

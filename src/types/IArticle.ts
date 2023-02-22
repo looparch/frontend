@@ -12,10 +12,6 @@ export interface IArticle {
   id: string;
   title: string;
   slug: string;
-  imageHero: {
-    url: string;
-    gatsbyImageData: IGatsbyImageData;
-  }
   heroImage: {
     url: string;
     gatsbyImageData: IGatsbyImageData;
@@ -23,10 +19,16 @@ export interface IArticle {
   description: {
     raw: string;
     references: Array<ReferenceProps>;
+    childMarkdownRemark: {
+      html: string;
+    };
   }
   body: {
     raw: string;
     references: Array<ReferenceProps>;
+    childMarkdownRemark: {
+      html: string;
+    };
   }
   tags: Array<string>
 }

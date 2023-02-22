@@ -8,9 +8,6 @@ const usePublishedArticles = () => {
           id
           title
           slug
-          imageHero {
-            gatsbyImageData
-          }
           heroImage {
             gatsbyImageData(width: 1200)
           }
