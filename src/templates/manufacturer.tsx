@@ -65,7 +65,7 @@ export const pageQuery = graphql`
         tags
         products(
           limit: -1
-          sort: "featured, title"
+          sort: "featured, collection, title"
           filter: { status: { _eq: "published" } }
         ) {
           id
