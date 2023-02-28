@@ -52,11 +52,17 @@ export const pageQuery = graphql`
           id
           imageFile {
             childImageSharp {
-              gatsbyImageData(width: 1200)
+              gatsbyImageData(height: 800, width: 1200)
             }
           }
         }
         image_logo_dark {
+          id
+          imageFile {
+            publicURL
+          }
+        }
+        image_logo_light {
           id
           imageFile {
             publicURL

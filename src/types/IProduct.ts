@@ -6,6 +6,7 @@ export interface IProduct {
   slug: string;
   description: string;
   designer: string;
+  collection: string;
   tags: Array<string>;
   href: string;
   image_primary: IDirectusImageData;

@@ -31,7 +31,12 @@ const Product = ({
         <h1 className="text-xl">
           {product.title} {product.id}
         </h1>
-        <p>by {designer}</p>
+        <p>
+          {product.collection && (
+            <span>From the <strong>{product.collection} Collection</strong> </span>
+          )}
+          by <strong>{designer}</strong>
+        </p>
         <div
           className={
             secondaryImage
@@ -72,7 +77,9 @@ const Product = ({
             })}
         </div>
         <p>
-          <a href={product.href}>Link</a>
+          <a href={product.href} rel="noopener" target="_blank">
+            Link
+          </a>
         </p>
       </div>
     </Layout>
@@ -91,6 +98,7 @@ export const pageQuery = graphql`
         href
         description
         designer
+        collection
         image_primary {
           id
           imageFile {

@@ -9,6 +9,7 @@ export interface IManufacturer {
   description: string;
   image_hero: IDirectusImageData;
   image_logo_dark: IDirectusImageData;
+  image_logo_light: IDirectusImageData;
   tags: Array<string>;
   products: Array<IProduct>;
 }
