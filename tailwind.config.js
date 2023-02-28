@@ -4,8 +4,7 @@ module.exports = {
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
     "./src/templates/**/*.{js,jsx,ts,tsx}",
-    "./gatsby-ssr.ts",
-    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
+    "./gatsby-ssr.tsx",
   ],
   theme: {
     fontFeatureSettings: {
@@ -29,6 +28,5 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('tailwindcss-font-inter'),
-    require('flowbite/plugin'),
   ],
 }

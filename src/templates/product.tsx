@@ -28,20 +28,24 @@ const Product = ({
   return (
     <Layout>
       <div className="max-w-6xl px-8 mx-auto">
-        <h1 className="text-xl">
-          {product.title} {product.id}
-        </h1>
-        <p>
-          {product.collection && (
-            <span>From the <strong>{product.collection} Collection</strong> </span>
-          )}
-          by <strong>{designer}</strong>
-        </p>
+        <div className="mb-6 leading-tight">
+          <h1 className="text-xl">
+            {product.title} {product.id}
+          </h1>
+          <p>
+            {product.collection && (
+              <span>
+                From the <strong>{product.collection} Collection</strong>{' '}
+              </span>
+            )}
+            by <strong>{designer}</strong>
+          </p>
+        </div>
         <div
           className={
             secondaryImage
-              ? 'grid grid-cols-2 gap-6'
-              : 'grid grid-cols-1 align-content-center'
+              ? 'grid grid-cols-2 gap-6 mb-6'
+              : 'grid grid-cols-1 align-content-center mb-6'
           }
         >
           {primaryImage && (
@@ -60,27 +64,27 @@ const Product = ({
             />
           )}
         </div>
-        <div className="min-w-full prose">
+        <div className="min-w-full mb-6 prose">
           <ReactMarkdown>{product.description}</ReactMarkdown>
         </div>
-        <div className="my-2">
+        <p className="mb-6">
+          <a href={product.href} rel="noopener" target="_blank">
+            Link
+          </a>
+        </p>
+        <div className="mb-6">
           {product.tags &&
             product.tags.map((tag) => {
               return (
                 <div
                   key={tag}
-                  className="inline-block p-1 mr-2 text-xs bg-slate-100"
+                  className="inline-block p-2 mr-2 text-xs bg-slate-100"
                 >
                   {tag}
                 </div>
               )
             })}
         </div>
-        <p>
-          <a href={product.href} rel="noopener" target="_blank">
-            Link
-          </a>
-        </p>
       </div>
     </Layout>
   )

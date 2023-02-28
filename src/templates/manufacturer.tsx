@@ -25,7 +25,7 @@ const Manufacturer = ({
         <div className="max-w-6xl mx-auto">
           <ul
             role="list"
-            className="grid grid-cols-2 gap-2 md:gap-2 md:grid-cols-3 lg:grid-cols-4"
+            className="grid grid-cols-2 gap-2 md:gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-6"
           >
             {manufacturer.products.map((product) => {
               return <ProductCard {...product} key={product.id} />

@@ -42,12 +42,12 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-postcss",
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        "trackingId": "267250995"
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-google-analytics',
+    //   options: {
+    //     "trackingId": "267250995"
+    //   }
+    // },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
@@ -57,7 +57,10 @@ const config: GatsbyConfig = {
       options: {
         url: 'http://looparch.test:8055',
         auth: {
-          token: 'MLVe5QBmJl2XfvEobTHfwWyz_dqobTBw'
+          token: 'MLVe5QBmJl2XfvEobTHfwWyz_dqobTBw',
+        },
+        dev: {
+          refresh: 5000,
         }
       }
     },
@@ -82,7 +85,7 @@ const config: GatsbyConfig = {
         "icon": "src/images/icon.png"
       }
     },
-    "gatsby-plugin-mdx",
+    // "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp", {
       resolve: 'gatsby-source-filesystem',

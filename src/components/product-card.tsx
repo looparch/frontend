@@ -5,7 +5,7 @@ import { IProduct } from '../types'
 
 export default function Layout(product: IProduct) {
   return (
-    <li className="relative overflow-hidden h-96">
+    <li className="relative overflow-hidden h-96 snap-y">
       <Link to={`/${product.manufacturer.slug}/${product.slug}`}>
         <GatsbyImage
           image={
