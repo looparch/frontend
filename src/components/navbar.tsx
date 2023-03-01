@@ -16,7 +16,7 @@ export default function Navbar() {
   const manufacturers = usePublishedManufacturers()
   return (
     <Popover className="bg-white">
-      <div className="flex items-center justify-between max-w-6xl px-4 py-6 mx-auto sm:px-6 md:justify-start md:space-x-10">
+      <div className="flex items-center justify-between max-w-6xl px-4 py-6 mx-auto sm:px-6 md:px-2 md:justify-start md:space-x-10">
         <div>
           <Link to="/" className="flex">
             <span className="sr-only">Loop Architectural Materials</span>
@@ -33,7 +33,7 @@ export default function Navbar() {
             <Bars3Icon className="w-6 h-6" aria-hidden="true" />
           </Popover.Button>
         </div>
-        <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
+        <div className="hidden md:flex md:flex-1 md:items-center md:justify-end">
           <Popover.Group as="nav" className="flex space-x-10">
             <Popover className="relative">
               {({ open }) => (
@@ -41,10 +41,10 @@ export default function Navbar() {
                   <Popover.Button
                     className={classNames(
                       open ? 'text-gray-900' : 'text-gray-500',
-                      'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                      'inline-flex items-center justify-center px-4 py-2 text-base font-medium text-black'
                     )}
                   >
-                    <span>Our Lines</span>
+                    <span className="text-sm font-light uppercase">Our Lines</span>
                     <ChevronDownIcon
                       className={classNames(
                         open ? 'text-gray-600' : 'text-gray-400',
@@ -63,7 +63,7 @@ export default function Navbar() {
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 translate-y-1"
                   >
-                    <Popover.Panel className="absolute z-10 w-screen max-w-md mt-3 -ml-4 transform lg:max-w-3xl">
+                    <Popover.Panel className="absolute z-30 w-screen max-w-md mt-3 -ml-4 transform -right-2 lg:max-w-3xl">
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                         <div className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8 lg:grid-cols-2">
                           {manufacturers.map((item: IManufacturer) => (
@@ -107,7 +107,7 @@ export default function Navbar() {
               )}
             </Popover>
           </Popover.Group>
-          <div className="flex items-center md:ml-12">
+          {/* <div className="flex items-center md:ml-12">
             <a
               href="#"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
@@ -120,7 +120,7 @@ export default function Navbar() {
             >
               Sign up
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 

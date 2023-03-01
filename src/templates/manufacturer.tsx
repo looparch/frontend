@@ -70,7 +70,7 @@ export const pageQuery = graphql`
         }
         tags
         products(
-          limit: -1
+          limit: 10
           sort: "featured, collection, title"
           filter: { status: { _eq: "published" } }
         ) {

@@ -59,9 +59,9 @@ const config: GatsbyConfig = {
         auth: {
           token: 'MLVe5QBmJl2XfvEobTHfwWyz_dqobTBw',
         },
-        dev: {
-          refresh: 5000,
-        }
+        // dev: {
+        //   refresh: 5000,
+        // }
       }
     },
     {
