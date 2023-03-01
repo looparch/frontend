@@ -18,46 +18,45 @@ export default function IndexCarousel({ articles }: DataProps) {
   return (
     <Swiper
       modules={[Navigation, Pagination, A11y, EffectFade]}
-      effect={"fade"}
+      effect={'fade'}
       rewind={true}
       navigation={true}
-      pagination={{ clickable: true }}
+      // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       spaceBetween={10}
       slidesPerView={1}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-      className="h-[50vh]"
+      // onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log(swiper)}
+      // className=""
       style={{
-        "--swiper-navigation-color": "#ffffff"
+        '--swiper-navigation-color': '#ffffff',
       }}
     >
       {articles.map((article, index) => {
         return (
-          <SwiperSlide
-            className="relative grid content-center h-full grid-cols-1 overflow-hidden justify-items-center"
-            key={index}
-          >
-            <div className="absolute w-full h-full">
-              <GatsbyImage
-                image={article.heroImage.gatsbyImageData}
-                className="object-cover w-full h-full"
-                alt=""
-              />
-            </div>
-            <div className="absolute inset-0 z-10 h-full opacity-50 bg-gradient-to-t from-black"></div>
-            <div className="absolute z-30 p-8 text-white lg:p-60">
-              <Link to={`/blogPosts/${article.slug}`}>
-                <h2 className="text-6xl font-bold leading-tight drop-shadow-lg shadow-black">
-                  {article.title}
-                </h2>
-              </Link>
-              <div
-                className="text-4xl"
-                dangerouslySetInnerHTML={{
-                  __html: article.description.childMarkdownRemark.html,
-                }}
-              />
+          <SwiperSlide className="" key={index}>
+            <div className="grid w-full grid-cols-12 grid-rows-1 max-h-[50rem] h-[50rem]">
+              <div className="grid col-start-1 col-end-13 row-start-1 isolate -z-10">
+                <GatsbyImage
+                  image={article.heroImage.gatsbyImageData}
+                  className="object-cover"
+                  alt=""
+                />
+              </div>
+              <div className="grid col-start-1 col-end-13 row-start-1 bg-gradient-to-t from-black to-transparent isolate -z-10" />
+              <div className="grid col-start-3 col-end-11 row-start-1 row-end-1 text-center text-white drop-shadow-md isolate place-content-center">
+                <Link to={`/blogPosts/${article.slug}`}>
+                  <h2 className="text-6xl font-bold leading-tight drop-shadow-md shadow-black">
+                    {article.title}
+                  </h2>
+                </Link>
+                <div
+                  className="text-2xl"
+                  dangerouslySetInnerHTML={{
+                    __html: article.description.childMarkdownRemark.html,
+                  }}
+                />
+              </div>
             </div>
           </SwiperSlide>
         )

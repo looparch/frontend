@@ -97,7 +97,7 @@ export default function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-6xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+      <div className="max-w-6xl px-4 py-12 mx-auto sm:px-6 lg:py-16 lg:px-8">
         <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="grid grid-cols-2 gap-8 xl:col-span-4">
             <div className="md:grid md:grid-cols-2 md:gap-8">
@@ -164,7 +164,7 @@ export default function Footer() {
                   <select
                     id="language"
                     name="language"
-                    className="block w-full appearance-none rounded-md border border-transparent bg-gray-700 bg-none py-2 pl-3 pr-10 text-base text-white focus:border-white focus:outline-none focus:ring-white sm:text-sm"
+                    className="block w-full py-2 pl-3 pr-10 text-base text-white bg-gray-700 border border-transparent rounded-md appearance-none bg-none focus:border-white focus:outline-none focus:ring-white sm:text-sm"
                     defaultValue="English"
                   >
                     <option>English</option>
@@ -173,12 +173,12 @@ export default function Footer() {
                     <option>Japanese</option>
                     <option>Spanish</option>
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
-                    <ChevronDownIcon className="h-4 w-4 text-white" aria-hidden="true" />
+                  <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                    <ChevronDownIcon className="w-4 h-4 text-white" aria-hidden="true" />
                   </div>
                 </div>
               </fieldset>
-              <fieldset className="mt-4 w-full">
+              <fieldset className="w-full mt-4">
                 <label htmlFor="currency" className="sr-only">
                   Currency
                 </label>
@@ -186,7 +186,7 @@ export default function Footer() {
                   <select
                     id="currency"
                     name="currency"
-                    className="block w-full appearance-none rounded-md border border-transparent bg-gray-700 bg-none py-2 pl-3 pr-10 text-base text-white focus:border-white focus:outline-none focus:ring-white sm:text-sm"
+                    className="block w-full py-2 pl-3 pr-10 text-base text-white bg-gray-700 border border-transparent rounded-md appearance-none bg-none focus:border-white focus:outline-none focus:ring-white sm:text-sm"
                     defaultValue="AUD"
                   >
                     <option>ARS</option>
@@ -198,15 +198,15 @@ export default function Footer() {
                     <option>JPY</option>
                     <option>USD</option>
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
-                    <ChevronDownIcon className="h-4 w-4 text-white" aria-hidden="true" />
+                  <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                    <ChevronDownIcon className="w-4 h-4 text-white" aria-hidden="true" />
                   </div>
                 </div>
               </fieldset>
             </form>
           </div>
         </div>
-        <div className="border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
+        <div className="pt-8 border-t border-gray-700 lg:flex lg:items-center lg:justify-between xl:mt-0">
           <div>
             <h3 className="text-base font-medium text-white">Subscribe to our newsletter</h3>
             <p className="mt-2 text-base text-gray-300">
@@ -223,25 +223,25 @@ export default function Footer() {
               id="email-address"
               autoComplete="email"
               required
-              className="w-full min-w-0 appearance-none rounded-md border border-transparent bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:border-white focus:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs"
+              className="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-transparent rounded-md appearance-none focus:border-white focus:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs"
               placeholder="Enter your email"
             />
             <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
               <button
                 type="submit"
-                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-500 py-2 px-4 text-base font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800"
               >
                 Subscribe
               </button>
             </div>
           </form>
         </div>
-        <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+        <div className="pt-8 mt-8 border-t border-gray-700 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
               <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300">
                 <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
+                <item.icon className="w-6 h-6" aria-hidden="true" />
               </a>
             ))}
           </div>

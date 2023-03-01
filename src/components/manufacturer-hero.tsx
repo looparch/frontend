@@ -5,13 +5,14 @@ import ReactMarkdown from 'react-markdown'
 import { IManufacturer } from '../types'
 
 export default function ManufacturerHero(manufacturer: IManufacturer) {
+  console.log(manufacturer)
   return (
     <div>
       <div
         id="manufacturer-hero"
         className="grid max-w-6xl grid-cols-12 mx-auto mb-2 justify-items-center place-items-center lg:mb-6 md:mb-4"
       >
-        <div className="w-full h-full col-span-12 col-start-1 row-start-1 -z-10">
+        <div className="w-full h-full col-span-12 col-start-1 row-start-1 -z-0">
           <GatsbyImage
             image={
               manufacturer.image_hero.imageFile.childImageSharp.gatsbyImageData
@@ -20,7 +21,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
             className="object-cover w-full h-full"
           />
         </div>
-        <div className="grid col-span-4 col-start-1 row-start-1 px-0 py-0 md:py-8 lg:py-10 md:px-4 lg:px-6">
+        <div className="z-10 grid col-span-4 col-start-1 row-start-1 px-0 py-0 md:py-8 lg:py-10 md:px-4 lg:px-6">
           <div className="justify-self-center">
             <img
               src={manufacturer.image_logo_dark.imageFile.publicURL}
@@ -45,7 +46,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
                   return (
                     <div
                       key={tag}
-                      className="inline-block p-2 mr-2 text-xs font-light uppercase rounded-lg shadow-md bg-slate-100"
+                      className="inline-block p-1 mr-2 text-xs bg-slate-100"
                     >
                       {tag}
                     </div>
@@ -54,7 +55,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
             </div>
           </div>
         </div>
-        <div className="w-full h-full col-span-12 col-start-1 row-start-1 -z-10 bg-gradient-to-r from-white to-transparent bg-blend-color-dodge"></div>
+        <div className="w-full h-full col-span-12 col-start-1 row-start-1 -z-0 bg-gradient-to-r from-white to-transparent"></div>
       </div>
     </div>
   )

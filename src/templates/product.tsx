@@ -29,10 +29,10 @@ const Product = ({
     <Layout>
       <div className="max-w-6xl px-8 mx-auto">
         <div className="mb-6 leading-tight">
-          <h1 className="text-xl">
+          <h1 className="text-xl text-center">
             {product.title} {product.id}
           </h1>
-          <p>
+          <p className="text-center">
             {product.collection && (
               <span>
                 From the <strong>{product.collection} Collection</strong>{' '}
@@ -45,7 +45,7 @@ const Product = ({
           className={
             secondaryImage
               ? 'grid grid-cols-2 gap-6 mb-6'
-              : 'grid grid-cols-1 align-content-center mb-6'
+              : 'flex justify-center place-content-center mb-6'
           }
         >
           {primaryImage && (

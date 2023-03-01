@@ -20,7 +20,7 @@ const Manufacturer = ({
 }: DataProps) => {
   return (
     <Layout>
-      <>
+      <div className="bg-white">
         <ManufacturerHero {...manufacturer} />
         <div className="max-w-6xl mx-auto">
           <ul
@@ -32,7 +32,7 @@ const Manufacturer = ({
             })}
           </ul>
         </div>
-      </>
+      </div>
     </Layout>
   )
 }

@@ -17,11 +17,12 @@ const BlogPost = ({ data: { blogPost } }: DataProps) => {
       <>
         <ArticleHero {...blogPost}/>
         <div
+          className="mx-auto font-serif prose"
           dangerouslySetInnerHTML={{
             __html: blogPost.body.childMarkdownRemark.html,
           }}
         ></div>
-        <div>{blogPost.body_markdown}</div>
+        {/* <div>{blogPost.body_markdown}</div> */}
       </>
     </Layout>
   )

@@ -4,14 +4,13 @@ import { IArticle } from '../types'
 
 export default function ArticleHero(article: IArticle) {
   return (
-    <div className="grid h-[50vh]">
+    <div className="grid mx-auto mb-6 max-w-7xl h-96">
       <GatsbyImage
         image={article.heroImage.gatsbyImageData}
         alt={`${article.title} Banner`}
         className="object-cover"
         style={{ gridArea: '1/1' }}
       />
-
       <div
         className="relative z-20 grid place-items-center"
         style={{ gridArea: '1/1' }}
