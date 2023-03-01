@@ -74,6 +74,7 @@ const config: GatsbyConfig = {
               maxWidth: 650,
               linkImagesToOriginal: false,
               withWebp: true,
+              wrapperStyle: 'border: 1px solid #eee;',
             }
           }
         ]

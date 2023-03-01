@@ -2,7 +2,7 @@ import React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { IArticle } from '../types/IArticle'
 import { Link } from 'gatsby'
-import { Navigation, Pagination, A11y, EffectFade } from 'swiper'
+import { Navigation, Pagination, A11y, EffectFade, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
@@ -17,18 +17,17 @@ type DataProps = {
 export default function IndexCarousel({ articles }: DataProps) {
   return (
     <Swiper
-      modules={[Navigation, Pagination, A11y, EffectFade]}
+      modules={[Navigation, Pagination, A11y, EffectFade, Autoplay]}
       effect={'fade'}
       rewind={true}
-      navigation={true}
+      // navigation={true}
+      autoplay={{ delay: 5000, pauseOnMouseEnter: true }}
       // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       spaceBetween={10}
       slidesPerView={1}
-      // onSlideChange={() => console.log('slide change')}
-      // onSwiper={(swiper) => console.log(swiper)}
-      // className=""
       style={{
+        // @ts-ignore:next-line
         '--swiper-navigation-color': '#ffffff',
       }}
     >
