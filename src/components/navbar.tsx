@@ -7,6 +7,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'gatsby'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
 import type { IManufacturer } from '../types'
+import LoopLogo from './loop-logo'
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
@@ -20,12 +21,8 @@ export default function Navbar() {
         <div>
           <Link to="/" className="flex place-items-end">
             <span className="sr-only">Loop Architectural Materials</span>
-            <img
-              className="w-auto h-12"
-              src="/images/loop_logo.svg"
-              alt="Loop Architectural Materials Logo"
-            />
-            <span className="flex flex-col ml-2 font-medium leading-none tracking-tight text-gray-800">
+            <LoopLogo className="w-12 rounded-md"/>
+            <span className="flex flex-col ml-2 font-medium leading-none tracking-tight text-gray-600">
               <span className="-mb-[0.2rem] text-4xl">
                 Loop
               </span>
@@ -85,14 +82,6 @@ export default function Navbar() {
                               to={`/${item.slug}`}
                               className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
                             >
-                              {/* <div className="flex items-center justify-center flex-shrink-0 w-20 h-10 text-white rounded-md sm:h-12 sm:w-32">
-                                <img
-                                  src={item.image_logo_dark.imageFile.publicURL}
-                                  alt=""
-                                  className=""
-                                  aria-hidden="true"
-                                />
-                              </div> */}
                               <div className="flex items-center justify-center flex-shrink-0 w-20 h-10 text-white rounded-md sm:h-12 sm:w-32">
                                 <GatsbyImage
                                   image={

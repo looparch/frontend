@@ -4,6 +4,7 @@ import { IArticle } from '../types/IArticle'
 import { Link } from 'gatsby'
 import { Navigation, Pagination, A11y, EffectFade, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import GraphicTextHero from './graphic-text-hero'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -34,7 +35,8 @@ export default function IndexCarousel({ articles }: DataProps) {
       {articles.map((article, index) => {
         return (
           <SwiperSlide className="" key={index}>
-            <div className="grid w-full grid-cols-12 grid-rows-1 max-h-[36rem] h-[36rem]">
+            <GraphicTextHero title={article.title} description={article.description} image={article.heroImage.gatsbyImageData} link={`/blogPosts/${article.slug}`} />
+            {/* <div className="grid w-full grid-cols-12 grid-rows-1 max-h-[36rem] h-[36rem]">
               <div className="grid col-start-1 col-end-13 row-start-1 isolate -z-10">
                 <GatsbyImage
                   image={article.heroImage.gatsbyImageData}
@@ -56,7 +58,7 @@ export default function IndexCarousel({ articles }: DataProps) {
                   }}
                 />
               </div>
-            </div>
+            </div> */}
           </SwiperSlide>
         )
       })}
