@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-full bg-white">
       <Navbar />
-      <section className="min-h-full bg-white max-w-8xl">{children}</section>
+      <section className="min-h-full">{children}</section>
       <Footer />
     </div>
   )

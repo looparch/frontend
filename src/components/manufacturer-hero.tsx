@@ -12,7 +12,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
         id="manufacturer-hero"
         className="grid max-w-6xl grid-cols-12 mx-auto mb-2 justify-items-center place-items-center lg:mb-6 md:mb-4"
       >
-        <div className="w-full h-full col-span-12 col-start-1 row-start-1 -z-0">
+        <div className="w-full h-full col-span-7 col-start-6 row-start-1 -z-0">
           <GatsbyImage
             image={
               manufacturer.image_hero.imageFile.childImageSharp.gatsbyImageData
@@ -36,8 +36,8 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
               <ReactMarkdown>{manufacturer.description}</ReactMarkdown>
             </article>
             <div className="mb-6">
-              <a href={manufacturer.href} rel="noopener" target="_blank">
-                Link
+              <a href={manufacturer.href} rel="noopener" target="_blank" className="underline underline-offset-8">
+                Visit {manufacturer.title}
               </a>
             </div>
             <div>
@@ -46,7 +46,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
                   return (
                     <div
                       key={tag}
-                      className="inline-block p-1 mr-2 text-xs bg-slate-100"
+                      className="inline-block p-1 mr-2 text-xs border border-gray-400 rounded-sm"
                     >
                       {tag}
                     </div>
@@ -55,7 +55,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
             </div>
           </div>
         </div>
-        <div className="w-full h-full col-span-12 col-start-1 row-start-1 -z-0 bg-gradient-to-r from-white to-transparent"></div>
+        {/* <div className="w-full h-full col-span-12 col-start-1 row-start-1 -z-0 bg-gradient-to-r from-white to-transparent"></div> */}
       </div>
     </div>
   )

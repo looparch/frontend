@@ -6,6 +6,7 @@ export interface IProduct {
   slug: string;
   description: string;
   designer: string;
+  subtitle: string;
   collection: string;
   tags: Array<string>;
   href: string;
@@ -16,5 +17,7 @@ export interface IProduct {
     id: string;
     title: string;
     slug: string;
+    image_logo_dark: IDirectusImageData;
   }
+  is_new: boolean;
 }

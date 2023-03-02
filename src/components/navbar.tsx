@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment } from 'react'
-import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
@@ -15,16 +15,27 @@ function classNames(...classes: any[]) {
 export default function Navbar() {
   const manufacturers = usePublishedManufacturers()
   return (
-    <Popover className="bg-white">
-      <div className="flex items-center justify-between max-w-6xl px-4 py-6 mx-auto sm:px-6 md:px-2 md:justify-start md:space-x-10">
+    <Popover className="sticky top-0 z-50 bg-white shadow-md">
+      <div className="flex items-center justify-between max-w-6xl px-4 py-6 mx-auto sm:px-6 md:px-6 md:justify-start md:space-x-10">
         <div>
-          <Link to="/" className="flex">
+          <Link to="/" className="flex place-items-end">
             <span className="sr-only">Loop Architectural Materials</span>
             <img
               className="w-auto h-12"
-              src="/images/loop_solo.svg"
+              src="/images/loop_logo.svg"
               alt="Loop Architectural Materials Logo"
             />
+            <span className="flex flex-col ml-2 font-medium leading-none tracking-tight text-gray-800">
+              <span className="-mb-[0.2rem] text-4xl">
+                Loop
+              </span>
+              {/* <span className="text-xs">
+                Architectural
+              </span>
+              <span className="text-xs">
+                Materials
+              </span> */}
+            </span>
           </Link>
         </div>
         <div className="-my-2 -mr-2 md:hidden">
@@ -44,7 +55,9 @@ export default function Navbar() {
                       'inline-flex items-center justify-center px-4 py-2 text-base font-medium text-black'
                     )}
                   >
-                    <span className="text-sm font-light uppercase">Our Lines</span>
+                    <span className="text-sm font-light uppercase underline-offset-8 hover:underline">
+                      Our Lines
+                    </span>
                     <ChevronDownIcon
                       className={classNames(
                         open ? 'text-gray-600' : 'text-gray-400',
@@ -63,8 +76,8 @@ export default function Navbar() {
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 translate-y-1"
                   >
-                    <Popover.Panel className="absolute z-30 w-screen max-w-md mt-3 -ml-4 transform -right-2 lg:max-w-3xl">
-                      <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                    <Popover.Panel className="absolute overflow-scroll z-30 w-screen max-w-md max-h-[100vh] shadow-lg mt-3 -ml-4 transform -right-2 lg:max-w-3xl">
+                      <div className="overflow-hidden border border-solid rounded-lg ring-1 ring-black ring-opacity-5">
                         <div className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8 lg:grid-cols-2">
                           {manufacturers.map((item: IManufacturer) => (
                             <Link
@@ -72,12 +85,21 @@ export default function Navbar() {
                               to={`/${item.slug}`}
                               className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
                             >
-                              <div className="flex items-center justify-center flex-shrink-0 w-20 h-10 text-white rounded-md sm:h-12 sm:w-32">
+                              {/* <div className="flex items-center justify-center flex-shrink-0 w-20 h-10 text-white rounded-md sm:h-12 sm:w-32">
                                 <img
                                   src={item.image_logo_dark.imageFile.publicURL}
                                   alt=""
                                   className=""
                                   aria-hidden="true"
+                                />
+                              </div> */}
+                              <div className="flex items-center justify-center flex-shrink-0 w-20 h-10 text-white rounded-md sm:h-12 sm:w-32">
+                                <GatsbyImage
+                                  image={
+                                    item.image_hero.imageFile.childImageSharp
+                                      .gatsbyImageData
+                                  }
+                                  alt={`${item.title} Display Image`}
                                 />
                               </div>
                               <div className="ml-4">
@@ -86,14 +108,17 @@ export default function Navbar() {
                                 </p>
                                 {item.tags && (
                                   <div className="break-before-avoid">
-                                    {item.tags.map((tag: string) => (
+                                    <span className="inline-block mr-2 text-[.625rem] leading-5 font-medium text-gray-500 line-clamp-1">
+                                      {item.tags.join(', ')}
+                                    </span>
+                                    {/* {item.tags.map((tag: string) => (
                                       <span
                                         key={tag}
-                                        className="inline-block p-1 mr-2 text-xs bg-slate-50"
+                                        className="inline-block mr-2 text-[.625rem] leading-5 font-medium text-gray-500"
                                       >
                                         {tag}
                                       </span>
-                                    ))}
+                                    ))} */}
                                   </div>
                                 )}
                               </div>
@@ -107,20 +132,22 @@ export default function Navbar() {
               )}
             </Popover>
           </Popover.Group>
-          {/* <div className="flex items-center md:ml-12">
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
+          <div className="flex items-center space-x-10 md:ml-12">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center p-2 text-sm text-gray-400 uppercase hover:underline underline-offset-8 hover:text-gray-500 focus:outline-none"
+              activeClassName='underline text-gray-500'
             >
-              Sign in
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
+              Contact
+            </Link>
+            <Link
+              to="/about-us"
+              className="inline-flex items-center justify-center p-2 text-sm text-gray-400 uppercase hover:underline underline-offset-8 hover:text-gray-500 focus:outline-none"
+              activeClassName='underline text-gray-500'
             >
-              Sign up
-            </a>
-          </div> */}
+              About Us
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -142,8 +169,8 @@ export default function Navbar() {
               <div className="flex items-center justify-between">
                 <div>
                   <img
-                    className="w-auto h-8"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    className="w-auto h-10"
+                    src="/images/loop_logo.svg"
                     alt="Loop Architectural Materials"
                   />
                 </div>
@@ -155,21 +182,22 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="mt-6">
-                <nav className="grid gap-6">
+                <h2>Our Lines</h2>
+                <nav className="grid grid-cols-2 gap-6">
                   {manufacturers.map((item: IManufacturer) => (
                     <Link
                       key={item.id}
                       to={`/${item.slug}`}
-                      className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
+                      className="flex items-center content-center p-3 py-4 -m-3 rounded-lg hover:bg-loop-200"
                     >
-                      <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md">
+                      {/* <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md">
                         <img
                           className="w-32 h-8"
                           aria-hidden="true"
                           src={item.image_logo_dark.imageFile.publicURL}
                           alt=""
                         />
-                      </div>
+                      </div> */}
                       <div className="ml-4 text-base font-medium text-gray-900">
                         {item.title}
                       </div>

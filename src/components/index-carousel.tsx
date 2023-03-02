@@ -34,7 +34,7 @@ export default function IndexCarousel({ articles }: DataProps) {
       {articles.map((article, index) => {
         return (
           <SwiperSlide className="" key={index}>
-            <div className="grid w-full grid-cols-12 grid-rows-1 max-h-[50rem] h-[50rem]">
+            <div className="grid w-full grid-cols-12 grid-rows-1 max-h-[36rem] h-[36rem]">
               <div className="grid col-start-1 col-end-13 row-start-1 isolate -z-10">
                 <GatsbyImage
                   image={article.heroImage.gatsbyImageData}
@@ -45,12 +45,12 @@ export default function IndexCarousel({ articles }: DataProps) {
               <div className="grid col-start-1 col-end-13 row-start-1 bg-gradient-to-t from-black to-transparent isolate -z-10" />
               <div className="grid col-start-3 col-end-11 row-start-1 row-end-1 text-center text-white drop-shadow-md isolate place-content-center">
                 <Link to={`/blogPosts/${article.slug}`}>
-                  <h2 className="text-6xl font-bold leading-tight drop-shadow-md shadow-black">
+                  <h2 className="mb-6 text-6xl font-bold leading-none drop-shadow-md shadow-black">
                     {article.title}
                   </h2>
                 </Link>
                 <div
-                  className="text-2xl"
+                  className="text-4xl"
                   dangerouslySetInnerHTML={{
                     __html: article.description.childMarkdownRemark.html,
                   }}

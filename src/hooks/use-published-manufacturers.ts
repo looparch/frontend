@@ -17,6 +17,14 @@ const usePublishedManufacturers = () => {
               publicURL
             }
           }
+          image_hero {
+            id
+            imageFile {
+              childImageSharp {
+                gatsbyImageData(width: 100, height: 50)
+              }
+            }
+          }
           tags
         }
       }

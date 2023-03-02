@@ -26,9 +26,9 @@ const IndexPage = () => {
   return (
     <Layout>
       <div className="min-h-full">
-        <IndexCarousel articles={blogPosts}/>
+        <IndexCarousel articles={blogPosts.slice(0,3)}/>
 
-        <div className="px-2 mx-auto">
+        <div className="max-w-6xl px-2 mx-auto">
           <ul>
             {manufacturers.map((manufacturer: ManufacturerProps) => {
               return (

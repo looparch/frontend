@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import ProductCard from '../components/product-card'
+import ProductCardTwo from '../components/product-card-two'
 import ManufacturerHero from '../components/manufacturer-hero'
 import type { IManufacturer } from '../types'
 
@@ -28,7 +29,7 @@ const Manufacturer = ({
             className="grid grid-cols-2 gap-2 md:gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-6"
           >
             {manufacturer.products.map((product) => {
-              return <ProductCard {...product} key={product.id} />
+              return <ProductCardTwo {...product} key={product.id} />
             })}
           </ul>
         </div>
@@ -70,7 +71,7 @@ export const pageQuery = graphql`
         }
         tags
         products(
-          limit: 10
+          limit: -1
           sort: "featured, collection, title"
           filter: { status: { _eq: "published" } }
         ) {
@@ -91,6 +92,7 @@ export const pageQuery = graphql`
             title
             slug
           }
+          is_new
         }
       }
     }
