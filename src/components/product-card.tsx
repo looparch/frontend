@@ -5,19 +5,31 @@ import { IProduct } from '../types'
 
 export default function ProductCard(product: IProduct) {
   return (
-    <li className="relative overflow-hidden h-96 snap-y">
-      <Link to={`/${product.manufacturer.slug}/${product.slug}`}>
+    <li>
+      <Link
+        to={`/${product.manufacturer.slug}/${product.slug}`}
+        className="relative block mb-2 overflow-hidden bg-gray-100 rounded-lg group h-80 lg:mb-3"
+      >
         <GatsbyImage
           image={
             product.image_thumbnail.imageFile.childImageSharp.gatsbyImageData
           }
           alt={`${product.title} Thumbnail`}
-          className="absolute object-cover w-full h-full"
+          className="object-cover object-center w-full h-full transition duration-200 group-hover:scale-110"
         />
-        <div className="absolute bottom-0 px-4 py-2 bg-slate-700 bg-opacity-70">
-          <p className="text-xs font-medium text-gray-100 line-clamp-1">{product.title}</p>
-        </div>
+        {product.is_new && (
+          <span className="bg-red-500 text-white text-sm tracking-wider uppercase rounded-br-lg absolute left-0 top-0 px-3 py-1.5">New</span>
+        )}
       </Link>
+
+      <div>
+        <Link
+          to={`/${product.manufacturer.slug}/${product.slug}`}
+          className="mb-1 text-md lg:text-md line-clamp-1 text-medium-text"
+        >
+          {product.title}
+        </Link>
+      </div>
     </li>
   )
 }

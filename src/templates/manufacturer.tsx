@@ -2,7 +2,6 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import ProductCard from '../components/product-card'
-import ProductCardTwo from '../components/product-card-two'
 import ManufacturerHero from '../components/manufacturer-hero'
 import type { IManufacturer } from '../types'
 
@@ -23,13 +22,13 @@ const Manufacturer = ({
     <Layout>
       <div className="bg-white">
         <ManufacturerHero {...manufacturer} />
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl px-2 mx-auto md:px-6">
           <ul
             role="list"
-            className="grid grid-cols-2 gap-2 md:gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-6"
+            className="grid grid-cols-2 gap-2 md:gap-6 md:grid-cols-3 lg:grid-cols-4 lg:gap-6"
           >
             {manufacturer.products.map((product) => {
-              return <ProductCardTwo {...product} key={product.id} />
+              return <ProductCard {...product} key={product.id} />
             })}
           </ul>
         </div>
