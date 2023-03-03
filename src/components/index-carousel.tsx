@@ -36,29 +36,6 @@ export default function IndexCarousel({ articles }: DataProps) {
         return (
           <SwiperSlide className="" key={index}>
             <GraphicTextHero title={article.title} description={article.description} image={article.heroImage.gatsbyImageData} link={`/blogPosts/${article.slug}`} />
-            {/* <div className="grid w-full grid-cols-12 grid-rows-1 max-h-[36rem] h-[36rem]">
-              <div className="grid col-start-1 col-end-13 row-start-1 isolate -z-10">
-                <GatsbyImage
-                  image={article.heroImage.gatsbyImageData}
-                  className="object-cover"
-                  alt=""
-                />
-              </div>
-              <div className="grid col-start-1 col-end-13 row-start-1 bg-gradient-to-t from-black to-transparent isolate -z-10" />
-              <div className="grid col-start-3 col-end-11 row-start-1 row-end-1 text-center text-white drop-shadow-md isolate place-content-center">
-                <Link to={`/blogPosts/${article.slug}`}>
-                  <h2 className="mb-6 text-6xl font-bold leading-none drop-shadow-md shadow-black">
-                    {article.title}
-                  </h2>
-                </Link>
-                <div
-                  className="text-4xl"
-                  dangerouslySetInnerHTML={{
-                    __html: article.description.childMarkdownRemark.html,
-                  }}
-                />
-              </div>
-            </div> */}
           </SwiperSlide>
         )
       })}

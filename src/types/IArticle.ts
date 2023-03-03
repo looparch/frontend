@@ -19,16 +19,10 @@ export interface IArticle {
   description: {
     raw: string;
     references: Array<ReferenceProps>;
-    childMarkdownRemark: {
-      html: string;
-    };
   }
   body: {
     raw: string;
     references: Array<ReferenceProps>;
-    childMarkdownRemark: {
-      html: string;
-    };
   }
   tags: Array<string>
 }

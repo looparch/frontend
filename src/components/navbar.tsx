@@ -21,9 +21,9 @@ export default function Navbar() {
         <div>
           <Link to="/" className="flex place-items-end">
             <span className="sr-only">Loop Architectural Materials</span>
-            <LoopLogo className="w-12 rounded-md"/>
-            <span className="flex flex-col ml-2 font-medium leading-none tracking-tight text-gray-600">
-              <span className="-mb-[0.2rem] text-4xl">
+            <LoopLogo className="w-12 rounded-md" fillColor="rgb(131, 182, 104)"/>
+            <span className="flex flex-col ml-2 font-medium leading-none tracking-tight text-black">
+              <span className="-mb-[0.1rem] text-2xl">
                 Loop
               </span>
               {/* <span className="text-xs">
@@ -36,7 +36,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="-my-2 -mr-2 md:hidden">
-          <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+          <Popover.Button className="inline-flex items-center justify-center p-2 bg-white rounded-md text-medium-text hover:bg-gray-100 hover:text-dark-text focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
             <span className="sr-only">Open menu</span>
             <Bars3Icon className="w-6 h-6" aria-hidden="true" />
           </Popover.Button>
@@ -48,7 +48,7 @@ export default function Navbar() {
                 <>
                   <Popover.Button
                     className={classNames(
-                      open ? 'text-gray-900' : 'text-gray-500',
+                      open ? 'text-dark-text' : 'text-medium-text',
                       'inline-flex items-center justify-center px-4 py-2 text-base font-medium text-black'
                     )}
                   >
@@ -57,8 +57,8 @@ export default function Navbar() {
                     </span>
                     <ChevronDownIcon
                       className={classNames(
-                        open ? 'text-gray-600' : 'text-gray-400',
-                        'ml-2 h-5 w-5 group-hover:text-gray-500'
+                        open ? 'text-medium-text' : 'text-light-text',
+                        'ml-2 h-5 w-5 group-hover:text-dark-text'
                       )}
                       aria-hidden="true"
                     />
@@ -92,18 +92,18 @@ export default function Navbar() {
                                 />
                               </div>
                               <div className="ml-4">
-                                <p className="text-base font-medium text-gray-900">
+                                <p className="text-base font-medium text-dark-text">
                                   {item.title}
                                 </p>
                                 {item.tags && (
                                   <div className="break-before-avoid">
-                                    <span className="inline-block mr-2 text-[.625rem] leading-5 font-medium text-gray-500 line-clamp-1">
+                                    <span className="inline-block mr-2 text-[.625rem] leading-5 font-medium text-medium-text line-clamp-1">
                                       {item.tags.join(', ')}
                                     </span>
                                     {/* {item.tags.map((tag: string) => (
                                       <span
                                         key={tag}
-                                        className="inline-block mr-2 text-[.625rem] leading-5 font-medium text-gray-500"
+                                        className="inline-block mr-2 text-[.625rem] leading-5 font-medium text-medium-text"
                                       >
                                         {tag}
                                       </span>
@@ -124,15 +124,15 @@ export default function Navbar() {
           <div className="flex items-center space-x-10 md:ml-12">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center p-2 text-sm text-gray-400 uppercase hover:underline underline-offset-8 hover:text-gray-500 focus:outline-none"
-              activeClassName='underline text-gray-500'
+              className="inline-flex items-center justify-center p-2 text-sm uppercase text-medium-text hover:underline underline-offset-8 hover:text-dark-text focus:outline-none"
+              activeClassName='underline text-dark-text'
             >
               Contact
             </Link>
             <Link
               to="/about-us"
-              className="inline-flex items-center justify-center p-2 text-sm text-gray-400 uppercase hover:underline underline-offset-8 hover:text-gray-500 focus:outline-none"
-              activeClassName='underline text-gray-500'
+              className="inline-flex items-center justify-center p-2 text-sm uppercase text-medium-text hover:underline underline-offset-8 hover:text-dark-text focus:outline-none"
+              activeClassName='underline text-dark-text'
             >
               About Us
             </Link>
@@ -164,7 +164,7 @@ export default function Navbar() {
                   />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <Popover.Button className="inline-flex items-center justify-center p-2 bg-white rounded-md text-medium-text hover:bg-gray-100 hover:text-dark-text focus:outline-none">
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon className="w-6 h-6" aria-hidden="true" />
                   </Popover.Button>
@@ -187,7 +187,7 @@ export default function Navbar() {
                           alt=""
                         />
                       </div> */}
-                      <div className="ml-4 text-base font-medium text-gray-900">
+                      <div className="ml-4 text-base font-medium text-dark-text">
                         {item.title}
                       </div>
                     </Link>

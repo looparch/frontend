@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
-import ArticleHero from '../components/article-hero'
+import BlogPostHero from '../components/blog-post-hero'
 import type { IBlogPost } from '../types'
 
 type DataProps = {
@@ -15,7 +15,7 @@ const BlogPost = ({ data: { blogPost } }: DataProps) => {
   return (
     <Layout>
       <>
-        <ArticleHero {...blogPost}/>
+        <BlogPostHero {...blogPost}/>
         <div
           className="mx-auto font-serif prose"
           dangerouslySetInnerHTML={{

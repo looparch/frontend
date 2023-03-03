@@ -1,6 +1,7 @@
 import * as React from "react"
 
 function LoopLogo(props: any) {
+  const fillColor = props.fillColor || "#04955f"
   return (
     <svg
       id="Layer_1"
@@ -10,7 +11,7 @@ function LoopLogo(props: any) {
       {...props}
     >
       <defs>
-        <style>{".cls-2{fill:#04955f}"}</style>
+        <style>{`.cls-2{fill:${fillColor}}`}</style>
       </defs>
       <path
         fill="#fff"
