@@ -9,3 +9,9 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@layer components {
+  .button {
+    @apply bg-loop-600 text-white py-2 px-3 no-underline rounded-md text-base font-sans font-bold hover:bg-loop-500
+  }
+}

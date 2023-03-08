@@ -22,21 +22,21 @@ export default function Navbar() {
           <Link to="/" className="flex place-items-end">
             <span className="sr-only">Loop Architectural Materials</span>
             <LoopLogo className="w-12 rounded-md" fillColor="rgb(131, 182, 104)"/>
-            <span className="flex flex-col ml-2 font-medium leading-none tracking-tight text-black">
+            {/* <span className="flex flex-col ml-2 font-medium leading-none tracking-tight text-black">
               <span className="-mb-[0.1rem] text-2xl">
                 Loop
               </span>
-              {/* <span className="text-xs">
+              <span className="text-xs">
                 Architectural
               </span>
               <span className="text-xs">
                 Materials
-              </span> */}
-            </span>
+              </span>
+            </span> */}
           </Link>
         </div>
         <div className="-my-2 -mr-2 md:hidden">
-          <Popover.Button className="inline-flex items-center justify-center p-2 bg-white rounded-md text-medium-text hover:bg-gray-100 hover:text-dark-text focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+          <Popover.Button className="inline-flex items-center justify-center p-2 bg-white rounded-md text-medium-text hover:bg-gray-100 hover:text-dark-text focus:outline-none">
             <span className="sr-only">Open menu</span>
             <Bars3Icon className="w-6 h-6" aria-hidden="true" />
           </Popover.Button>

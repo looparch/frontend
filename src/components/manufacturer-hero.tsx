@@ -24,7 +24,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
           <div className="w-4/5 mx-auto">
             <article className="z-10 mb-6 prose">
               <h1 className="sr-only">{manufacturer.title}</h1>
-              <ReactMarkdown className="line-clamp-none">{manufacturer.description}</ReactMarkdown>
+              <ReactMarkdown className="font-serif text-lg text-medium-text">{manufacturer.description}</ReactMarkdown>
             </article>
             <div className="mb-8">
               <a href={manufacturer.href} rel="noopener" target="_blank" className="underline underline-offset-8">

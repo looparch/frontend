@@ -27,10 +27,10 @@ const Product = ({
   }
   return (
     <Layout>
-      <div className="relative max-w-6xl px-8 mx-auto mb-20">
+      <div className="relative max-w-6xl px-2 mx-auto mb-20 md:px-6">
         <div className="flex pt-6 mb-6 leading-snug">
           <div>
-            <h1 className="text-xl font-medium">{product.title}</h1>
+            <h1 className="text-xl font-semibold">{product.title}</h1>
             {product.subtitle && (
               <p>{product.subtitle}</p>
             )}
@@ -47,7 +47,7 @@ const Product = ({
         <div
           className={
             secondaryImage
-              ? 'grid grid-cols-2 grid-rows-1 gap-6 mb-6'
+              ? 'grid md:grid-cols-2 md:grid-rows-1 grid-cols-1 grid-rows-2 gap-2 md:gap-6 mb-6'
               : 'flex justify-center place-content-center mb-6'
           }
         >
@@ -67,7 +67,7 @@ const Product = ({
             />
           )}
         </div>
-        <div className="min-w-full mb-6 prose">
+        <div className="min-w-full mb-6 font-serif text-lg prose">
           <ReactMarkdown>{product.description}</ReactMarkdown>
         </div>
         <p className="mb-8">

@@ -71,7 +71,7 @@ const config: GatsbyConfig = {
           {
             resolve: 'gatsby-remark-images-contentful',
             options: {
-              maxWidth: 650,
+              maxWidth: 800,
               linkImagesToOriginal: false,
               withWebp: true,
               wrapperStyle: 'border: 1px solid #221a11; margin-bottom: 1rem;',

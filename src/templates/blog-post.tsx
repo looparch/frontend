@@ -17,7 +17,7 @@ const BlogPost = ({ data: { blogPost } }: DataProps) => {
       <>
         <BlogPostHero {...blogPost}/>
         <div
-          className="mx-auto font-serif prose"
+          className="max-w-xl mx-auto font-serif text-lg prose text-dark-text"
           dangerouslySetInnerHTML={{
             __html: blogPost.body.childMarkdownRemark.html,
           }}
