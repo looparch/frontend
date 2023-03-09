@@ -6,6 +6,7 @@ import usePublishedArticles from '../hooks/use-published-articles'
 import usePublishedBlogPosts from '../hooks/use-published-blog-posts'
 import Layout from '../components/layout'
 import IndexCarousel from '../components/index-carousel'
+import LogoSection from '../components/logo-section'
 
 type ManufacturerProps = {
   id: string
@@ -29,6 +30,7 @@ const IndexPage = () => {
         <IndexCarousel articles={blogPosts.slice(0,3)}/>
 
         <div className="max-w-6xl px-2 mx-auto">
+          <LogoSection />
           <ul>
             {manufacturers.map((manufacturer: ManufacturerProps) => {
               return (

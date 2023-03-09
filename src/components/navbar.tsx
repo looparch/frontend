@@ -7,7 +7,8 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'gatsby'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
 import type { IManufacturer } from '../types'
-import LoopLogo from './loop-logo'
+import LoopLogo from './logos/loop-logo'
+import LoopLogoText from './logos/loop-logo-text'
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
@@ -16,12 +17,19 @@ function classNames(...classes: any[]) {
 export default function Navbar() {
   const manufacturers = usePublishedManufacturers()
   return (
-    <Popover className="sticky top-0 z-50 bg-white shadow-md">
+    <Popover className="sticky top-0 z-50 bg-white shadow-md print:hidden">
       <div className="flex items-center justify-between max-w-6xl px-4 py-6 mx-auto sm:px-6 md:px-6 md:justify-start md:space-x-10">
         <div>
           <Link to="/" className="flex place-items-end">
             <span className="sr-only">Loop Architectural Materials</span>
-            <LoopLogo className="w-12 rounded-md" fillColor="rgb(131, 182, 104)"/>
+            <LoopLogoText
+              className="hidden h-12 rounded-md md:block"
+              fillColor="rgb(131, 182, 104)"
+            />
+            <LoopLogo
+              className="block h-12 rounded-md md:hidden"
+              fillColor="rgb(131, 182, 104)"
+            />
             {/* <span className="flex flex-col ml-2 font-medium leading-none tracking-tight text-black">
               <span className="-mb-[0.1rem] text-2xl">
                 Loop
@@ -125,14 +133,14 @@ export default function Navbar() {
             <Link
               to="/contact"
               className="inline-flex items-center justify-center p-2 text-sm uppercase text-medium-text hover:underline underline-offset-8 hover:text-dark-text focus:outline-none"
-              activeClassName='underline text-dark-text'
+              activeClassName="underline text-dark-text"
             >
               Contact
             </Link>
             <Link
               to="/about-us"
               className="inline-flex items-center justify-center p-2 text-sm uppercase text-medium-text hover:underline underline-offset-8 hover:text-dark-text focus:outline-none"
-              activeClassName='underline text-dark-text'
+              activeClassName="underline text-dark-text"
             >
               About Us
             </Link>
@@ -157,10 +165,9 @@ export default function Navbar() {
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <img
-                    className="w-auto h-10"
-                    src="/images/loop_logo.svg"
-                    alt="Loop Architectural Materials"
+                  <LoopLogo
+                    className="h-12 rounded-md"
+                    fillColor="rgb(131, 182, 104)"
                   />
                 </div>
                 <div className="-mr-2">

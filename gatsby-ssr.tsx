@@ -2,7 +2,7 @@ import React from 'react'
 
 const onRenderBody = ({ setBodyAttributes, setHtmlAttributes }) => {
   const bodyAttributes = {
-    className: 'text-base subpixel-antialiased font-light text-dark-text bg-white font-inter lg:antialiased font-feature-default'
+    className: 'text-base subpixel-antialiased font-light text-dark-text bg-white font-inter lg:antialiased font-feature-default h-full'
   }
 
   const HTMLAttributes = {

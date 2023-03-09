@@ -28,8 +28,8 @@ module.exports = {
       },
       colors: {
         "light-text": "rgb(135, 135, 135)",
-        "medium-text": "rgb(95, 95, 95)",
-        "dark-text": "rgb(61, 61, 61)",
+        "medium-text": "rgb(109, 109, 109)",
+        "dark-text": "rgb(95, 95, 95)",
         gray: {
           "50": "rgb(247, 247, 247)",
           "100": "rgb(239, 239, 239)",

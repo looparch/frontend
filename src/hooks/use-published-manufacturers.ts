@@ -21,7 +21,7 @@ const usePublishedManufacturers = () => {
             id
             imageFile {
               childImageSharp {
-                gatsbyImageData(width: 100, height: 50)
+                gatsbyImageData(width: 300, height: 300)
               }
             }
           }

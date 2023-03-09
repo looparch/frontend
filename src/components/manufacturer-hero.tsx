@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import Logos from '../components/logos'
 import ReactMarkdown from 'react-markdown'
 import { IManufacturer } from '../types'
 
 export default function ManufacturerHero(manufacturer: IManufacturer) {
+  const ManufacturerLogo = Logos[`${manufacturer.slug}`]
+
   return (
     <div>
       <div
@@ -12,22 +15,23 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
         className="grid max-w-6xl grid-cols-1 gap-6 px-2 mx-auto mb-6 md:px-6 md:grid-cols-2"
       >
         <div className="py-6">
-          <div className="w-full text-center">
-            <img
-              src={manufacturer.image_logo_dark.imageFile.publicURL}
-              alt={`${manufacturer.title} Logo`}
-              width="300"
-              height="100"
-              className='mx-auto'
-            />
+          <div className="flex items-center content-center">
+            <ManufacturerLogo className="min-w-max" />
           </div>
           <div className="w-4/5 mx-auto">
             <article className="z-10 mb-6 prose">
               <h1 className="sr-only">{manufacturer.title}</h1>
-              <ReactMarkdown className="font-serif text-lg text-medium-text">{manufacturer.description}</ReactMarkdown>
+              <ReactMarkdown className="font-serif text-lg text-medium-text">
+                {manufacturer.description}
+              </ReactMarkdown>
             </article>
             <div className="mb-8">
-              <a href={manufacturer.href} rel="noopener" target="_blank" className="underline underline-offset-8">
+              <a
+                href={manufacturer.href}
+                rel="noopener"
+                target="_blank"
+                className="underline underline-offset-8"
+              >
                 Visit {manufacturer.title}
               </a>
             </div>
