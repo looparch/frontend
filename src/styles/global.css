@@ -10,8 +10,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Petrona';
+  src: url('Petrona-VariableFont_wght.woff2') format('woff2'),
+    url('Petrona-VariableFont_wght.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer components {
   .button {
-    @apply bg-loop-600 text-white py-2 px-3 no-underline rounded-md text-base font-sans font-bold hover:bg-loop-500
+    @apply bg-loop-600 text-white py-2 px-3 no-underline rounded-md text-base font-sans font-bold hover:bg-loop-500;
   }
 }

@@ -5,7 +5,7 @@ import { IProduct } from '../types'
 
 export default function ProductCard(product: IProduct) {
   return (
-    <li>
+    <li className="group">
       <Link
         to={`/${product.manufacturer.slug}/${product.slug}`}
         className="relative block mb-2 overflow-hidden bg-gray-100 rounded-lg group h-80 lg:mb-3"
@@ -18,17 +18,14 @@ export default function ProductCard(product: IProduct) {
           className="object-cover object-center w-full h-full transition duration-200 group-hover:scale-110"
         />
         {product.is_new && (
-          <span className="bg-red-500 text-white text-sm tracking-wider uppercase rounded-br-lg absolute left-0 top-0 px-3 py-1.5">New</span>
+          <span className="bg-red-500 text-white text-sm tracking-wider uppercase rounded-br-lg absolute left-0 top-0 px-3 py-1.5">
+            New
+          </span>
         )}
       </Link>
 
-      <div>
-        <Link
-          to={`/${product.manufacturer.slug}/${product.slug}`}
-          className="mb-1 text-md lg:text-md line-clamp-1 text-medium-text"
-        >
-          {product.title}
-        </Link>
+      <div className="mb-1 transition duration-200 text-md underline-offset-4 lg:text-md line-clamp-1 text-dark-text group-hover:text-loop-600 group-hover:underline">
+        {product.title}
       </div>
     </li>
   )

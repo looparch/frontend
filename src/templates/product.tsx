@@ -72,10 +72,10 @@ const Product = ({
           )}
         </div>
         <div className="print:max-h-[40vh]">
-          <div className="min-w-full mb-6 font-serif text-lg prose">
+          <div className="mx-auto mb-6 font-serif text-lg prose">
             <ReactMarkdown>{product.description}</ReactMarkdown>
           </div>
-          <p className="mb-8">
+          <p className="mb-8 prose">
             <a
               href={product.href}
               rel="noopener"
@@ -85,19 +85,7 @@ const Product = ({
               View @{product.manufacturer.title}
             </a>
           </p>
-          <div className="mb-6">
-            {product.tags &&
-              product.tags.map((tag) => {
-                return (
-                  <div
-                    key={tag}
-                    className="inline-block p-1 mr-2 text-xs text-gray-500 border border-gray-400 rounded-sm"
-                  >
-                    {tag}
-                  </div>
-                )
-              })}
-          </div>
+          <p className="text-xs">{product.tags.join(', ')}</p>
         </div>
       </div>
     </Layout>

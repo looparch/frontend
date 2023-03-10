@@ -7,6 +7,7 @@ import usePublishedBlogPosts from '../hooks/use-published-blog-posts'
 import Layout from '../components/layout'
 import IndexCarousel from '../components/index-carousel'
 import LogoSection from '../components/logo-section'
+import ArticleSection from '../components/article-section'
 
 type ManufacturerProps = {
   id: string
@@ -31,6 +32,7 @@ const IndexPage = () => {
 
         <div className="max-w-6xl px-2 mx-auto">
           <LogoSection />
+          <ArticleSection />
           <ul>
             {manufacturers.map((manufacturer: ManufacturerProps) => {
               return (

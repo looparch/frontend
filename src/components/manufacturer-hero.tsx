@@ -12,16 +12,16 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
     <div>
       <div
         id="manufacturer-hero"
-        className="grid max-w-6xl grid-cols-1 gap-6 px-2 mx-auto mb-6 md:px-6 md:grid-cols-2"
+        className="grid max-w-6xl grid-cols-1 gap-6 px-2 mx-auto my-6 md:px-6 md:grid-cols-2"
       >
         <div className="py-6">
           <div className="flex items-center content-center">
-            <ManufacturerLogo className="min-w-max" />
+            <ManufacturerLogo className="max-w-xs mx-auto" />
           </div>
           <div className="w-4/5 mx-auto">
             <article className="z-10 mb-6 prose">
               <h1 className="sr-only">{manufacturer.title}</h1>
-              <ReactMarkdown className="font-serif text-lg text-medium-text">
+              <ReactMarkdown className="font-serif text-lg text-dark-text">
                 {manufacturer.description}
               </ReactMarkdown>
             </article>
@@ -35,8 +35,9 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
                 Visit {manufacturer.title}
               </a>
             </div>
-            <div>
-              {manufacturer.tags &&
+            <p className="text-xs">
+              {manufacturer.tags.join(', ')}
+              {/* {manufacturer.tags &&
                 manufacturer.tags.map((tag) => {
                   return (
                     <div
@@ -46,8 +47,8 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
                       {tag}
                     </div>
                   )
-                })}
-            </div>
+                })} */}
+            </p>
           </div>
         </div>
         <div className="hidden md:block">
@@ -56,7 +57,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
               manufacturer.image_hero.imageFile.childImageSharp.gatsbyImageData
             }
             alt={`${manufacturer.title} Banner`}
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full rounded-md"
           />
         </div>
         {/* <div className="w-full h-full col-span-12 col-start-1 row-start-1 -z-0 bg-gradient-to-r from-white to-transparent"></div> */}

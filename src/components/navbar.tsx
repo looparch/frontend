@@ -30,17 +30,6 @@ export default function Navbar() {
               className="block h-12 rounded-md md:hidden"
               fillColor="rgb(131, 182, 104)"
             />
-            {/* <span className="flex flex-col ml-2 font-medium leading-none tracking-tight text-black">
-              <span className="-mb-[0.1rem] text-2xl">
-                Loop
-              </span>
-              <span className="text-xs">
-                Architectural
-              </span>
-              <span className="text-xs">
-                Materials
-              </span>
-            </span> */}
           </Link>
         </div>
         <div className="-my-2 -mr-2 md:hidden">
@@ -60,8 +49,8 @@ export default function Navbar() {
                       'inline-flex items-center justify-center px-4 py-2 text-base font-medium text-black'
                     )}
                   >
-                    <span className="text-sm font-light uppercase underline-offset-8 hover:underline">
-                      Our Lines
+                    <span className="text-xs font-normal uppercase underline-offset-8 hover:underline">
+                      Manufacturers
                     </span>
                     <ChevronDownIcon
                       className={classNames(
@@ -81,22 +70,22 @@ export default function Navbar() {
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 translate-y-1"
                   >
-                    <Popover.Panel className="absolute overflow-scroll z-30 w-screen max-w-md max-h-[100vh] shadow-lg mt-3 -ml-4 transform -right-2 lg:max-w-3xl">
-                      <div className="overflow-hidden border border-solid rounded-lg ring-1 ring-black ring-opacity-5">
-                        <div className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8 lg:grid-cols-2">
+                    <Popover.Panel className="absolute overflow-scroll z-30 w-screen max-w-md max-h-[100vh] shadow-md mt-3 -ml-4 transform -right-2 lg:max-w-3xl">
+                      <div className="overflow-hidden border border-solid rounded-md ring-1 ring-black ring-opacity-5">
+                        <div className="relative grid gap-1 px-5 py-6 bg-white lg:gap-8 lg:p-8 lg:grid-cols-2">
                           {manufacturers.map((item: IManufacturer) => (
                             <Link
                               key={item.id}
                               to={`/${item.slug}`}
-                              className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
+                              className="flex items-start p-0 -m-0 rounded-lg lg:-m-3 lg:p-3 hover:bg-loop-100"
                             >
-                              <div className="flex items-center justify-center flex-shrink-0 w-20 h-10 text-white rounded-md sm:h-12 sm:w-32">
+                              <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 overflow-hidden text-white rounded-sm lg:w-32 lg:h-16">
                                 <GatsbyImage
                                   image={
                                     item.image_hero.imageFile.childImageSharp
                                       .gatsbyImageData
                                   }
-                                  alt={`${item.title} Display Image`}
+                                  alt={`${item.title} Menu Image`}
                                 />
                               </div>
                               <div className="ml-4">
@@ -132,14 +121,14 @@ export default function Navbar() {
           <div className="flex items-center space-x-10 md:ml-12">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center p-2 text-sm uppercase text-medium-text hover:underline underline-offset-8 hover:text-dark-text focus:outline-none"
+              className="inline-flex items-center justify-center p-2 text-xs font-normal uppercase text-medium-text hover:underline underline-offset-8 hover:text-dark-text focus:outline-none"
               activeClassName="underline text-dark-text"
             >
               Contact
             </Link>
             <Link
               to="/about-us"
-              className="inline-flex items-center justify-center p-2 text-sm uppercase text-medium-text hover:underline underline-offset-8 hover:text-dark-text focus:outline-none"
+              className="inline-flex items-center justify-center p-2 text-xs font-normal uppercase text-medium-text hover:underline underline-offset-8 hover:text-dark-text focus:outline-none"
               activeClassName="underline text-dark-text"
             >
               About Us

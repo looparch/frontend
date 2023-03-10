@@ -24,7 +24,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'serif': ['Playfair Display', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+        'serif': ['Petrona', 'Playfair Display', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
       },
       colors: {
         "light-text": "rgb(135, 135, 135)",
