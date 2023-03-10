@@ -27,7 +27,7 @@ export default function ArticleSection() {
         {articles.map((item: ArticleProps) => {
           return (
             <Link
-              to={`/blog-posts/${item.slug}`}
+              to={`/blogPosts/${item.slug}`}
               className="grid grid-flow-row"
             >
               <div className="relative block mb-2 overflow-hidden bg-gray-100 rounded-lg h-80 group">

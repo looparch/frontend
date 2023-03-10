@@ -20,6 +20,6 @@
 
 @layer components {
   .button {
-    @apply bg-loop-600 text-white py-2 px-3 no-underline rounded-md text-base font-sans font-bold hover:bg-loop-500;
+    @apply flex items-center justify-center px-4 py-2 text-base font-medium text-white border border-transparent rounded-md bg-loop-400 hover:bg-loop-500 focus:outline-none focus:ring-2 focus:ring-loop-500 focus:ring-offset-2 focus:ring-offset-gray-800 font-inter no-underline w-fit;
   }
 }
