@@ -27,7 +27,7 @@ const IndexPage = () => {
   const articles = usePublishedArticles()
   return (
     <Layout>
-      <div className="min-h-full">
+      <div className="w-full h-full">
         <IndexCarousel articles={blogPosts.slice(0,3)}/>
 
         <div className="max-w-6xl px-2 mx-auto">

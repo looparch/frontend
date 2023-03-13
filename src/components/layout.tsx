@@ -8,11 +8,12 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-full bg-white">
+    <>
       <Navbar />
-      <section className="min-h-full">{children}</section>
+      <section className="w-full min-h-full mx-auto">
+        {children}
+      </section>
       <Footer />
-    </div>
+    </>
   )
 }
-

@@ -1,11 +1,11 @@
 import * as React from 'react'
 
 interface SvgComponentProps {
-  fillColor: string
+  fillcolor: string
 }
 
 function SvgComponent(props: SvgComponentProps) {
-  const fillColor = props.fillColor || 'rgb(61, 61, 61)'
+  const fillColor = props.fillcolor || 'rgb(61, 61, 61)'
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 65" {...props}>

@@ -31,6 +31,7 @@ const config: GatsbyConfig = {
     // PRESERVE_FILE_DOWNLOAD_CACHE: true,
     // DETECT_NODE_MUTATIONS: true,
     // LAZY_IMAGES: true,
+    PARTIAL_HYDRATION: true
   },
   siteMetadata: {
     title: `Loop Architectural Materials`,

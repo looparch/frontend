@@ -29,6 +29,7 @@ export default function ArticleSection() {
             <Link
               to={`/blogPosts/${item.slug}`}
               className="grid grid-flow-row"
+              key={item.id}
             >
               <div className="relative block mb-2 overflow-hidden bg-gray-100 rounded-lg h-80 group">
                 <GatsbyImage

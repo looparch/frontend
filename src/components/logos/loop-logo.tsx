@@ -1,7 +1,8 @@
-import * as React from "react"
+import * as React from 'react'
 
 function LoopLogo(props: any) {
-  const fillColor = props.fillColor || "#04955f"
+  const fillColor = props.fillcolor || '#04955f'
+
   return (
     <svg
       id="Layer_1"

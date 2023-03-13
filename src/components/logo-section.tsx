@@ -29,7 +29,7 @@ export default function LogoSection() {
           const ManufacturerLogo = Logos[item.slug]
 
           return (
-            <Link to={`/${item.slug}`} className="grid grid-flow-row">
+            <Link to={`/${item.slug}`} className="grid grid-flow-row" key={item.id}>
               <div className="relative block h-32 mb-2 overflow-hidden group">
                 {/* <GatsbyImage
                   image={
@@ -38,7 +38,7 @@ export default function LogoSection() {
                   alt={`${item.title} Background Image`}
                   className="absolute object-cover object-center w-full h-full transition duration-1000 group-hover:scale-110"
                 /> */}
-                <ManufacturerLogo className="absolute z-20 w-full h-full transition group-hover:scale-110" />
+                <ManufacturerLogo className="absolute z-20 w-full h-full transition group-hover:scale-110" fillcolor="rgb(95, 95, 95)"/>
 
                 {/* <div className="absolute inset-0 z-10 opacity-70 bg-gradient-to-t from-gray-900" /> */}
               </div>
