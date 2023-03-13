@@ -24,7 +24,7 @@ export default function ArticleSection() {
     <section className="mb-6">
       <h2 className="mb-6 text-3xl font-semibold">Recent News</h2>
       <article className="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4">
-        {articles.map((item: ArticleProps) => {
+        {articles.slice(3,7).map((item: ArticleProps) => {
           return (
             <Link
               to={`/blogPosts/${item.slug}`}

@@ -4,7 +4,10 @@ import Layout from '../components/layout'
 const ContactPage = () => {
   return (
     <Layout>
-      <h1>Contact Page</h1>
+      <>
+        <div className="w-full h-24 px-2 mx-auto bg-black md:px-6" />
+        <h1>Contact Page</h1>
+      </>
     </Layout>
   )
 }

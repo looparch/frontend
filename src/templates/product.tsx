@@ -31,6 +31,7 @@ const Product = ({
   return (
     <Layout>
       <>
+        <div className="w-full h-24 px-2 mx-auto bg-black md:px-6" />
         <div className="max-w-2xl px-2 pt-6 mx-auto mb-6 leading-snug md:px-6">
           <h1 className="text-xl font-semibold">{product.title}</h1>
           {product.subtitle && <p>{product.subtitle}</p>}
