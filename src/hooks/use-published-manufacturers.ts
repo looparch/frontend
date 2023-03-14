@@ -11,12 +11,6 @@ const usePublishedManufacturers = () => {
           id
           title
           slug
-          image_logo_dark {
-            id
-            imageFile {
-              publicURL
-            }
-          }
           image_hero {
             id
             imageFile {

@@ -55,7 +55,8 @@ const config: GatsbyConfig = {
       options: {
         url: 'http://looparch.test:8055',
         auth: {
-          token: 'MLVe5QBmJl2XfvEobTHfwWyz_dqobTBw',
+          // token: 'MLVe5QBmJl2XfvEobTHfwWyz_dqobTBw',
+          token: 'uPJpLjTl2WXFI7aibuq1UkK-rsSq8LrW',
         },
         // dev: {
         //   refresh: 5000,

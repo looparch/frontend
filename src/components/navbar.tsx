@@ -27,7 +27,7 @@ export default function Navbar(props: any) {
     textFillStyle: 'rgb(95, 95, 95)',
   }
 
-  const [navbarClasses, setNavbarClasses] = React.useState(transparentClasses)
+  const [navbarClasses, setNavbarClasses] = React.useState(opaqueClasses)
   const elementRef = React.useRef()
 
   useScrollPosition(
@@ -35,7 +35,8 @@ export default function Navbar(props: any) {
       if (elementRef.current) {
         // @ts-ignore: Object is possibly 'null'.
         if (currPos.y < elementRef.current.clientHeight) {
-          setNavbarClasses(transparentClasses)
+          // setNavbarClasses(transparentClasses)
+          setNavbarClasses(opaqueClasses)
         } else {
           setNavbarClasses(opaqueClasses)
         }
@@ -51,7 +52,7 @@ export default function Navbar(props: any) {
 
   return (
     <div
-      className={`${_className} ${navbarClasses.class} group fixed top-0 transition duration-300 z-50 w-full print:hidden`}
+      className={`${_className} ${navbarClasses.class} group sticky top-0 transition duration-300 z-50 w-full print:hidden`}
       style={props.style}
     >
       <Popover>

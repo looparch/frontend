@@ -1,4 +1,5 @@
 import path from 'path'
+import fs from 'fs/promises'
 import { GatsbyNode } from "gatsby";
 
 type TypeResult = {
@@ -35,11 +36,12 @@ type TypeResult = {
 }
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createSlice } = actions
   const manufacturerTemplate = path.resolve(`src/templates/manufacturer.tsx`)
   const productTemplate = path.resolve(`src/templates/product.tsx`)
   const articleTemplate = path.resolve(`src/templates/article.tsx`)
   const blogPostTemplate = path.resolve(`src/templates/blog-post.tsx`)
+  const svgLogoTemplate = path.resolve(`src/templates/svg-logo.tsx`)
   const result = await graphql<TypeResult>(`
     query StartupQuery {
       directus {
@@ -51,6 +53,12 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
             id
             title
             slug
+          }
+          image_logo_dark {
+            id
+            imageFile {
+              publicURL
+            }
           }
         }
       }
@@ -70,6 +78,16 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
       }
     }
   `)
+
+  createSlice({
+    id: "navbar",
+    component: path.resolve("./src/components/navbar.tsx"),
+  })
+
+  createSlice({
+    id: "footer",
+    component: path.resolve("./src/components/footer.tsx"),
+  })
 
   // Create a page for each manufacturer
   result.data?.directus.Manufacturers.forEach(async (manufacturer) => {

@@ -1,6 +1,5 @@
 import React from 'react'
-import Navbar from './navbar'
-import Footer from './footer'
+import { Slice } from 'gatsby'
 
 type LayoutProps = {
   children: JSX.Element
@@ -9,11 +8,10 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <Navbar />
-      <section className="w-full min-h-full mx-auto">
-        {children}
-      </section>
-      <Footer />
+      <Slice alias="navbar" />
+      {/* <Navbar /> */}
+      <section className="w-full min-h-full mx-auto">{children}</section>
+      <Slice alias="footer" />
     </>
   )
 }

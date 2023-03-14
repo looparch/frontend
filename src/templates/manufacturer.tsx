@@ -64,18 +64,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        image_logo_dark {
-          id
-          imageFile {
-            publicURL
-          }
-        }
-        image_logo_light {
-          id
-          imageFile {
-            publicURL
-          }
-        }
         tags
         products(
           limit: -1
