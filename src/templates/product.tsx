@@ -103,7 +103,9 @@ export const Head = ({
   data: {
     directus: { product },
   },
-}: PageProps<DataProps>) => <SEO title={`${product.manufacturer.title} - ${product.title} - Loop`} />
+}: PageProps<DataProps>) => (
+  <SEO title={`${product.manufacturer.title} - ${product.title} - Loop`} />
+)
 
 export const pageQuery = graphql`
   query ProductById($id: ID!) {
