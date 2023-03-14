@@ -10,7 +10,7 @@ function SvgComponent(props: SvgComponentProps) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 65" {...props}>
       <defs>
-        <style>{`.cls-1{fill:${fillColor}}`}</style>
+        {/* <style>{`.cls-1{fill:${fillColor}}`}</style> */}
       </defs>
       <g id="_bover" data-name="#bover">
         <path

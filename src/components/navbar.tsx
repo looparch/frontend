@@ -18,7 +18,7 @@ export default function Navbar(props: any) {
   const _className = props.className || ''
   const transparentClasses = {
     class: 'bg-transparent',
-    textClass: 'text-white',
+    textClass: 'text-white font-extrabold',
     textFillStyle: 'rgb(243, 248, 241)',
   }
   const opaqueClasses = {
@@ -51,7 +51,7 @@ export default function Navbar(props: any) {
 
   return (
     <div
-      className={`${_className} ${navbarClasses.class} fixed top-0 transition duration-300 z-50 w-full print:hidden`}
+      className={`${_className} ${navbarClasses.class} group fixed top-0 transition duration-300 z-50 w-full print:hidden`}
       style={props.style}
     >
       <Popover>
@@ -78,7 +78,7 @@ export default function Navbar(props: any) {
             </Link>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
-            <Popover.Button className="inline-flex items-center justify-center p-2 bg-white rounded-md text-medium-text hover:bg-gray-100 hover:text-dark-text focus:outline-none">
+            <Popover.Button className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 hover:text-dark-text focus:outline-none`}>
               <span className="sr-only">Open menu</span>
               <Bars3Icon className="w-6 h-6" aria-hidden="true" />
             </Popover.Button>
@@ -91,7 +91,7 @@ export default function Navbar(props: any) {
                     <Popover.Button
                       className={classNames(
                         open ? 'text-dark-text' : `${navbarClasses.textClass}`,
-                        `${navbarClasses.textClass} inline-flex items-center justify-center px-4 py-2 text-base font-medium`
+                        `${navbarClasses.textClass} inline-flex items-center justify-center px-4 py-2 font-medium`
                       )}
                     >
                       <span className="text-xs uppercase underline-offset-8 hover:underline">

@@ -46,7 +46,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
 
   return (
     <div className="max-w-full mx-auto">
-      <div className="grid mx-auto mb-6 h-[36rem] md:h-[90vh]">
+      <div className="grid mx-auto mb-6 h-[90vh] md:h-[90vh]">
         {/* <Navbar style={{ gridArea: '1/1' }} /> */}
         <GatsbyImage
           image={image}
@@ -66,7 +66,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
             }}
           >
             <Fragment>
-              <h1 className="pt-24 mb-6 text-5xl font-bold leading-none md:text-6xl drop-shadow-md">
+              <h1 className="mb-6 text-5xl font-bold leading-none md:text-6xl drop-shadow-md">
                 {title}
               </h1>
 
@@ -81,7 +81,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
         </div>
 
         <div
-          className="relative z-10 opacity-50 bg-gradient-to-t from-slate-900 to-slate-700"
+          className="relative z-10 bg-[#000000] opacity-50 mix-blend-multiply"
           style={{ gridArea: '1/1' }}
         ></div>
       </div>

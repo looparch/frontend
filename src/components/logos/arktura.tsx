@@ -10,12 +10,12 @@ function SvgComponent(props: SvgComponentProps) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 65" {...props}>
       <defs>
-        <style>{`.cls-1{fill:${fillColor};fill-rule:evenodd}`}</style>
+        {/* <style>{`.cls-1{fill:${fillColor};fill-rule:evenodd}`}</style> */}
       </defs>
       <g id="_arktura" data-name="#arktura">
         <path
           id="path10"
-          className="cls-1"
+          className={`cls-1`}
           d="M23.07 32.21c-.42-4.83 3.47-12.35 3.6-12.61L14 45.4s3.24-4.44 7.12-4.88c7.88-.86 18.71 4.88 18.71 4.88C34.8 38 23.6 38.23 23.07 32.21z"
         />
         <path

@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import type { PageProps } from 'gatsby'
-import { getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
 import Layout from '../components/layout'
 import { IProduct } from '../types/IProduct'
 import Logos from '../components/logos'
 
-import ZoomedImage from '../components/zoomed-image'
+// import ZoomedImage from '../components/zoomed-image'
 
 type DataProps = {
   directus: {
@@ -32,7 +32,7 @@ const Product = ({
     <Layout>
       <>
         <div className="w-full h-24 px-2 mx-auto bg-black md:px-6" />
-        <div className="max-w-2xl px-2 pt-6 mx-auto mb-6 leading-snug md:px-6">
+        <div className="max-w-2xl px-2 pt-6 mx-auto mb-6 leading-snug md:px-0">
           <h1 className="text-xl font-semibold">{product.title}</h1>
           {product.subtitle && <p>{product.subtitle}</p>}
           <p className="">
@@ -56,7 +56,7 @@ const Product = ({
           }
         > */}
             {primaryImage && (
-              <ZoomedImage
+              <GatsbyImage
                 image={primaryImage}
                 alt={`${product.title} Primary`}
                 // className={secondaryImage ? 'aspect-square' : 'max-w-3xl'}
@@ -64,7 +64,7 @@ const Product = ({
               />
             )}
             {secondaryImage !== undefined && (
-              <ZoomedImage
+              <GatsbyImage
                 image={secondaryImage}
                 alt={`${product.title} Secondary`}
                 className="object-cover w-full h-full border border-gray-400 max-w-2xl print:h-[30vh] mb-6"
@@ -72,7 +72,7 @@ const Product = ({
             )}
             {/* </div> */}
             <div className="print:max-h-[40vh]">
-              <div className="mx-auto mb-6 font-serif text-lg prose">
+              <div className="mx-auto mb-6 font-serif text-lg prose text-black">
                 <ReactMarkdown>{product.description}</ReactMarkdown>
               </div>
               <p className="mb-8 prose">
@@ -80,7 +80,7 @@ const Product = ({
                   href={product.href}
                   rel="noopener"
                   target="_blank"
-                  className="underline underline-offset-8 hover:text-loop-600"
+                  className="button"
                 >
                   View @{product.manufacturer.title}
                 </a>

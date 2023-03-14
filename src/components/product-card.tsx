@@ -8,7 +8,7 @@ export default function ProductCard(product: IProduct) {
     <li className="group">
       <Link
         to={`/${product.manufacturer.slug}/${product.slug}`}
-        className="relative block mb-2 overflow-hidden bg-gray-100 rounded-lg group h-80 lg:mb-3"
+        className="relative block h-48 mb-2 overflow-hidden bg-gray-100 rounded-lg group md:h-80 lg:mb-3"
       >
         <GatsbyImage
           image={

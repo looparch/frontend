@@ -20,6 +20,10 @@
 
 @layer components {
   .button {
-    @apply flex items-center justify-center px-4 py-2 text-base font-medium text-white border border-transparent rounded-md bg-loop-400 hover:bg-loop-500 focus:outline-none focus:ring-2 focus:ring-loop-500 focus:ring-offset-2 focus:ring-offset-gray-800 font-inter no-underline w-fit;
+    @apply flex items-center justify-center px-4 py-2 text-sm uppercase font-semibold text-white rounded-sm bg-loop-400 hover:bg-loop-500 focus:outline-none font-inter no-underline w-fit;
+  }
+
+  .manufacturer-logo-light {
+    color: white
   }
 }

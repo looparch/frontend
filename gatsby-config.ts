@@ -27,12 +27,7 @@ try {
 }
 
 const config: GatsbyConfig = {
-  flags: {
-    // PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    // DETECT_NODE_MUTATIONS: true,
-    // LAZY_IMAGES: true,
-    PARTIAL_HYDRATION: true
-  },
+  flags: {},
   siteMetadata: {
     title: `Loop Architectural Materials`,
     siteUrl: `https://looparch.com`
@@ -42,7 +37,7 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    "gatsby-plugin-postcss",
+    'gatsby-plugin-postcss',
     // {
     //   resolve: 'gatsby-plugin-google-analytics',
     //   options: {
@@ -66,7 +61,7 @@ const config: GatsbyConfig = {
       }
     },
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
