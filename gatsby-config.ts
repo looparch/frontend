@@ -30,7 +30,9 @@ const config: GatsbyConfig = {
   flags: {},
   siteMetadata: {
     title: `Loop Architectural Materials`,
-    siteUrl: `https://looparch.com`
+    description: `Design & technical partner to the Arizona A+D community, Loop Architectural Materials represents leading brands in contract furniture, acoustics, and architectural/interior design finishes.`,
+    image: `/loop_icon.png`,
+    siteUrl: `https://looparch.com`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -81,7 +83,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        "icon": "src/images/icon.png"
+        "icon": "src/images/loop_icon.png"
       }
     },
     // "gatsby-plugin-mdx",

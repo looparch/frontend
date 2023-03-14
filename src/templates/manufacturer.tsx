@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import type { PageProps } from 'gatsby'
 import Layout from '../components/layout'
 import ProductCard from '../components/product-card'
 import ManufacturerHero from '../components/manufacturer-hero'
 import type { IManufacturer } from '../types'
+import { SEO } from '../components/seo'
 
 type DataProps = {
   data: {
@@ -38,6 +40,12 @@ const Manufacturer = ({
 }
 
 export default Manufacturer
+
+export const Head = ({
+  data: {
+    directus: { manufacturer },
+  },
+}: DataProps) => <SEO title={`${manufacturer.title} - Loop`} />
 
 export const pageQuery = graphql`
   query ManufacturerById($id: ID!) {

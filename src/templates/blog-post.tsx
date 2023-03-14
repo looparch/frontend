@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
 import BlogPostHero from '../components/blog-post-hero'
 import type { IBlogPost } from '../types'
+import { SEO } from '../components/seo'
 
 type DataProps = {
   data: {
@@ -29,6 +30,14 @@ const BlogPost = ({ data: { blogPost } }: DataProps) => {
 }
 
 export default BlogPost
+
+export const Head = ({
+  data: {
+    blogPost,
+  },
+}: DataProps) => (
+  <SEO title={`${blogPost.title} - Loop`} />
+)
 
 export const pageQuery = graphql`
   query BlogPostById($id: String!) {

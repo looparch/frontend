@@ -1,6 +1,5 @@
 import path from 'path'
 import { GatsbyNode } from "gatsby";
-import { writeFile } from "fs/promises"
 
 type TypeResult = {
   directus: {

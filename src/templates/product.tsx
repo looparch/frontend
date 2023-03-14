@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import Layout from '../components/layout'
 import { IProduct } from '../types/IProduct'
 import Logos from '../components/logos'
+import { SEO } from '../components/seo'
 
 // import ZoomedImage from '../components/zoomed-image'
 
@@ -97,6 +98,12 @@ const Product = ({
 }
 
 export default Product
+
+export const Head = ({
+  data: {
+    directus: { product },
+  },
+}: PageProps<DataProps>) => <SEO title={`${product.manufacturer.title} - ${product.title} - Loop`} />
 
 export const pageQuery = graphql`
   query ProductById($id: ID!) {

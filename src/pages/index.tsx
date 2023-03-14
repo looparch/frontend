@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import IndexCarousel from '../components/index-carousel'
 import LogoSection from '../components/logo-section'
 import ArticleSection from '../components/article-section'
+import { SEO } from '../components/seo'
 
 type ManufacturerProps = {
   id: string
@@ -28,7 +29,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <div className="w-full h-full">
-        <IndexCarousel articles={blogPosts.slice(0,3)}/>
+        <IndexCarousel articles={blogPosts.slice(0, 3)} />
 
         <div className="max-w-6xl px-2 mx-auto">
           <LogoSection />
@@ -72,4 +73,6 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => {
+  return <SEO />
+}
