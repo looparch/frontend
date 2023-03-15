@@ -17,12 +17,14 @@ function classNames(...classes: any[]) {
 export default function Navbar(props: any) {
   const _className = props.className || ''
   const transparentClasses = {
-    class: 'bg-transparent',
-    textClass: 'text-white font-extrabold',
+    wrapperClass: 'px-0 md:px-0 py-0 md:py-4',
+    navbarClass: 'px-6 py-6 md:px-12',
+    textClass: 'text-dark-text',
     textFillStyle: 'rgb(243, 248, 241)',
   }
   const opaqueClasses = {
-    class: 'bg-white shadow-md',
+    wrapperClass: 'px-0 md:px-12 py-0 md:py-4',
+    navbarClass: 'p-4 md:p-6',
     textClass: 'text-dark-text',
     textFillStyle: 'rgb(95, 95, 95)',
   }
@@ -38,7 +40,7 @@ export default function Navbar(props: any) {
           // setNavbarClasses(transparentClasses)
           setNavbarClasses(opaqueClasses)
         } else {
-          setNavbarClasses(opaqueClasses)
+          setNavbarClasses(transparentClasses)
         }
       }
     },
@@ -52,12 +54,12 @@ export default function Navbar(props: any) {
 
   return (
     <div
-      className={`${_className} ${navbarClasses.class} group sticky top-0 transition duration-300 z-50 w-full print:hidden`}
+      className={`${_className} ${navbarClasses.wrapperClass} group sticky top-0 transition-all duration-300 z-50 max-w-7xl print:hidden mx-auto w-7xl`}
       style={props.style}
     >
       <Popover>
         <div
-          className="flex items-center justify-between max-w-6xl px-4 py-6 mx-auto sm:px-6 md:px-6 md:justify-start md:space-x-10"
+          className={`${navbarClasses.navbarClass} flex items-center justify-between transition-all duration-300 mx-auto bg-white max-w-7xl md:justify-start md:space-x-10`}
           ref={elementRef as any}
         >
           <div>
@@ -79,7 +81,7 @@ export default function Navbar(props: any) {
             </Link>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
-            <Popover.Button className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 hover:text-dark-text focus:outline-none`}>
+            <Popover.Button className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 hover:text-dark-text `}>
               <span className="sr-only">Open menu</span>
               <Bars3Icon className="w-6 h-6" aria-hidden="true" />
             </Popover.Button>
@@ -169,14 +171,14 @@ export default function Navbar(props: any) {
             <div className="flex items-center space-x-10 md:ml-12">
               <Link
                 to="/contact"
-                className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 text-xs font-normal uppercase hover:underline underline-offset-8 hover:${navbarClasses.textClass} focus:outline-none`}
+                className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 text-xs font-normal uppercase hover:underline underline-offset-8 hover:${navbarClasses.textClass} `}
                 activeClassName="underline"
               >
                 Contact
               </Link>
               <Link
                 to="/about-us"
-                className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 text-xs font-normal uppercase hover:underline underline-offset-8 hover:${navbarClasses.textClass} focus:outline-none`}
+                className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 text-xs font-normal uppercase hover:underline underline-offset-8 hover:${navbarClasses.textClass} `}
                 activeClassName="underline"
               >
                 About Us
@@ -208,7 +210,7 @@ export default function Navbar(props: any) {
                     />
                   </div>
                   <div className="-mr-2">
-                    <Popover.Button className="inline-flex items-center justify-center p-2 bg-white rounded-md text-medium-text hover:bg-gray-100 hover:text-dark-text focus:outline-none">
+                    <Popover.Button className="inline-flex items-center justify-center p-2 bg-white rounded-md text-medium-text hover:bg-gray-100 hover:text-dark-text ">
                       <span className="sr-only">Close menu</span>
                       <XMarkIcon className="w-6 h-6" aria-hidden="true" />
                     </Popover.Button>
