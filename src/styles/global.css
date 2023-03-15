@@ -26,4 +26,8 @@
   .manufacturer-logo-light {
     color: white
   }
+
+  .home-section {
+    @apply p-24 mb-6 bg-loop-100
+  }
 }

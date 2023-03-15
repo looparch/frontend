@@ -45,8 +45,8 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
   const { image, title, description, link } = params
 
   return (
-    <div className="max-w-full mx-auto">
-      <div className="grid mx-auto mb-6 h-[90vh] md:h-[90vh] p-6">
+    <div className="max-w-full mx-auto h-[90vh] md:h-[80vh] mb-6">
+      <div className="grid object-cover w-full h-full px-2 mx-auto max-w-7xl">
         {/* <Navbar style={{ gridArea: '1/1' }} /> */}
         <GatsbyImage
           image={image}

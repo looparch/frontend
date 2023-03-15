@@ -16,13 +16,13 @@ function classNames(...classes: any[]) {
 
 export default function Navbar(props: any) {
   const _className = props.className || ''
-  const transparentClasses = {
+  const opaqueClasses = {
     wrapperClass: 'px-0 md:px-0 py-0 md:py-4',
     navbarClass: 'px-6 py-6 md:px-12',
     textClass: 'text-dark-text',
-    textFillStyle: 'rgb(243, 248, 241)',
+    textFillStyle: 'rgb(95, 95, 95)',
   }
-  const opaqueClasses = {
+  const transparentClasses = {
     wrapperClass: 'px-0 md:px-12 py-0 md:py-4',
     navbarClass: 'p-4 md:p-6',
     textClass: 'text-dark-text',
@@ -81,7 +81,9 @@ export default function Navbar(props: any) {
             </Link>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
-            <Popover.Button className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 hover:text-dark-text `}>
+            <Popover.Button
+              className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 hover:text-dark-text `}
+            >
               <span className="sr-only">Open menu</span>
               <Bars3Icon className="w-6 h-6" aria-hidden="true" />
             </Popover.Button>
@@ -94,10 +96,10 @@ export default function Navbar(props: any) {
                     <Popover.Button
                       className={classNames(
                         open ? 'text-dark-text' : `${navbarClasses.textClass}`,
-                        `${navbarClasses.textClass} inline-flex items-center justify-center px-4 py-2 font-medium`
+                        `${navbarClasses.textClass} inline-flex items-center justify-center px-4 py-2 font-medium focus:outline-none`
                       )}
                     >
-                      <span className="text-xs uppercase underline-offset-8 hover:underline">
+                      <span className="text-xs uppercase underline-offset-8 hover:underline focus:outline-none">
                         Manufacturers
                       </span>
                       <ChevronDownIcon

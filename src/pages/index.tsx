@@ -31,7 +31,7 @@ const IndexPage = () => {
       <div className="w-full h-full">
         <IndexCarousel articles={blogPosts.slice(0, 3)} />
 
-        <div className="max-w-6xl px-2 mx-auto">
+        <div className="px-2 mx-auto max-w-7xl">
           <LogoSection />
           <ArticleSection />
           <ul>

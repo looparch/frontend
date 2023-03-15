@@ -123,13 +123,13 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   })
 
   // Create a page for each article
-  result.data?.articles.nodes.forEach(async (article) => {
-    createPage({
-      path: `/articles/${article.slug}`,
-      component: articleTemplate,
-      context: {
-        id: article.id
-      }
-    })
-  })
+  // result.data?.articles.nodes.forEach(async (article) => {
+  //   createPage({
+  //     path: `/articles/${article.slug}`,
+  //     component: articleTemplate,
+  //     context: {
+  //       id: article.id
+  //     }
+  //   })
+  // })
 }

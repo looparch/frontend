@@ -21,10 +21,10 @@ type ArticleProps = {
 export default function ArticleSection() {
   const articles = usePublishedArticles()
   return (
-    <section className="mb-6">
-      <h2 className="mb-6 text-3xl font-semibold">Recent News</h2>
+    <section className="home-section">
+      <h2 className="mb-6 text-3xl font-semibold">Recent Articles</h2>
       <article className="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4">
-        {articles.slice(3,7).map((item: ArticleProps) => {
+        {articles.slice(3, 7).map((item: ArticleProps) => {
           return (
             <Link
               to={`/blogPosts/${item.slug}`}
@@ -37,9 +37,9 @@ export default function ArticleSection() {
                   alt={`${item.title} Background Image`}
                   className="absolute object-cover object-center w-full h-full transition duration-1000 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 z-10 opacity-70 bg-gradient-to-t from-gray-900" />
-                <div className="absolute z-20 flex items-center justify-center w-full h-full text-xl font-bold leading-[1] text-white text-center">
-                  {item.title}
+                <div className="absolute inset-0 z-10 opacity-70 bg-gradient-to-t from-[#000000]" />
+                <div className="absolute flex z-20 mx-auto items-center justify-center h-full w-full text-xl font-bold leading-[1] text-white text-center">
+                  <span className="p-9">{item.title}</span>
                 </div>
               </div>
               <div
