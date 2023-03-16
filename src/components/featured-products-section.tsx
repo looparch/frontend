@@ -26,9 +26,9 @@ type FeaturedProductProps = {
 export default function FeaturedProductsSection() {
   const products = useFeaturedProducts()
   return (
-    <section className="home-section">
-      <h2 className="mb-6 text-3xl font-semibold text-center">Featured Products</h2>
-      <article className="grid grid-cols-1 gap-2 md:grid-cols-4 md:gap-4">
+    <section className="bg-blue-50 home-section">
+      <h2 className="mb-6 text-3xl font-bold text-blue-900">Featured Products</h2>
+      <article className="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4">
         {products.map((item: FeaturedProductProps) => {
           return (
             <Link

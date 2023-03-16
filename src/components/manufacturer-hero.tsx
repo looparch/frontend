@@ -42,7 +42,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
         </div>
       </div> */}
       <div className="max-w-7xl mx-auto h-[50vh] md:h-[50vh]">
-        <div className="grid w-full h-full px-2 mx-auto md:px-4 ">
+        <div className="grid w-full h-full px-2 mx-auto md:px-0 ">
           <GatsbyImage
             image={image_hero.imageFile.childImageSharp.gatsbyImageData}
             alt={`${title} Banner`}
@@ -62,7 +62,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
           ></div>
         </div>
       </div>
-      <div className="p-2 mx-auto md:p-6 md:pb-0 max-w-7xl">
+      <div className="p-2 mx-auto md:p-8 md:pb-0 max-w-7xl">
         <ReactMarkdown className="mb-6 font-light leading-tight prose max-w-7xl">
           {description}
         </ReactMarkdown>

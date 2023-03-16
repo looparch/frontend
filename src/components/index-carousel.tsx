@@ -31,7 +31,6 @@ export default function IndexCarousel({ articles }: DataProps) {
         // @ts-ignore:next-line
         '--swiper-navigation-color': '#ffffff',
       }}
-      className="max-w-7xl w-6xl"
     >
       {articles.map((article, index) => {
         return (

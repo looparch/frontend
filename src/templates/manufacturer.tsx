@@ -24,10 +24,10 @@ const Manufacturer = ({
     <Layout>
       <div className="bg-white">
         <ManufacturerHero {...manufacturer} />
-        <div className="mx-auto w-6xl max-w-7xl">
+        <div className="px-2 mx-auto max-w-8xl md:px-0">
           <ul
             role="list"
-            className="grid grid-cols-2 gap-2 p-2 md:p-6 md:gap-6 md:grid-cols-3 lg:grid-cols-4 lg:gap-6"
+            className="grid grid-cols-2 gap-2 p-2 md:p-8 md:gap-6 md:grid-cols-3 lg:grid-cols-4 lg:gap-6"
           >
             {manufacturer.products.map((product) => {
               return <ProductCard {...product} key={product.id} />

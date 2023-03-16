@@ -18,13 +18,13 @@ export default function Navbar(props: any) {
   const _className = props.className || ''
   const opaqueClasses = {
     wrapperClass: 'px-0 md:px-0',
-    navbarClass: 'px-6 py-6 md:px-12',
+    navbarClass: 'px-6 py-6 md:px-12 bg-white',
     textClass: 'text-dark-text',
     textFillStyle: 'rgb(95, 95, 95)',
   }
   const transparentClasses = {
-    wrapperClass: 'px-0 md:px-12 py-0 md:py-4',
-    navbarClass: 'p-4 md:p-6 shadow-sm',
+    wrapperClass: 'px-0 md:px-6 py-0 md:py-4',
+    navbarClass: 'p-4 md:p-6 shadow-md bg-pure-white',
     textClass: 'text-dark-text',
     textFillStyle: 'rgb(95, 95, 95)',
   }
@@ -54,12 +54,12 @@ export default function Navbar(props: any) {
 
   return (
     <div
-      className={`${_className} ${navbarClasses.wrapperClass} group sticky top-0 transition-all duration-300 z-50 max-w-7xl print:hidden mx-auto w-7xl`}
+      className={`${_className} ${navbarClasses.wrapperClass} group sticky top-0 transition-all duration-300 z-50 max-w-8xl print:hidden mx-auto w-full`}
       style={props.style}
     >
       <Popover>
         <div
-          className={`${navbarClasses.navbarClass} flex items-center justify-between transition-all duration-300 mx-auto bg-white max-w-7xl md:justify-start md:space-x-10`}
+          className={`${navbarClasses.navbarClass} flex items-center justify-between transition-all duration-300 mx-auto bg-pure-white max-w-8xl md:justify-start md:space-x-10`}
           ref={elementRef as any}
         >
           <div>
@@ -121,12 +121,12 @@ export default function Navbar(props: any) {
                     >
                       <Popover.Panel className="absolute overflow-scroll z-30 w-screen max-w-md max-h-[100vh] shadow-md mt-3 -ml-4 transform -right-2 lg:max-w-3xl">
                         <div className="overflow-hidden border border-solid rounded-md ring-1 ring-black ring-opacity-5">
-                          <div className="relative grid gap-1 px-5 py-6 bg-white lg:gap-8 lg:p-8 lg:grid-cols-2">
+                          <div className="relative grid gap-1 px-5 py-6 bg-pure-white md:gap-6 md:p-6 md:grid-cols-2">
                             {manufacturers.map((item: IManufacturer) => (
                               <Link
                                 key={item.id}
                                 to={`/${item.slug}`}
-                                className="flex items-start p-0 -m-0 rounded-lg lg:-m-3 lg:p-3 hover:bg-loop-100"
+                                className="flex items-center p-0 -m-0 rounded-md md:-m-3 md:p-3 hover:bg-loop-50"
                               >
                                 <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 overflow-hidden text-white rounded-sm lg:w-32 lg:h-16">
                                   <GatsbyImage
@@ -138,7 +138,7 @@ export default function Navbar(props: any) {
                                   />
                                 </div>
                                 <div className="ml-4">
-                                  <p className="text-base font-medium text-dark-text">
+                                  <p className="text-base font-semibold text-black">
                                     {item.title}
                                   </p>
                                   {item.tags && (

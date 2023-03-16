@@ -2,32 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face {
-  font-family: 'Playfair Display';
-  src: url('playfairdisplay-variablefont_wght-webfont.woff2') format('woff2'),
-    url('playfairdisplay-variablefont_wght-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Petrona';
-  src: url('Petrona-VariableFont_wght.woff2') format('woff2'),
-    url('Petrona-VariableFont_wght.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-} */
-
 @layer components {
   .button {
-    @apply flex items-center justify-center px-4 py-2 text-sm uppercase font-semibold text-white rounded-sm bg-loop-400 hover:bg-loop-500 focus:outline-none font-inter no-underline w-fit;
-  }
-
-  .manufacturer-logo-light {
-    color: white
+    @apply flex items-center justify-center px-4 py-2 text-sm uppercase font-semibold text-white hover:text-white rounded-sm bg-loop-400 hover:bg-loop-500 focus:outline-none font-inter no-underline w-fit;
   }
 
   .home-section {
-    @apply p-12 bg-loop-100 md:p-24
+    @apply p-12 md:p-24
   }
 }

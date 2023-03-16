@@ -1,7 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
-console.log(Tokens)
-
 module.exports = {
   content: [
     "./src/pages/**/*.{js,jsx,ts,tsx}",
@@ -25,6 +22,22 @@ module.exports = {
       '5xl': '4rem'
     },
     extend: {
+      maxWidth: {
+        '8xl': '1680px',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: 'rgb(95, 95, 95)',
+            a: {
+              color: 'rgb(98, 148, 72)',
+              '&:hover': {
+                color: 'rgb(131, 182, 104)',
+              },
+            },
+          },
+        },
+      },
       fontFamily: {
         'serif': ['Petrona', 'Playfair Display', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
       },

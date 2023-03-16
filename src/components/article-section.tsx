@@ -21,8 +21,8 @@ type ArticleProps = {
 export default function ArticleSection() {
   const articles = usePublishedArticles()
   return (
-    <section className="home-section">
-      <h2 className="mb-6 text-3xl font-semibold text-center">Recent Articles</h2>
+    <section className="bg-yellow-50 home-section">
+      <h2 className="mb-6 text-3xl font-bold text-yellow-900">Recent Articles</h2>
       <article className="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4">
         {articles.slice(3, 7).map((item: ArticleProps) => {
           return (

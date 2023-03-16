@@ -9,7 +9,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Slice alias="navbar" />
-      <section className="w-full min-h-full px-3 mx-auto bg-transparent max-w-7xl">{children}</section>
+      <section className="w-full min-h-full mx-auto bg-white max-w-8xl">{children}</section>
       <Slice alias="footer" />
     </>
   )
