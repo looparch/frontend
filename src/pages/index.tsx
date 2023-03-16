@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import IndexCarousel from '../components/index-carousel'
 import LogoSection from '../components/logo-section'
 import ArticleSection from '../components/article-section'
+import FeaturedProductsSection from '../components/featured-products-section'
 import { SEO } from '../components/seo'
 
 type ManufacturerProps = {
@@ -32,6 +33,7 @@ const IndexPage = () => {
         <IndexCarousel articles={blogPosts.slice(0, 3)} />
 
         <div className="px-2 mx-auto max-w-7xl">
+          <FeaturedProductsSection />
           <LogoSection />
           <ArticleSection />
           <ul>

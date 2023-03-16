@@ -5,7 +5,7 @@ import type { IManufacturer } from '../types'
 import Logos from './logos'
 
 export default function ManufacturerHero(manufacturer: IManufacturer) {
-  const { title, description, image_hero } = manufacturer
+  const { title, description, image_hero, href } = manufacturer
   const ManufacturerLogo = Logos[manufacturer.slug]
 
   return (
@@ -41,32 +41,37 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
           </div>
         </div>
       </div> */}
-      <div className="max-w-full mx-auto h-[90vh] md:h-[80vh] mb-6">
-        <div className="grid object-cover w-full h-full px-2 mx-auto max-w-7xl">
-          {/* <Navbar style={{ gridArea: '1/1' }} /> */}
+      <div className="max-w-7xl mx-auto h-[50vh] md:h-[50vh]">
+        <div className="grid w-full h-full px-2 mx-auto md:px-4 ">
           <GatsbyImage
             image={image_hero.imageFile.childImageSharp.gatsbyImageData}
             alt={`${title} Banner`}
             className="object-cover"
             style={{ gridArea: '1/1' }}
           />
-          
           <div
-            className="relative z-20 grid content-center h-full max-w-4xl p-6 mx-auto text-center text-white align-items-center md:p-0"
+            className="z-20 grid items-center content-center justify-center w-full h-full p-6 mx-auto md:p-0"
             style={{ gridArea: '1/1' }}
           >
-            {/* <p>Blars tacoman</p> */}
-            <ManufacturerLogo className="pt-12 fill-white md:fill-white" />
+            <ManufacturerLogo className="absolute w-3/4 md:w-1/3 place-self-center fill-white md:fill-white" />
           </div>
 
           <div
-            className="relative z-10 bg-[#000000] opacity-50 mix-blend-multiply"
+            className="z-10 bg-[#000000] opacity-30 mix-blend-multiply"
             style={{ gridArea: '1/1' }}
           ></div>
         </div>
-        <ReactMarkdown className="text-2xl font-light leading-tight md:text-4xl drop-shadow-md">
+      </div>
+      <div className="p-2 mx-auto md:p-6 md:pb-0 max-w-7xl">
+        <ReactMarkdown className="mb-6 font-light leading-tight prose max-w-7xl">
           {description}
         </ReactMarkdown>
+        <div>
+          <a href={href} rel="noopener" target="_blank" className="button">
+            <span className="sr-only">Click here to </span>Visit {title}
+            <span className="sr-only">'s website</span>
+          </a>
+        </div>
       </div>
     </>
   )

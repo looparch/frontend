@@ -32,8 +32,7 @@ const Product = ({
   return (
     <Layout>
       <>
-        <div className="w-full h-24 px-2 mx-auto bg-black md:px-6" />
-        <div className="max-w-2xl px-2 pt-6 mx-auto mb-6 leading-snug md:px-0">
+        <div className="max-w-2xl px-2 py-6 mx-auto leading-snug md:px-0">
           <h1 className="text-xl font-semibold">{product.title}</h1>
           {product.subtitle && <p>{product.subtitle}</p>}
           <p className="">
@@ -45,7 +44,7 @@ const Product = ({
             by <strong>{designer}</strong>
           </p>
         </div>
-        <div className="px-2 md:px-6" id="wrap">
+        <div className="px-2 md:px-6 md:pb-6" id="wrap">
           <div className="mx-auto mb-20 min-h-full md:min-h-[75vh] prose max-w-2xl">
             {/* <ManufacturerLogo className="w-64 max-w-xs" /> */}
 
@@ -73,22 +72,22 @@ const Product = ({
             )}
             {/* </div> */}
             <div className="print:max-h-[40vh]">
-              <div className="mx-auto mb-6 font-serif text-lg prose text-black">
+              <div className="mx-auto mb-6 prose text-black text-md">
                 <ReactMarkdown>{product.description}</ReactMarkdown>
+                <p className="mb-8 prose">
+                  <a
+                    href={product.href}
+                    rel="noopener"
+                    target="_blank"
+                    className="button"
+                  >
+                    View @{product.manufacturer.title}
+                  </a>
+                </p>
+                {product.tags && (
+                  <p className="text-xs">{product.tags.join(', ')}</p>
+                )}
               </div>
-              <p className="mb-8 prose">
-                <a
-                  href={product.href}
-                  rel="noopener"
-                  target="_blank"
-                  className="button"
-                >
-                  View @{product.manufacturer.title}
-                </a>
-              </p>
-              {product.tags && (
-                <p className="text-xs">{product.tags.join(', ')}</p>
-              )}
             </div>
           </div>
         </div>

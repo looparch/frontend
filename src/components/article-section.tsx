@@ -1,6 +1,6 @@
 import * as React from 'react'
 import usePublishedArticles from '../hooks/use-published-blog-posts'
-import Logos from '../components/logos'
+import Logos from './logos'
 import { IGatsbyImageData, GatsbyImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 
@@ -22,7 +22,7 @@ export default function ArticleSection() {
   const articles = usePublishedArticles()
   return (
     <section className="home-section">
-      <h2 className="mb-6 text-3xl font-semibold">Recent Articles</h2>
+      <h2 className="mb-6 text-3xl font-semibold text-center">Recent Articles</h2>
       <article className="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4">
         {articles.slice(3, 7).map((item: ArticleProps) => {
           return (
@@ -43,7 +43,7 @@ export default function ArticleSection() {
                 </div>
               </div>
               <div
-                className="mb-1 transition duration-200 text-md underline-offset-4 lg:text-md line-clamp-1 text-dark-text group-hover:text-loop-600 group-hover:underline"
+                className="mb-1 transition duration-200 text-md underline-offset-4 lg:text-md line-clamp-2 text-dark-text group-hover:text-loop-600 group-hover:underline"
                 dangerouslySetInnerHTML={{
                   __html: item.description.childMarkdownRemark.html,
                 }}

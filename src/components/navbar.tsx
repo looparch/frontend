@@ -17,14 +17,14 @@ function classNames(...classes: any[]) {
 export default function Navbar(props: any) {
   const _className = props.className || ''
   const opaqueClasses = {
-    wrapperClass: 'px-0 md:px-0 py-0 md:py-4',
+    wrapperClass: 'px-0 md:px-0',
     navbarClass: 'px-6 py-6 md:px-12',
     textClass: 'text-dark-text',
     textFillStyle: 'rgb(95, 95, 95)',
   }
   const transparentClasses = {
     wrapperClass: 'px-0 md:px-12 py-0 md:py-4',
-    navbarClass: 'p-4 md:p-6',
+    navbarClass: 'p-4 md:p-6 shadow-sm',
     textClass: 'text-dark-text',
     textFillStyle: 'rgb(95, 95, 95)',
   }
@@ -75,9 +75,6 @@ export default function Navbar(props: any) {
                 fillcolor="rgb(131, 182, 104)"
                 textcolor="rgb(255, 255, 255)"
               />
-              {/* <p>
-                {JSON.stringify(navbarClasses)} {++rendersCount.current}
-              </p> */}
             </Link>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
