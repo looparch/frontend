@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+console.log(Tokens)
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,jsx,ts,tsx}",
@@ -11,16 +14,15 @@ module.exports = {
       numeric: ['tnum', 'salt', 'ss02']
     },
     fontSize: {
-      xs: '0.75rem',
-      sm: '0.875rem',
-      base: '1rem',
-      lg: '1.125rem',
-      xl: '36px',
-      '2xl': '1.5rem',
-      '3xl': '1.875rem',
-      '4xl': '2.25rem',
-      '5xl': '3rem',
-      '6xl': '4rem'
+      'xs': '0.75rem',
+      'sm': '0.875rem',
+      'base': '1rem',
+      'lg': '1.125rem',
+      'xl': '1.5rem',
+      '2xl': '1.875rem',
+      '3xl': '2.25rem',
+      '4xl': '3rem',
+      '5xl': '4rem'
     },
     extend: {
       fontFamily: {
@@ -30,7 +32,7 @@ module.exports = {
         "light-text": "rgb(135, 135, 135)",
         "medium-text": "rgb(109, 109, 109)",
         "dark-text": "rgb(95, 95, 95)",
-        gray: {
+        'gray': {
           "50": "rgb(247, 247, 247)",
           "100": "rgb(239, 239, 239)",
           "200": "rgb(223, 223, 223)",
@@ -42,7 +44,7 @@ module.exports = {
           "800": "rgb(74, 74, 74)",
           "900": "rgb(61, 61, 61)"
         },
-        loop: {
+        'loop': {
           "50": "rgb(243, 248, 241)",
           "100": "rgb(233, 242, 228)",
           "200": "rgb(211, 229, 201)",
@@ -54,8 +56,9 @@ module.exports = {
           "800": "rgb(54, 82, 40)",
           "900": "rgb(45, 67, 32)"
         },
-        white: 'rgb(243, 248, 241)',
-        black: 'rgb(95, 95, 95)',
+        'white': 'rgb(243, 248, 241)',
+        'black': 'rgb(95, 95, 95)',
+        'pure-white': 'rgb(255, 255, 255)',
       }
     },
   },
