@@ -58,9 +58,6 @@ const config: GatsbyConfig = {
           // token: 'MLVe5QBmJl2XfvEobTHfwWyz_dqobTBw',
           token: 'uPJpLjTl2WXFI7aibuq1UkK-rsSq8LrW',
         },
-        // dev: {
-        //   refresh: 5000,
-        // }
       }
     },
     {
@@ -105,6 +102,112 @@ const config: GatsbyConfig = {
       },
       __key: "pages"
     },
+    {
+      resolve: 'gatsby-plugin-meilisearch',
+      options: {
+        host: process.env.MEILISEARCH_HOST,
+        apiKey: process.env.MEILISEARCH_KEY,
+        indexes: [
+          {
+            indexUid: 'pages_url',
+            transformer: (data: any) =>
+              data.allSitePage.nodes.map((node: any, index: any) => ({
+                id: index,
+                ...node,
+              })),
+              query: `
+                query AllPagesQuery {
+                  allSitePage {
+                    nodes {
+                      path
+                    }
+                  }
+                }
+              `
+          },
+          {
+            indexUid: 'all_products',
+            transformer: (data: any) =>
+              data.directus.products.map((product: any) => ({
+                id: product.id,
+                title: product.title,
+                designer: product.designer,
+                description: product.description,
+                slug: `/${product.manufacturer.slug}/${product.slug}`,
+                manufacturer: product.manufacturer.title,
+                tags: product.tags,
+              })),
+              query: `
+                query IndexedProductsQuery {
+                  directus {
+                    products: Products(
+                      filter: {status: {_eq: "published"}}
+                      sort: "title"
+                      limit: -1
+                    ) {
+                      id
+                      title
+                      designer
+                      description
+                      slug
+                      tags
+                      manufacturer {
+                        title
+                        slug
+                      }
+                    }
+                  }
+                }
+              `
+          }
+        ]
+      },
+    },
+    // {
+    //   resolve: 'gatsby-plugin-local-search',
+    //   options: {
+    //     name: 'products',
+    //     engine: 'flexsearch',
+    //     engineOptions: {
+    //       preset: "match",
+    //       tokenize: "reverse",
+    //       resolution: 15,
+    //       encode: "balance",
+    //     },
+    //     query: `
+    //       {
+    //         directus {
+    //           Products(filter: {status: {_eq: "published"}}, limit: -1) {
+    //             id
+    //             title
+    //             subtitle
+    //             designer
+    //             description
+    //             slug
+    //             tags
+    //             manufacturer {
+    //               title
+    //               slug
+    //             }
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     ref: 'id',
+    //     index: ['title', 'manufacturer_title'],
+    //     store: ['id', 'title', 'slug', 'manufacturer_title'],
+    //     normalizer: ({ data }: any) =>
+    //       data.directus.Products.map((product: any) => ({
+    //         id: product.id,
+    //         title: product.title,
+    //         slug: `/${product.manufacturer.slug}/${product.slug}`,
+    //         designer: product.designer,
+    //         description: product.description,
+    //         tags: product.tags,
+    //         manufacturer_title: product.manufacturer.title,
+    //       })),
+    //   }
+    // }
   ]
 };
 

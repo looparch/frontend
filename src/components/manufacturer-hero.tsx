@@ -10,39 +10,8 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
 
   return (
     <>
-      {/* <div className="max-w-full mx-auto h-[90vh] md:h-[80vh] mb-6">
-        <div className="grid grid-cols-2 grid-rows-1 mx-auto mb-6 h-[50vh] md:h-[50vh]">
-          <div className="z-20 h-full col-span-2 col-start-1 row-span-1 row-start-1 bg-[#000000] opacity-50 mix-blend-multiply rounded-lg" />
-          <GatsbyImage
-            image={image_hero.imageFile.childImageSharp.gatsbyImageData}
-            alt={`${title} Background Image`}
-            className="z-10 col-span-2 col-start-1 row-span-1 row-start-1"
-          />
-          <div className="z-20 flex content-center justify-center col-span-2 col-start-1 row-span-1 row-start-1">
-            <ManufacturerLogo className="max-w-md pt-12 fill-white md:fill-white" />
-
-            <div className="grid h-full max-w-lg grid-cols-1">
-              <div className="flex flex-wrap items-start content-center justify-center">
-                <a
-                  className="button"
-                  href={manufacturer.href}
-                  target="_blank"
-                  rel="no-opener"
-                >
-                  Visit {title}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="z-20 px-2 mx-auto w-6xl max-w-7xl md:px-6">
-          <div className="text-base font-light leading-tight prose text-black font-inter max-w-none md:text-black underline-offset-4 md:text-base">
-            <ReactMarkdown>{description}</ReactMarkdown>
-          </div>
-        </div>
-      </div> */}
-      <div className="max-w-7xl mx-auto h-[50vh] md:h-[50vh]">
-        <div className="grid w-full h-full px-2 mx-auto md:px-0 ">
+      <div className="w-full h-[50vh] md:h-[50vh]">
+        <div className="grid w-full h-full mx-auto md:px-0 ">
           <GatsbyImage
             image={image_hero.imageFile.childImageSharp.gatsbyImageData}
             alt={`${title} Banner`}
@@ -53,16 +22,16 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
             className="z-20 grid items-center content-center justify-center w-full h-full p-6 mx-auto md:p-0"
             style={{ gridArea: '1/1' }}
           >
-            <ManufacturerLogo className="absolute w-3/4 md:w-1/3 place-self-center fill-white md:fill-white" />
+            <ManufacturerLogo className="absolute w-3/4 md:w-1/2 2xl:w-1/5 place-self-center fill-white md:fill-white" />
           </div>
 
           <div
-            className="z-10 bg-[#000000] opacity-30 mix-blend-multiply"
+            className="z-10 bg-[#000000] opacity-50 mix-blend-multiply"
             style={{ gridArea: '1/1' }}
           ></div>
         </div>
       </div>
-      <div className="p-2 mx-auto md:p-8 md:pb-0 max-w-7xl">
+      {/* <div className="p-2 mx-auto md:p-8 md:pb-0 max-w-7xl">
         <ReactMarkdown className="mb-6 font-light leading-tight prose max-w-7xl">
           {description}
         </ReactMarkdown>
@@ -72,7 +41,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
             <span className="sr-only">'s website</span>
           </a>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }

@@ -6,6 +6,7 @@ import ProductCard from '../components/product-card'
 import ManufacturerHero from '../components/manufacturer-hero'
 import type { IManufacturer } from '../types'
 import { SEO } from '../components/seo'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 
 type DataProps = {
   data: {
@@ -29,6 +30,22 @@ const Manufacturer = ({
             role="list"
             className="grid grid-cols-2 gap-2 p-2 md:p-8 md:gap-6 md:grid-cols-3 lg:grid-cols-4 lg:gap-6"
           >
+            <li className="flex flex-col justify-center col-span-2 p-6 rounded-lg">
+              <div className="mb-6 text-base leading-tight prose transition">
+                <ReactMarkdown>{manufacturer.description}</ReactMarkdown>
+              </div>
+              <div>
+                <a
+                  href={manufacturer.href}
+                  rel="noopener"
+                  target="_blank"
+                  className="button"
+                >
+                  <span className="sr-only">Click here to </span>Visit {manufacturer.title}
+                  <span className="sr-only">'s website</span>
+                </a>
+              </div>
+            </li>
             {manufacturer.products.map((product) => {
               return <ProductCard {...product} key={product.id} />
             })}

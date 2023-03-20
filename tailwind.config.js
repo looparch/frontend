@@ -80,5 +80,6 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),
     require('tailwindcss-font-inter'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 }

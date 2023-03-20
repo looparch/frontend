@@ -37,7 +37,6 @@ export default function Navbar(props: any) {
       if (elementRef.current) {
         // @ts-ignore: Object is possibly 'null'.
         if (currPos.y < elementRef.current.clientHeight) {
-          // setNavbarClasses(transparentClasses)
           setNavbarClasses(opaqueClasses)
         } else {
           setNavbarClasses(transparentClasses)

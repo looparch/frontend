@@ -2,12 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer components {
   .button {
-    @apply flex items-center justify-center px-4 py-2 text-sm uppercase font-semibold text-white hover:text-white rounded-sm bg-loop-400 hover:bg-loop-500 focus:outline-none font-inter no-underline w-fit;
+    @apply flex items-center justify-center w-fit px-4 py-2 text-base font-medium text-white border border-transparent rounded-md bg-loop-400 hover:bg-loop-500 focus:outline-none focus:ring-2 focus:ring-loop-500 focus:ring-offset-2 focus:ring-offset-gray-800;
   }
 
   .home-section {
-    @apply p-12 md:p-24
+    @apply p-12 md:p-24;
   }
 }
+
+
+div.ais-Panel-body {
+  @apply grid grid-rows-2;
+}
+
+ul.ais-RefinementList-list {
+  @apply grid grid-cols-4 text-light-text;
+}
+
+em.ais-Highlight-highlighted {
+  @apply bg-yellow-200
+}
+
