@@ -89,10 +89,10 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     component: path.resolve("./src/components/footer.tsx"),
   })
 
-  // createSlice({
-  //   id: "search",
-  //   component: path.resolve("./src/components/search.tsx"),
-  // })
+  createSlice({
+    id: "search",
+    component: path.resolve("./src/components/meilisearch.tsx"),
+  })
 
   // Create a page for each manufacturer
   result.data?.directus.Manufacturers.forEach(async (manufacturer) => {

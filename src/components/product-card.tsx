@@ -8,7 +8,7 @@ export default function ProductCard(product: IProduct) {
     <li className="group">
       <Link
         to={`/${product.manufacturer.slug}/${product.slug}`}
-        className="relative block mb-2 overflow-hidden transition duration-200 bg-gray-100 rounded-lg h-72 group md:h-80 md:mb-3 group-hover:shadow-xl"
+        className="relative block mb-2 overflow-hidden transition duration-200 bg-gray-100 rounded-lg h-72 md:h-80 md:mb-3 group-hover:shadow-md"
       >
         <GatsbyImage
           image={
@@ -24,7 +24,7 @@ export default function ProductCard(product: IProduct) {
         )}
       </Link>
 
-      <div className="mb-1 text-sm font-semibold underline-offset-4 md:text-base line-clamp-1 text-dark-text">
+      <div className="mb-1 text-base font-light underline-offset-4 md:text-base line-clamp-1 text-dark-text group-hover:underline">
         {product.title}
       </div>
     </li>

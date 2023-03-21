@@ -1,20 +1,16 @@
 import * as React from 'react'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
-import Search from '../components/search'
-import { Slice } from 'gatsby'
 import MeiliSearch from '../components/meilisearch'
 
 const SearchPage = () => {
   return (
     <Layout>
-      <>
-        <div className="w-full h-24 px-2 mx-auto bg-black md:px-6" />
-        <h1>Search Page</h1>
+      <div className="max-w-5xl px-4 mx-auto my-8 text-lg text-dark-text md:px-0 min-h-[80vh]">
         <MeiliSearch />
         {/* <Search /> */}
         {/* <Slice alias="search" /> */}
-      </>
+      </div>
     </Layout>
   )
 }

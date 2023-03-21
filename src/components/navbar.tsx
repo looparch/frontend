@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'gatsby'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
@@ -10,22 +11,20 @@ import type { IManufacturer } from '../types'
 import LoopLogo from './logos/loop-logo'
 import LoopLogoText from './logos/loop-logo-text'
 
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
 export default function Navbar(props: any) {
   const _className = props.className || ''
   const opaqueClasses = {
     wrapperClass: 'px-0 md:px-0',
     navbarClass: 'px-6 py-6 md:px-12 bg-white',
-    textClass: 'text-dark-text',
+    textClass:
+      'text-dark-text text-xs uppercase underline-offset-8 hover:underline focus:outline-none inline-flex items-center justify-center px-4 py-2',
     textFillStyle: 'rgb(95, 95, 95)',
   }
   const transparentClasses = {
     wrapperClass: 'px-0 md:px-6 py-0 md:py-4',
     navbarClass: 'p-4 md:p-6 shadow-md bg-pure-white',
-    textClass: 'text-dark-text',
+    textClass:
+      'text-dark-text text-xs uppercase underline-offset-8 hover:underline focus:outline-none inline-flex items-center justify-center px-4 py-2',
     textFillStyle: 'rgb(95, 95, 95)',
   }
 
@@ -89,22 +88,10 @@ export default function Navbar(props: any) {
               <Popover className="relative">
                 {({ open }) => (
                   <>
-                    <Popover.Button
-                      className={classNames(
-                        open ? 'text-dark-text' : `${navbarClasses.textClass}`,
-                        `${navbarClasses.textClass} inline-flex items-center justify-center px-4 py-2 font-medium focus:outline-none`
-                      )}
-                    >
-                      <span className="text-xs uppercase underline-offset-8 hover:underline focus:outline-none">
-                        Manufacturers
-                      </span>
+                    <Popover.Button className={`${navbarClasses.textClass}`}>
+                      <span>Manufacturers</span>
                       <ChevronDownIcon
-                        className={classNames(
-                          open
-                            ? `${navbarClasses.textClass}`
-                            : `${navbarClasses.textClass}`,
-                          'ml-2 h-5 w-5 group-hover:text-dark-text'
-                        )}
+                        className={'ml-2 h-5 w-5 group-hover:text-dark-text'}
                         aria-hidden="true"
                       />
                     </Popover.Button>
@@ -169,17 +156,24 @@ export default function Navbar(props: any) {
             <div className="flex items-center space-x-10 md:ml-12">
               <Link
                 to="/contact"
-                className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 text-xs font-normal uppercase hover:underline underline-offset-8 hover:${navbarClasses.textClass} `}
+                className={`${navbarClasses.textClass}`}
                 activeClassName="underline"
               >
                 Contact
               </Link>
               <Link
                 to="/about-us"
-                className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 text-xs font-normal uppercase hover:underline underline-offset-8 hover:${navbarClasses.textClass} `}
+                className={`${navbarClasses.textClass}`}
                 activeClassName="underline"
               >
                 About Us
+              </Link>
+              <Link
+                to="/search"
+                className={`${navbarClasses.textClass}`}
+                activeClassName="underline"
+              >
+                <MagnifyingGlassIcon className="w-6 h-6 text-dark-text" />
               </Link>
             </div>
           </div>

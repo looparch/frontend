@@ -136,6 +136,7 @@ const config: GatsbyConfig = {
                 slug: `/${product.manufacturer.slug}/${product.slug}`,
                 manufacturer: product.manufacturer.title,
                 tags: product.tags,
+                image: product.image_thumbnail.imageFile.childImageSharp.gatsbyImageData,
               })),
               query: `
                 query IndexedProductsQuery {
@@ -155,6 +156,14 @@ const config: GatsbyConfig = {
                         title
                         slug
                       }
+                      image_thumbnail {
+                        id
+                        imageFile {
+                          childImageSharp {
+                            gatsbyImageData
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -163,51 +172,6 @@ const config: GatsbyConfig = {
         ]
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-local-search',
-    //   options: {
-    //     name: 'products',
-    //     engine: 'flexsearch',
-    //     engineOptions: {
-    //       preset: "match",
-    //       tokenize: "reverse",
-    //       resolution: 15,
-    //       encode: "balance",
-    //     },
-    //     query: `
-    //       {
-    //         directus {
-    //           Products(filter: {status: {_eq: "published"}}, limit: -1) {
-    //             id
-    //             title
-    //             subtitle
-    //             designer
-    //             description
-    //             slug
-    //             tags
-    //             manufacturer {
-    //               title
-    //               slug
-    //             }
-    //           }
-    //         }
-    //       }
-    //     `,
-    //     ref: 'id',
-    //     index: ['title', 'manufacturer_title'],
-    //     store: ['id', 'title', 'slug', 'manufacturer_title'],
-    //     normalizer: ({ data }: any) =>
-    //       data.directus.Products.map((product: any) => ({
-    //         id: product.id,
-    //         title: product.title,
-    //         slug: `/${product.manufacturer.slug}/${product.slug}`,
-    //         designer: product.designer,
-    //         description: product.description,
-    //         tags: product.tags,
-    //         manufacturer_title: product.manufacturer.title,
-    //       })),
-    //   }
-    // }
   ]
 };
 
