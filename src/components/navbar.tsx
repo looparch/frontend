@@ -173,6 +173,7 @@ export default function Navbar(props: any) {
                 className={`${navbarClasses.textClass}`}
                 activeClassName="underline"
               >
+                <span className="sr-only">Search Our Website</span>
                 <MagnifyingGlassIcon className="w-6 h-6 text-dark-text" />
               </Link>
             </div>

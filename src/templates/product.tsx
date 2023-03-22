@@ -31,21 +31,21 @@ const Product = ({
   }
   return (
     <Layout>
-      <div className="grid max-w-6xl grid-cols-1 gap-6 py-6 mx-auto md:grid-cols-5">
-        <div className="order-last col-span-3 md:order-first" id="wrap">
-          <div className="mx-auto mb-20 min-h-full md:min-h-[75vh] prose max-w-2xl">
+      <article className="grid max-w-6xl grid-cols-1 gap-6 py-6 mx-auto md:grid-cols-5 print:grid-cols-5" id="wrap">
+        <div className="order-last col-span-3 md:order-first print:order-first">
+          <div className="mx-auto mb-20 min-h-full md:min-h-[75vh] prose max-w-2xl print:max-w-full print:break-after-avoid print:break-before-avoid print:break-inside-avoid">
             {primaryImage && (
               <GatsbyImage
                 image={primaryImage}
                 alt={`${product.title} Primary`}
-                className="object-cover w-full h-full border border-gray-400 print:h-[30vh] mb-6"
+                className="object-cover w-full h-full mb-6 border border-gray-400"
               />
             )}
             {secondaryImage !== undefined && (
               <GatsbyImage
                 image={secondaryImage}
                 alt={`${product.title} Secondary`}
-                className="object-cover w-full h-full border border-gray-400 print:h-[30vh] mb-6"
+                className="object-cover w-full h-full mb-6 border border-gray-400"
               />
             )}
           </div>
@@ -53,7 +53,7 @@ const Product = ({
         <div className="col-span-2">
           <div className="mb-6 leading-snug">
             <h1 className="text-xl font-semibold">{product.title}</h1>
-            {product.subtitle && <p>{product.subtitle}</p>}
+            {product.subtitle && <h2>{product.subtitle}</h2>}
             <p>
               {product.collection && (
                 <span>
@@ -62,11 +62,11 @@ const Product = ({
               )}
               by <strong>{designer}</strong>
             </p>
-            <p className="hidden text-sm print:block">
+            <p className="hidden text-sm print:block print:mt-4">
               <a href={product.href}>{product.href}</a>
             </p>
           </div>
-          <div className="print:max-h-[40vh]">
+          <div className="">
             <div className="">
               <ReactMarkdown className="mb-6 prose text-black text-md print:text-sm max-w-none">
                 {product.description}
@@ -78,7 +78,9 @@ const Product = ({
                   target="_blank"
                   className="button"
                 >
-                  View @{product.manufacturer.title}
+                  <span className="sr-only">Visit and </span>
+                  View <span className="sr-only">{product.title} </span>{' '}@
+                  {product.manufacturer.title}
                 </a>
               </p>
               {product.tags && (
@@ -87,7 +89,7 @@ const Product = ({
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </Layout>
   )
 }

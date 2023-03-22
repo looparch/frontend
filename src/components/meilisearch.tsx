@@ -10,23 +10,27 @@ import {
 } from 'react-instantsearch-hooks-web'
 import MeiliSearchHit from './meilisearch-hit'
 
-const client = instantMeiliSearch(
-  // @ts-ignore next-line
-  process.env.MEILISEARCH_HOST,
-  process.env.MEILISEARCH_KEY,
-  {
-    placeholderSearch: false,
-  }
-)
-
 const MeiliSearch = () => {
-  const [searchClient, setSearchClient] = useState<InstantMeiliSearchInstance>(client)
+  const [searchClient, setSearchClient] = useState<InstantMeiliSearchInstance>()
+
+  const client = instantMeiliSearch(
+    // @ts-ignore next-line
+    process.env.MEILISEARCH_HOST,
+    process.env.MEILISEARCH_KEY,
+    {
+      placeholderSearch: true,
+      finitePagination: true,
+    }
+  )
+
+  console.log("rendering meilisearch")
 
   return (
-    <InstantSearch indexName="all_products" searchClient={searchClient}>
+    <InstantSearch indexName="all_products" searchClient={client}>
       <Configure analytics={false} hitsPerPage={20} distinct={true} />
       <SearchBox
         placeholder="Search materials..."
+        searchAsYouType={false}
         classNames={{
           root: 'w-full',
           form: 'w-full flex mb-6',
@@ -49,7 +53,7 @@ const MeiliSearch = () => {
         }}
       />
       <Pagination
-        totalPages={4}
+        // totalPages={4}
         classNames={{
           root: 'max-w-1/2 w-1/2 mx-auto mt-6',
           list: 'flex justify-between',
