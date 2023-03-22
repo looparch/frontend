@@ -25,9 +25,6 @@
     "@mdx-js/react": "^2.2.1",
     "@meilisearch/instant-meilisearch": "^0.11.1",
     "@n8tb1t/use-scroll-position": "^2.0.3",
-    "@svgr/core": "^6.5.1",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/typography": "^0.5.9",
     "gatsby": "^5.7.0",
     "gatsby-plugin-google-analytics": "^5.7.0",
     "gatsby-plugin-image": "^3.7.0",
@@ -54,8 +51,10 @@
     "swiper": "^9.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/mdx-js__react": "^1.5.5",
     "@types/node": "^18.7.14",
     "@types/react": "^18.0.17",
