@@ -6,6 +6,7 @@ import { Highlight } from "react-instantsearch-hooks-web"
 
 const MeiliSearchHit = ({ hit }: any) => {
   hit.objectID = hit.id
+  hit.key = hit.id
   return (
     <div key={hit.id} className="flex justify-start">
       <GatsbyImage
@@ -52,4 +53,5 @@ const MeiliSearchHit = ({ hit }: any) => {
   )
 }
 
-export default MeiliSearchHit
+export default React.memo(MeiliSearchHit);
+

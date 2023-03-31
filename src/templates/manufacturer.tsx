@@ -62,7 +62,7 @@ export const Head = ({
   data: {
     directus: { manufacturer },
   },
-}: DataProps) => <SEO title={`${manufacturer.title} - Loop`} />
+}: DataProps) => <SEO title={`${manufacturer.title}`} />
 
 export const pageQuery = graphql`
   query ManufacturerById($id: ID!) {

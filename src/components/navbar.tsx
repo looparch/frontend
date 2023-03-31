@@ -14,7 +14,7 @@ import LoopLogoText from './logos/loop-logo-text'
 export default function Navbar(props: any) {
   const _className = props.className || ''
   const opaqueClasses = {
-    wrapperClass: 'px-0 md:px-0',
+    wrapperClass: 'px-0 md:px-0 border-b border-loop-200',
     navbarClass: 'px-6 py-6 md:px-12 bg-white',
     textClass:
       'text-dark-text text-xs uppercase underline-offset-8 hover:underline focus:outline-none inline-flex items-center justify-center px-4 py-2',

@@ -23,7 +23,6 @@ const BlogPost = ({ data: { blogPost } }: DataProps) => {
             __html: blogPost.body.childMarkdownRemark.html,
           }}
         ></div>
-        {/* <div>{blogPost.body_markdown}</div> */}
       </>
     </Layout>
   )
@@ -36,7 +35,7 @@ export const Head = ({
     blogPost,
   },
 }: DataProps) => (
-  <SEO title={`${blogPost.title} - Loop`} />
+  <SEO title={`${blogPost.title}`} />
 )
 
 export const pageQuery = graphql`
