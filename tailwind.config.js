@@ -78,7 +78,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
-    require('@tailwindcss/line-clamp'),
     require('tailwindcss-font-inter'),
     require('@tailwindcss/aspect-ratio'),
   ],

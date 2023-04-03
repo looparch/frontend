@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer components {
   .button {
     @apply flex items-center justify-center w-fit px-4 py-2 text-base font-medium text-white hover:text-white border border-transparent rounded-md bg-loop-400 hover:bg-loop-500 focus:outline-none;
@@ -12,35 +10,12 @@
   .home-section {
     @apply p-12 md:p-24;
   }
+
+  .form-label {
+    @apply font-medium text-base
+  }
+
+  .form-error {
+    @apply text-red-500 text-sm
+  }
 }
-
-
-
-
-/* em.ais-Highlight-highlighted {
-  @apply bg-yellow-200
-}
-
-form.ais-SearchBox-form {
-  @apply flex flex-row mb-6
-}
-
-.ais-SearchBox-input {
-  @apply w-full
-}
-
-.ais-SearchBox-submit > svg {
-  @apply w-6 h-6 ml-6
-}
-
-.ais-SearchBox-reset > svg {
-  @apply w-6 h-6 ml-6
-}
-
-.ais-Hits-list {
-  @apply grid grid-flow-row gap-4
-}
-
-.ais-Hits-item {
-  @apply p-4 bg-pure-white
-} */

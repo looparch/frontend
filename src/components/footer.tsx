@@ -93,11 +93,11 @@ const navigation = {
 
 export default function Footer() {
   return (
-    <footer className="bg-loop-100 print:hidden" aria-labelledby="footer-heading">
+    <footer className="bg-loop-50 print:hidden" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="max-w-6xl px-4 py-12 mx-auto sm:px-6 lg:py-16 lg:px-8">
+      <div className="px-4 py-12 mx-auto max-w-8xl sm:px-6 lg:py-16 lg:px-8">
         <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="grid grid-cols-2 gap-8 xl:col-span-4">
             <div className="md:grid md:grid-cols-2 md:gap-8">

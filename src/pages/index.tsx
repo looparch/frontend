@@ -32,11 +32,11 @@ const IndexPage = () => {
       <div className="w-full h-full">
         <IndexCarousel articles={blogPosts.slice(0, 3)} />
 
-        <div className="w-full px-2 mx-auto">
+        <div className="w-full mx-auto">
           <FeaturedProductsSection />
           <LogoSection />
           <ArticleSection />
-          <ul>
+          {/* <ul>
             {manufacturers.map((manufacturer: ManufacturerProps) => {
               return (
                 <li key={manufacturer.id}>
@@ -66,7 +66,7 @@ const IndexPage = () => {
                 </li>
               )
             })}
-          </ul>
+          </ul> */}
         </div>
       </div>
     </Layout>
