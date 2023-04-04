@@ -22,7 +22,7 @@ export const SEO = ({ title, description, pathname, children }: SEOProps) => {
 
   return (
     <>
-      <title>{seo.title} - {siteTitle}</title>
+      <title>{`${seo.title} - ${siteTitle}`}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <meta name="twitter:card" content="summary_large_image" />

@@ -27,10 +27,13 @@ try {
 }
 
 const config: GatsbyConfig = {
-  flags: {},
+  flags: {
+    FAST_DEV: true,
+    PARALLEL_SOURCING: true,
+  },
   siteMetadata: {
     title: `Loop Architectural Materials`,
-    description: `Design & technical partner to the Arizona A+D community, Loop Architectural Materials represents leading brands in contract furniture, acoustics, and architectural/interior design finishes.`,
+    description: `Design & technical partner to the Arizona Architecture and Design community, Loop Architectural Materials represents leading brands in contract furniture, acoustics, and architectural/interior design finishes.`,
     image: `/loop_icon.png`,
     siteUrl: `https://looparch.com`,
   },
@@ -56,7 +59,7 @@ const config: GatsbyConfig = {
         url: 'http://looparch.test:8055',
         auth: {
           // token: 'MLVe5QBmJl2XfvEobTHfwWyz_dqobTBw',
-          token: 'uPJpLjTl2WXFI7aibuq1UkK-rsSq8LrW',
+          token: process.env.DIRECTUS_TOKEN,
         },
       }
     },

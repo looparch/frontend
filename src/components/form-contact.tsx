@@ -7,7 +7,7 @@ const contactUsSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too short!').required('Required'),
   email: Yup.string().email('Invalid email').required('Required'),
   manufacturer: Yup.string(),
-  message: Yup.string(),
+  message: Yup.string().required('Required'),
   project_name: Yup.string(),
   project_specifier: Yup.string(),
 })
@@ -16,6 +16,7 @@ const contactUsSchema = Yup.object().shape({
 interface FormValues {
   name: string
   email: string
+  message: string
 }
 
 interface OtherProps {
@@ -72,7 +73,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         </label>
 
         <label className="block">
-          <span className="form-label">Message:</span>
+          <span className="form-label">Message*:</span>
           <Field
             type="text"
             name="message"
@@ -80,6 +81,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
             className="block w-full mt-1 form-input"
             placeholder="Your message..."
           />
+          {touched.message && errors.message && <div className="form-error">{errors.message}</div>}
         </label>
 
         <label className="block">

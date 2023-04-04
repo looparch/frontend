@@ -93,7 +93,7 @@ const navigation = {
 
 export default function Footer() {
   return (
-    <footer className="bg-loop-50 print:hidden" aria-labelledby="footer-heading">
+    <footer className="p-4 bg-loop-50 print:hidden md:p-6" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -223,7 +223,7 @@ export default function Footer() {
               id="email-address"
               autoComplete="email"
               required
-              className="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-transparent rounded-md appearance-none focus:border-white focus:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs"
+              className="w-full min-w-0 px-4 py-2 text-base"
               placeholder="Enter your email"
             />
             <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">

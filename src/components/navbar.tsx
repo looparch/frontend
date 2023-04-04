@@ -31,22 +31,22 @@ export default function Navbar(props: any) {
   const [navbarClasses, setNavbarClasses] = React.useState(opaqueClasses)
   const elementRef = React.useRef()
 
-  useScrollPosition(
-    ({ prevPos, currPos }) => {
-      if (elementRef.current) {
-        // @ts-ignore: Object is possibly 'null'.
-        if (currPos.y < elementRef.current.clientHeight) {
-          setNavbarClasses(opaqueClasses)
-        } else {
-          setNavbarClasses(transparentClasses)
-        }
-      }
-    },
-    [setNavbarClasses],
-    elementRef,
-    true,
-    300
-  )
+  // useScrollPosition(
+  //   ({ prevPos, currPos }) => {
+  //     if (elementRef.current) {
+  //       // @ts-ignore: Object is possibly 'null'.
+  //       if (currPos.y < elementRef.current.clientHeight) {
+  //         setNavbarClasses(opaqueClasses)
+  //       } else {
+  //         setNavbarClasses(transparentClasses)
+  //       }
+  //     }
+  //   },
+  //   [setNavbarClasses],
+  //   elementRef,
+  //   true,
+  //   300
+  // )
 
   const manufacturers = usePublishedManufacturers()
 
