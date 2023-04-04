@@ -16,6 +16,11 @@ const usePublishedBlogPosts = () => {
               html
             }
           }
+          body {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }

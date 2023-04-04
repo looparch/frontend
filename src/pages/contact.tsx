@@ -1,17 +1,16 @@
 import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
 import FormContact from '../components/form-contact'
-import GoogleMapDisplyable from '../components/google-map-displayable'
-import PigeonMapDisplayable from '../components/pigeon-map-displayable'
 
 const ContactPage = () => {
   return (
     <Layout>
       <div>
-        {/* <div className="hidden md:block">
-          <PigeonMapDisplayable />
-        </div> */}
+        <div className="hidden md:block">
+          <StaticImage src="../images/map@2x.png" alt="map" layout="constrained" imgClassName="object-cover"/>
+        </div>
         <div className="max-w-6xl px-4 py-6 mx-auto sm:px-6 lg:py-8 lg:px-8">
           <div className="">
             <h1 className="my-6 text-2xl font-semibold">Contact Us</h1>
@@ -45,7 +44,7 @@ export default ContactPage
 export const Head = () => {
   return (
     <>
-      <SEO title="Contact" />
+      <SEO title="Contact Us" />
     </>
   )
 }
