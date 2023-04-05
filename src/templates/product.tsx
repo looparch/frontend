@@ -8,8 +8,6 @@ import { IProduct } from '../types/IProduct'
 import Logos from '../components/logos'
 import { SEO } from '../components/seo'
 
-// import ZoomedImage from '../components/zoomed-image'
-
 type DataProps = {
   directus: {
     product: IProduct
@@ -23,7 +21,6 @@ const Product = ({
 }: PageProps<DataProps>) => {
   const primaryImage = getImage(product.image_primary.imageFile.childImageSharp)
   const designer = product.designer || product.manufacturer.title
-  const ManufacturerLogo = Logos[product.manufacturer.slug]
 
   let secondaryImage = undefined
   if (product.image_secondary) {

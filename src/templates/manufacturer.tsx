@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import type { PageProps } from 'gatsby'
 import Layout from '../components/layout'
 import ProductCard from '../components/product-card'
 import ManufacturerHero from '../components/manufacturer-hero'
