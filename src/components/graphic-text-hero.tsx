@@ -45,7 +45,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
   const { image, title, description, link } = params
 
   return (
-    <div className="max-w-full mx-auto h-[90vh] md:h-[80vh]">
+    <div className="max-w-full mx-auto h-[40vh] md:h-[60vh]">
       <div className="grid object-cover w-full h-full mx-auto">
         {/* <Navbar style={{ gridArea: '1/1' }} /> */}
         <GatsbyImage
@@ -56,7 +56,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
         />
 
         <div
-          className="relative z-20 grid content-center max-w-4xl p-6 mx-auto text-center text-white align-items-center md:p-0"
+          className="relative z-20 grid content-center w-2/3 mx-auto text-center text-white lg:w-1/2 align-items-center"
           style={{ gridArea: '1/1' }}
         >
           <ConditionalWrapper
@@ -66,7 +66,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
             }}
           >
             <Fragment>
-              <h1 className="mb-6 text-5xl font-bold leading-none md:text-6xl drop-shadow-md">
+              <h1 className="mb-6 text-4xl font-bold leading-none md:text-5xl drop-shadow-md">
                 {title}
               </h1>
 
@@ -74,7 +74,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
                 dangerouslySetInnerHTML={{
                   __html: description.childMarkdownRemark.html,
                 }}
-                className="text-2xl font-light leading-tight md:text-4xl drop-shadow-md"
+                className="text-lg font-light leading-tight md:text-xl drop-shadow-md"
               />
             </Fragment>
           </ConditionalWrapper>

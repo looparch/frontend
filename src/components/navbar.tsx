@@ -6,47 +6,19 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'gatsby'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import type { IManufacturer } from '../types'
 import LoopLogo from './logos/loop-logo'
 import LoopLogoText from './logos/loop-logo-text'
 
 export default function Navbar(props: any) {
   const _className = props.className || ''
-  const opaqueClasses = {
+  const navbarClasses = {
     wrapperClass: 'px-0 md:px-0 border-b border-loop-200',
-    navbarClass: 'px-6 py-6 md:px-12 bg-white',
+    navbarClass: 'px-3 py-3 md:px-6 md:py-6 bg-white',
     textClass:
       'text-dark-text text-xs uppercase underline-offset-8 hover:underline focus:outline-none inline-flex items-center justify-center px-4 py-2',
     textFillStyle: 'rgb(95, 95, 95)',
   }
-  const transparentClasses = {
-    wrapperClass: 'px-0 md:px-6 py-0 md:py-4',
-    navbarClass: 'p-4 md:p-6 shadow-md bg-pure-white',
-    textClass:
-      'text-dark-text text-xs uppercase underline-offset-8 hover:underline focus:outline-none inline-flex items-center justify-center px-4 py-2',
-    textFillStyle: 'rgb(95, 95, 95)',
-  }
-
-  const [navbarClasses, setNavbarClasses] = React.useState(opaqueClasses)
-  const elementRef = React.useRef()
-
-  // useScrollPosition(
-  //   ({ prevPos, currPos }) => {
-  //     if (elementRef.current) {
-  //       // @ts-ignore: Object is possibly 'null'.
-  //       if (currPos.y < elementRef.current.clientHeight) {
-  //         setNavbarClasses(opaqueClasses)
-  //       } else {
-  //         setNavbarClasses(transparentClasses)
-  //       }
-  //     }
-  //   },
-  //   [setNavbarClasses],
-  //   elementRef,
-  //   true,
-  //   300
-  // )
 
   const manufacturers = usePublishedManufacturers()
 
@@ -57,8 +29,10 @@ export default function Navbar(props: any) {
     >
       <Popover>
         <div
-          className={`${navbarClasses.navbarClass} flex items-center justify-between transition-all duration-300 mx-auto bg-pure-white max-w-8xl md:justify-start md:space-x-10`}
-          ref={elementRef as any}
+          className={`${navbarClasses.navbarClass} flex items-center
+            justify-between transition-all duration-300 mx-auto
+            bg-pure-white max-w-8xl md:justify-start md:space-x-10
+          `}
         >
           <div>
             <Link to="/" className="flex place-items-end">
@@ -161,13 +135,13 @@ export default function Navbar(props: any) {
               >
                 Contact
               </Link>
-              <Link
+              {/* <Link
                 to="/about-us"
                 className={`${navbarClasses.textClass}`}
                 activeClassName="underline"
               >
                 About Us
-              </Link>
+              </Link> */}
               <Link
                 to="/search"
                 className={`${navbarClasses.textClass}`}

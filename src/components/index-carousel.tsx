@@ -1,7 +1,5 @@
 import React from 'react'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import { IArticle } from '../types/IArticle'
-import { Link } from 'gatsby'
 import { Navigation, Pagination, A11y, EffectFade, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import GraphicTextHero from './graphic-text-hero'

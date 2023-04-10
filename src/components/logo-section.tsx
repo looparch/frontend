@@ -23,14 +23,20 @@ export default function LogoSection() {
   const manufacturers = usePublishedManufacturers()
   return (
     <section className="bg-pink-50 home-section">
-      <h2 className="mb-6 text-3xl font-bold text-pink-900">Representing</h2>
-      <section className="grid grid-cols-1 gap-2 md:grid-cols-4 md:gap-4">
+      <h2 className="text-pink-900">
+        Representing
+      </h2>
+      <section className="grid grid-cols-2 gap-4 md:grid-cols-4 sm:grid-cols-3">
         {manufacturers.map((item: ManufacturerProps) => {
           const ManufacturerLogo = Logos[item.slug]
 
           return (
-            <Link to={`/${item.slug}`} className="grid place-content-center-center justify-items-center place-items-center group" key={item.id}>
-              <div className="flex w-full h-36">
+            <Link
+              to={`/${item.slug}`}
+              className="grid place-content-center-center justify-items-center place-items-center group"
+              key={item.id}
+            >
+              <div className="flex w-full h-24 md:h-32 lg:h-36">
                 {/* <GatsbyImage
                   image={
                     item.image_hero.imageFile.childImageSharp.gatsbyImageData
@@ -38,7 +44,7 @@ export default function LogoSection() {
                   alt={`${item.title} Background Image`}
                   className="absolute object-cover object-center w-full h-full transition duration-1000 group-hover:scale-110"
                 /> */}
-                <ManufacturerLogo className="z-20 w-full transition group-hover:scale-110 fill-pink-900 "/>
+                <ManufacturerLogo className="z-20 w-full transition group-hover:scale-110 fill-pink-900 " />
                 <span className="sr-only">{item.title}</span>
                 {/* <div className="absolute inset-0 z-10 opacity-70 bg-gradient-to-t from-gray-900" /> */}
               </div>

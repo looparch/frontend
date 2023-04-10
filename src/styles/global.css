@@ -8,7 +8,11 @@
   }
 
   .home-section {
-    @apply p-12 md:p-24;
+    @apply px-3 py-8 md:px-6 md:py-14 sm:py-12;
+  }
+
+  .home-section > h2 {
+    @apply mb-8 sm:mb-12 text-2xl font-bold leading-none text-center md:text-3xl md:text-left
   }
 
   .form-label {
@@ -17,5 +21,13 @@
 
   .form-error {
     @apply text-red-500 text-sm
+  }
+
+  .transitional-product-card-inner {
+    @apply transition-all duration-1000 group-hover:bg-white group-hover:text-black leading-none m-6
+  }
+
+  .transitional-product-card-inner-description {
+    @apply transition-all duration-1000 group-hover:opacity-0 leading-none m-6
   }
 }

@@ -5,6 +5,8 @@ dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+console.log(process.env.NODE_ENV)
+
 // Contentful
 let contentfulConfig
 
@@ -28,8 +30,8 @@ try {
 
 const config: GatsbyConfig = {
   flags: {
-    FAST_DEV: true,
-    PARALLEL_SOURCING: true,
+    // FAST_DEV: true,
+    // PARALLEL_SOURCING: true,
   },
   siteMetadata: {
     title: `Loop Architectural Materials`,

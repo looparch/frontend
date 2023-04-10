@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import LayoutContent from '../components/layout-content'
 import ProductCard from '../components/product-card'
 import ManufacturerHero from '../components/manufacturer-hero'
 import type { IManufacturer } from '../types'
@@ -24,13 +25,13 @@ const Manufacturer = ({
     <Layout>
       <div className="bg-white">
         <ManufacturerHero {...manufacturer} />
-        <div className="px-2 mx-auto max-w-8xl md:px-0">
+        <LayoutContent>
           <ul
             role="list"
-            className="grid grid-cols-2 gap-2 p-2 md:p-8 md:gap-6 md:grid-cols-3 lg:grid-cols-4 lg:gap-6"
+            className="grid grid-cols-2 gap-3 py-0 md:gap-6 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 lg:py-6"
           >
-            <li className="flex flex-col justify-center col-span-2 p-6 rounded-lg">
-              <div className="mb-6 text-base leading-tight prose transition">
+            <li className="flex flex-col col-span-2 py-6 rounded-lg md:col-span-3 lg:col-span-2">
+              <div className="mb-6 text-base leading-tight prose transition max-w-none">
                 <ReactMarkdown>{manufacturer.description}</ReactMarkdown>
               </div>
               <div>
@@ -40,7 +41,8 @@ const Manufacturer = ({
                   target="_blank"
                   className="button"
                 >
-                  <span className="sr-only">Click here to </span>Visit {manufacturer.title}
+                  <span className="sr-only">Click here to </span>Visit{' '}
+                  {manufacturer.title}
                   <span className="sr-only">'s website</span>
                 </a>
               </div>
@@ -49,7 +51,7 @@ const Manufacturer = ({
               return <ProductCard {...product} key={product.id} />
             })}
           </ul>
-        </div>
+        </LayoutContent>
       </div>
     </Layout>
   )

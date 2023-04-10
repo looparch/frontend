@@ -14,11 +14,13 @@ const usePublishedBlogPosts = () => {
           description {
             childMarkdownRemark {
               html
+              excerpt
             }
           }
           body {
             childMarkdownRemark {
               html
+              excerpt
             }
           }
         }
