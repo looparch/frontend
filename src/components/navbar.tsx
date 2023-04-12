@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react'
+import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Link } from 'gatsby'
+import NavLink from './navlink'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
 import type { IManufacturer } from '../types'
 import LoopLogo from './logos/loop-logo'
@@ -14,9 +15,9 @@ export default function Navbar(props: any) {
   const _className = props.className || ''
   const navbarClasses = {
     wrapperClass: 'px-0 md:px-0 border-b border-loop-200',
-    navbarClass: 'px-3 py-3 md:px-6 md:py-6 bg-white',
+    navbarClass: 'px-3 py-3 md:px-12 md:py-6 bg-white',
     textClass:
-      'text-dark-text text-xs uppercase underline-offset-8 hover:underline focus:outline-none inline-flex items-center justify-center px-4 py-2',
+      'text-dark-text text-xs uppercase underline-offset-8 focus:outline-none inline-flex items-center justify-center px-4 py-2',
     textFillStyle: 'rgb(95, 95, 95)',
   }
 
@@ -63,7 +64,7 @@ export default function Navbar(props: any) {
                 {({ open }) => (
                   <>
                     <Popover.Button className={`${navbarClasses.textClass}`}>
-                      <span>Manufacturers</span>
+                      <NavLink>Manufacturers</NavLink>
                       <ChevronDownIcon
                         className={'ml-2 h-5 w-5 group-hover:text-dark-text'}
                         aria-hidden="true"
@@ -120,20 +121,28 @@ export default function Navbar(props: any) {
               </Popover>
             </Popover.Group>
             <div className="flex items-center space-x-10 md:ml-12">
-              <Link
+              <NavLink>
+                <Link
+                  to="/contact"
+                  activeClassName="underline underline-offset-8"
+                >
+                  Contact
+                </Link>
+              </NavLink>
+              {/* <Link
                 to="/contact"
                 className={`${navbarClasses.textClass}`}
                 activeClassName="underline"
               >
                 Contact
-              </Link>
+              </Link> */}
               <Link
                 to="/search"
                 className={`${navbarClasses.textClass}`}
                 activeClassName="underline"
               >
                 <span className="sr-only">Search Our Website</span>
-                <MagnifyingGlassIcon className="w-6 h-6 text-dark-text" />
+                <MagnifyingGlassIcon className="w-6 h-6 transition-transform text-dark-text hover:scale-150" />
               </Link>
             </div>
           </div>
@@ -185,7 +194,7 @@ export default function Navbar(props: any) {
                   </nav>
                 </div>
                 <div className="mt-6">
-                  <hr className="mb-6"/>
+                  <hr className="mb-6" />
                   <nav className="grid grid-cols-2 gap-6">
                     <Link
                       to={`/contact`}

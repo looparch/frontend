@@ -10,7 +10,7 @@ export default function LayoutContent({ children }: LayoutContentProps) {
   return (
     <>
       <SizeIndicator />
-      <div className="px-3 md:px-6">
+      <div className="px-3 md:px-12">
         {children}
       </div>
     </>

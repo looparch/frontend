@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 const usePublishedBlogPosts = () => {
   const { blogPosts: { nodes } } = useStaticQuery(graphql`
     query PublishedBlogPostsQuery {
-      blogPosts: allContentfulBlogPost(sort: {updatedAt: ASC}, limit: 6) {
+      blogPosts: allContentfulBlogPost(sort: {updatedAt: ASC}, limit: 8) {
         nodes {
           id
           title

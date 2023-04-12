@@ -30,7 +30,7 @@ try {
 
 const config: GatsbyConfig = {
   flags: {
-    // FAST_DEV: true,
+    FAST_DEV: true,
     // PARALLEL_SOURCING: true,
   },
   siteMetadata: {

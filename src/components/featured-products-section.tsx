@@ -34,6 +34,7 @@ export default function FeaturedProductsSection() {
         {products.map((item: FeaturedProductProps) => {
           return (
             <CardTitleDescription
+              key={item.id}
               link={`/${item.manufacturer.slug}/${item.slug}`}
               gatsbyImage={
                 item.image_primary.imageFile.childImageSharp.gatsbyImageData

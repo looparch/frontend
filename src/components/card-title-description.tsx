@@ -22,7 +22,7 @@ const CardTitleDescription = ({
           <GatsbyImage
             image={gatsbyImage}
             alt={`${title} Background Image`}
-            className="absolute object-cover object-center w-full h-full transition duration-500 group-hover:scale-110"
+            className="!absolute object-cover object-center w-full h-full transition duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 z-10 bg-[#000000] opacity-40 transition duration-500 group-hover:opacity-0" />
           <div className="absolute z-20 grid w-full h-full grid-rows-2 text-white">

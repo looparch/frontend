@@ -31,11 +31,11 @@ const Product = ({
     <Layout>
       <LayoutContent>
         <article
-          className="grid max-w-6xl grid-cols-1 gap-6 py-6 mx-auto md:grid-cols-5"
+          className="grid grid-cols-1 gap-6 py-6 mx-auto md:grid-cols-5"
           id="wrap"
         >
           <div className="order-last col-span-3 md:order-first">
-            <div className="mx-auto mb-20 min-h-full md:min-h-[75vh] max-w-2xl print:max-width-none print:break-after-avoid print:break-inside-avoid">
+            <div className="min-h-full mx-auto mb-20 print:max-width-none print:break-after-avoid print:break-inside-avoid">
               {primaryImage && (
                 <GatsbyImage
                   image={primaryImage}
@@ -53,10 +53,12 @@ const Product = ({
             </div>
           </div>
           <div className="col-span-2">
-            <div className="mb-6 leading-snug">
+            <div className="mb-6 leading-none">
               <h1 className="text-2xl font-semibold">{product.title}</h1>
-              {product.subtitle && <h2 className="text-xl">{product.subtitle}</h2>}
-              <p className="text-xl font-light">
+              {product.subtitle && (
+                <h2 className="text-xl">{product.subtitle}</h2>
+              )}
+              <p className="mt-6 text-xl font-light">
                 {product.collection && (
                   <span>
                     From the <strong>{product.collection} Collection</strong>{' '}
@@ -69,26 +71,24 @@ const Product = ({
               </p>
             </div>
             <div className="">
-              <div className="">
-                <ReactMarkdown className="mb-6 prose text-black text-md print:text-sm max-w-none prose-h2:font-normal prose-h2:text-base prose-h2:text-black">
-                  {product.description}
-                </ReactMarkdown>
-                <p className="mb-6 print:hidden">
-                  <a
-                    href={product.href}
-                    rel="noopener"
-                    target="_blank"
-                    className="button"
-                  >
-                    <span className="sr-only">Visit and </span>
-                    View <span className="sr-only">{product.title} </span> @
-                    {product.manufacturer.title}
-                  </a>
-                </p>
-                {product.tags && (
-                  <p className="text-xs">{product.tags.join(', ')}</p>
-                )}
-              </div>
+              <ReactMarkdown className="mb-6 prose text-black text-md print:text-sm max-w-none prose-h2:font-normal prose-h2:text-base prose-h2:text-black">
+                {product.description}
+              </ReactMarkdown>
+              <p className="mb-6 print:hidden">
+                <a
+                  href={product.href}
+                  rel="noopener"
+                  target="_blank"
+                  className="button"
+                >
+                  <span className="sr-only">Visit and </span>
+                  View <span className="sr-only">{product.title}</span>{' '}
+                  {`@${product.manufacturer.title}`}
+                </a>
+              </p>
+              {product.tags && (
+                <p className="text-xs">{product.tags.join(', ')}</p>
+              )}
             </div>
           </div>
         </article>

@@ -6,7 +6,7 @@ const useFeaturedProducts = () => {
       directus {
         products: Products(
           filter: {status: {_eq: "published"}, featured: {_eq: true}}
-          sort: "title"
+          sort: "date_updated"
           limit: 8
         ) {
           id
