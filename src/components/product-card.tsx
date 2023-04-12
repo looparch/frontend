@@ -23,7 +23,7 @@ export default function ProductCard(product: IProduct) {
           </span>
         )}
         <div className="absolute inset-0 z-10 bg-[#000000] opacity-40 transition duration-500 group-hover:opacity-0" />
-        <div className="absolute bottom-0 z-20 p-2 m-4 text-base font-semibold text-white transition duration-500 w-fit group-hover:text-black group-hover:bg-white">
+        <div className="absolute bottom-0 z-20 p-2 m-4 text-2xl font-bold leading-none text-white transition duration-500 w-fit group-hover:text-black group-hover:bg-white">
           {product.title}
         </div>
       </Link>

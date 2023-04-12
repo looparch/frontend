@@ -53,12 +53,12 @@ const MeiliSearch = () => {
             searchAsYouType={false}
             classNames={{
               root: 'w-full',
-              form: 'w-full flex mb-6',
+              form: 'w-full flex mb-6 items-center',
               input:
                 'focus:outline-none focus:ring-1 focus:ring-loop-50 focus:border-loop-500 w-full mr-2',
-              submit: 'w-12 h-12',
-              reset: 'w-12 h-12 hidden',
-              loadingIndicator: 'ml-2 w-12 h-12',
+              submit: 'w-6 h-6',
+              reset: 'w-6 h-6 hidden',
+              loadingIndicator: 'ml-2 w-6 h-6',
               submitIcon: '!w-6 !h-6',
               resetIcon: '!w-6 !h-6',
               loadingIcon: '!w-6 !h-6',
@@ -68,16 +68,16 @@ const MeiliSearch = () => {
             hitComponent={MeiliSearchHit}
             classNames={{
               root: 'grid',
-              list: 'grid grid-cols-2 gap-6',
+              list: 'grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6',
               item: 'flex items-start justify-start p-6 bg-pure-white bg-opacity-70 rounded-lg',
             }}
           />
           <Pagination
             // totalPages={4}
             classNames={{
-              root: 'max-w-1/2 w-1/2 mx-auto mt-6',
+              root: 'max-w-full w-full sm:w-2/3 mx-auto my-6',
               list: 'flex justify-between',
-              item: 'w-8 h-8 flex rounded-full items-center justify-center bg-loop-400 text-white rounded-sm hover:bg-loop-500 font-medium',
+              item: 'w-8 h-8 flex rounded-full items-center justify-center bg-loop-400 text-white hover:bg-loop-500 font-medium',
               selectedItem: 'bg-loop-500',
               disabledItem: 'opacity-50 cursor-not-allowed',
             }}

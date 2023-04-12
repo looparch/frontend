@@ -4,7 +4,7 @@
 
 @layer components {
   .button {
-    @apply flex items-center justify-center w-fit px-4 py-2 text-base font-medium text-white hover:text-white border border-transparent rounded-md bg-loop-400 hover:bg-loop-500 focus:outline-none;
+    @apply flex items-center justify-center w-fit px-4 py-2 text-base font-semibold text-white hover:text-white border border-transparent rounded-md bg-loop-400 hover:bg-loop-500 focus:outline-none;
   }
 
   .home-section {
@@ -24,7 +24,7 @@
   }
 
   .transitional-product-card-inner {
-    @apply transition-all duration-1000 group-hover:bg-white group-hover:text-black leading-none m-6
+    @apply transition-all duration-1000 group-hover:bg-white group-hover:text-black leading-none m-4 p-2
   }
 
   .transitional-product-card-inner-description {

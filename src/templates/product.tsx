@@ -31,11 +31,11 @@ const Product = ({
     <Layout>
       <LayoutContent>
         <article
-          className="grid max-w-6xl grid-cols-1 gap-6 py-6 mx-auto md:grid-cols-5 print:grid-cols-5"
+          className="grid max-w-6xl grid-cols-1 gap-6 py-6 mx-auto md:grid-cols-5"
           id="wrap"
         >
-          <div className="order-last col-span-3 md:order-first print:order-first">
-            <div className="mx-auto mb-20 min-h-full md:min-h-[75vh] prose max-w-2xl print:max-w-full print:break-after-avoid print:break-before-avoid print:break-inside-avoid">
+          <div className="order-last col-span-3 md:order-first">
+            <div className="mx-auto mb-20 min-h-full md:min-h-[75vh] max-w-2xl print:max-width-none print:break-after-avoid print:break-inside-avoid">
               {primaryImage && (
                 <GatsbyImage
                   image={primaryImage}
@@ -54,9 +54,9 @@ const Product = ({
           </div>
           <div className="col-span-2">
             <div className="mb-6 leading-snug">
-              <h1 className="text-xl font-semibold">{product.title}</h1>
-              {product.subtitle && <h2>{product.subtitle}</h2>}
-              <p>
+              <h1 className="text-2xl font-semibold">{product.title}</h1>
+              {product.subtitle && <h2 className="text-xl">{product.subtitle}</h2>}
+              <p className="text-xl font-light">
                 {product.collection && (
                   <span>
                     From the <strong>{product.collection} Collection</strong>{' '}

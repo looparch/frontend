@@ -79,7 +79,7 @@ export default function Navbar(props: any) {
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 translate-y-1"
                     >
-                      <Popover.Panel className="absolute overflow-scroll z-30 w-screen max-w-md max-h-[100vh] shadow-md mt-3 -ml-4 transform -right-2 lg:max-w-3xl">
+                      <Popover.Panel className="absolute overflow-scroll z-30 w-screen max-w-xl max-h-[100vh] shadow-md mt-3 -ml-4 transform -right-2 lg:max-w-3xl">
                         <div className="overflow-hidden border border-solid rounded-md ring-1 ring-black ring-opacity-5">
                           <div className="relative grid gap-1 px-5 py-6 bg-pure-white md:gap-6 md:p-6 md:grid-cols-2">
                             {manufacturers.map((item: IManufacturer) => (
@@ -106,14 +106,6 @@ export default function Navbar(props: any) {
                                       <span className="inline-block mr-2 text-[.625rem] leading-5 font-medium text-medium-text line-clamp-1">
                                         {item.tags.join(', ')}
                                       </span>
-                                      {/* {item.tags.map((tag: string) => (
-                                      <span
-                                        key={tag}
-                                        className="inline-block mr-2 text-[.625rem] leading-5 font-medium text-medium-text"
-                                      >
-                                        {tag}
-                                      </span>
-                                    ))} */}
                                     </div>
                                   )}
                                 </div>
@@ -135,13 +127,6 @@ export default function Navbar(props: any) {
               >
                 Contact
               </Link>
-              {/* <Link
-                to="/about-us"
-                className={`${navbarClasses.textClass}`}
-                activeClassName="underline"
-              >
-                About Us
-              </Link> */}
               <Link
                 to="/search"
                 className={`${navbarClasses.textClass}`}
@@ -184,7 +169,7 @@ export default function Navbar(props: any) {
                   </div>
                 </div>
                 <div className="mt-6">
-                  <h2>Our Lines</h2>
+                  <h2 className="px-4 mb-6 text-xl font-bold">Our Lines</h2>
                   <nav className="grid grid-cols-2 gap-6">
                     {manufacturers.map((item: IManufacturer) => (
                       <Link
@@ -192,19 +177,32 @@ export default function Navbar(props: any) {
                         to={`/${item.slug}`}
                         className="flex items-center content-center p-3 py-4 -m-3 rounded-lg hover:bg-loop-200"
                       >
-                        {/* <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md">
-                        <img
-                          className="w-32 h-8"
-                          aria-hidden="true"
-                          src={item.image_logo_dark.imageFile.publicURL}
-                          alt=""
-                        />
-                      </div> */}
                         <div className="ml-4 text-base font-medium text-dark-text">
                           {item.title}
                         </div>
                       </Link>
                     ))}
+                  </nav>
+                </div>
+                <div className="mt-6">
+                  <hr className="mb-6"/>
+                  <nav className="grid grid-cols-2 gap-6">
+                    <Link
+                      to={`/contact`}
+                      className="flex items-center content-center p-3 py-4 -m-3 rounded-lg hover:bg-loop-200"
+                    >
+                      <div className="ml-4 text-base font-medium text-dark-text">
+                        Contact Us
+                      </div>
+                    </Link>
+                    <Link
+                      to={`/search`}
+                      className="flex items-center content-center p-3 py-4 -m-3 rounded-lg hover:bg-loop-200"
+                    >
+                      <div className="ml-4 text-base font-medium text-dark-text">
+                        Search
+                      </div>
+                    </Link>
                   </nav>
                 </div>
               </div>
