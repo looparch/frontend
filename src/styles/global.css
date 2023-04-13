@@ -28,6 +28,6 @@
   }
 
   .transitional-product-card-inner-description {
-    @apply transition-all duration-1000 group-hover:opacity-0 leading-none m-6
+    @apply transition-all duration-1000 group-hover:opacity-0 leading-none m-6 line-clamp-3
   }
 }

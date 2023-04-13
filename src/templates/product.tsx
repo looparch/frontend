@@ -5,9 +5,9 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
 import Layout from '../components/layout'
 import { IProduct } from '../types/IProduct'
-import Logos from '../components/logos'
 import { SEO } from '../components/seo'
 import LayoutContent from '../components/layout-content'
+import MediumZoom from '../components/medium-zoom'
 
 type DataProps = {
   directus: {
@@ -37,18 +37,30 @@ const Product = ({
           <div className="order-last col-span-3 md:order-first">
             <div className="min-h-full mx-auto mb-20 print:max-width-none print:break-after-avoid print:break-inside-avoid">
               {primaryImage && (
-                <GatsbyImage
-                  image={primaryImage}
-                  alt={`${product.title} Primary`}
-                  className="object-cover w-full h-full mb-3 border border-gray-400"
-                />
+                <>
+                  <MediumZoom
+                    image={product.image_primary.imageFile.childImageSharp}
+                    title={`${product.title} Primary`}
+                  />
+                  {/* <GatsbyImage
+                    image={primaryImage}
+                    alt={`${product.title} Primary`}
+                    className="object-cover w-full h-full mb-3 border border-gray-400"
+                  /> */}
+                </>
               )}
               {secondaryImage !== undefined && (
-                <GatsbyImage
-                  image={secondaryImage}
-                  alt={`${product.title} Secondary`}
-                  className="object-cover w-full h-full mb-3 border border-gray-400"
-                />
+                <>
+                  <MediumZoom
+                    image={product.image_secondary.imageFile.childImageSharp}
+                    title={`${product.title} Secondary`}
+                  />
+                  {/* <GatsbyImage
+                    image={secondaryImage}
+                    alt={`${product.title} Secondary`}
+                    className="object-cover w-full h-full mb-3 border border-gray-400"
+                  /> */}
+                </>
               )}
             </div>
           </div>
@@ -56,9 +68,9 @@ const Product = ({
             <div className="mb-6 leading-none">
               <h1 className="text-2xl font-semibold">{product.title}</h1>
               {product.subtitle && (
-                <h2 className="text-xl">{product.subtitle}</h2>
+                <h2 className="text-lg">{product.subtitle}</h2>
               )}
-              <p className="mt-6 text-xl font-light">
+              <p className="mt-6 text-lg font-light">
                 {product.collection && (
                   <span>
                     From the <strong>{product.collection} Collection</strong>{' '}
@@ -81,9 +93,7 @@ const Product = ({
                   target="_blank"
                   className="button"
                 >
-                  <span className="sr-only">Visit and </span>
-                  View <span className="sr-only">{product.title}</span>{' '}
-                  {`@${product.manufacturer.title}`}
+                  {`View at ${product.manufacturer.title}`}
                 </a>
               </p>
               {product.tags && (
