@@ -6,7 +6,7 @@ import LayoutContent from '../components/layout-content'
 import IndexCarousel from '../components/index-carousel'
 import LogoSection from '../components/logo-section'
 import ArticleSection from '../components/article-section'
-import FeaturedProductsSection from '../components/featured-products-section'
+import FeaturedProductsSection from '../components/section-featured-products'
 import { SEO } from '../components/seo'
 
 const IndexPage = () => {

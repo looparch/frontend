@@ -7,8 +7,10 @@ import EndlessKnotLogo from './endless-knot'
 import FactLogo from './fact'
 import FiniumLogo from './finium'
 import GengroseLogo from './genrose'
+import InstagramLogo from './instagram'
 import JFContractLogo from './jf-contract'
 import JunckersLogo from './junckers'
+import LinkedInLogo from './linked-in'
 import OffecctLogo from './offecct'
 import RbwLogo from './rbw'
 import ToMarketLogo from './to-market'
@@ -29,8 +31,10 @@ const Logos: logoOptions = {
   'fact': FactLogo,
   'finium': FiniumLogo,
   'genrose': GengroseLogo,
+  'instagram': InstagramLogo,
   'jf-contract': JFContractLogo,
   'junckers': JunckersLogo,
+  'linked-in': LinkedInLogo,
   'offecct': OffecctLogo,
   'rbw': RbwLogo,
   'to-market': ToMarketLogo,

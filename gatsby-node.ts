@@ -62,14 +62,14 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
           }
         }
       }
-      blogPosts: allContentfulBlogPost(sort: {publishDate: ASC}) {
+      blogPosts: allContentfulBlogPost(sort: {publishDate: DESC}) {
         nodes {
           id
           title
           slug
         }
       }
-      articles: allContentfulArticle(sort: {publishDate: ASC}) {
+      articles: allContentfulArticle(sort: {publishDate: DESC}) {
         nodes {
           id
           title

@@ -38,6 +38,8 @@ const config: GatsbyConfig = {
     description: `Design & technical partner to the Arizona Architecture and Design community, Loop Architectural Materials represents leading brands in contract furniture, acoustics, and architectural/interior design finishes.`,
     image: `/loop_icon.png`,
     siteUrl: `https://looparch.com`,
+    instagramUrl: `https://www.instagram.com/looparch/`,
+    linkedInUrl: `https://www.linkedin.com/company/loop-architectural-materials/`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
