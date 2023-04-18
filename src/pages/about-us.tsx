@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
+import { HeadFC } from 'gatsby'
 
 const AboutUsPage = () => {
   return (
@@ -15,4 +16,4 @@ const AboutUsPage = () => {
 
 export default AboutUsPage
 
-export const Head = () => <SEO title="About Us" />
+export const Head: HeadFC = () => <SEO title="About Us" />

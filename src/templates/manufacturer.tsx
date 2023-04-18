@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { HeadFC, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import LayoutContent from '../components/layout-content'
 import ProductCard from '../components/product-card'
@@ -59,7 +59,7 @@ const Manufacturer = ({
 
 export default Manufacturer
 
-export const Head = ({
+export const Head: HeadFC = ({
   data: {
     directus: { manufacturer },
   },

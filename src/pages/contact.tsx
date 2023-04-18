@@ -1,4 +1,5 @@
 import React from 'react'
+import { HeadFC } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
@@ -41,7 +42,7 @@ const ContactPage = () => {
 
 export default ContactPage
 
-export const Head = () => {
+export const Head: HeadFC = () => {
   return (
     <>
       <SEO title="Contact Us" />

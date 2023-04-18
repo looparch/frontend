@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { navigate } from 'gatsby'
-import { XMarkIcon } from '@heroicons/react/24/outline'
+import { HeadFC } from 'gatsby'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
 import MeiliSearch from '../components/meilisearch'
@@ -19,4 +18,4 @@ const SearchPage = () => {
 
 export default SearchPage
 
-export const Head = () => <SEO title="Search" />
+export const Head : HeadFC= () => <SEO title="Search" />

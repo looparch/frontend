@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import type { PageProps } from 'gatsby'
+import type { HeadFC, PageProps } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
 import Layout from '../components/layout'
@@ -109,7 +109,7 @@ const Product = ({
 
 export default Product
 
-export const Head = ({
+export const Head: HeadFC = ({
   data: {
     directus: { product },
   },
