@@ -3,9 +3,12 @@ import type { HeadFC } from 'gatsby'
 import usePublishedBlogPosts from '../hooks/use-published-blog-posts'
 import Layout from '../components/layout'
 import IndexCarousel from '../components/index-carousel'
-import LogoSection from '../components/logo-section'
-import ArticleSection from '../components/article-section'
-import FeaturedProductsSection from '../components/section-featured-products'
+import IndexSectionLogos from '../components/index-section-logos'
+import IndexSectionArticles from '../components/index-section-articles'
+import IndexSectionFeaturedProducts from '../components/index-section-featured-products'
+import IndexSectionPioneeringLines from '../components/index-section-pioneering-lines'
+import IndexSectionProjectDiversity from '../components/index-section-project-diversity'
+import IndexSectionEndToEnd from '../components/index-section-end-to-end'
 import { SEO } from '../components/seo'
 
 const IndexPage = () => {
@@ -14,9 +17,12 @@ const IndexPage = () => {
     <Layout>
       <div className="w-full h-full">
         <IndexCarousel articles={blogPosts.slice(0, 3)} />
-        <LogoSection />
-        <FeaturedProductsSection />
-        <ArticleSection />
+        <IndexSectionPioneeringLines />
+        <IndexSectionProjectDiversity />
+        <IndexSectionEndToEnd />
+        <IndexSectionLogos />
+        <IndexSectionFeaturedProducts />
+        <IndexSectionArticles />
       </div>
     </Layout>
   )
