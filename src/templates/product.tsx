@@ -6,7 +6,8 @@ import ReactMarkdown from 'react-markdown'
 import Layout from '../components/layout'
 import { IProduct } from '../types/IProduct'
 import { SEO } from '../components/seo'
-import { SEOProduct } from '../components/seo-product'
+import { SEOProductJsonLd } from '../components/seo-product-json-ld'
+import { SEOBreadcrumbsJsonLd } from '../components/seo-breadcrumbs-json-ld'
 import LayoutContent from '../components/layout-content'
 import MediumZoom from '../components/medium-zoom'
 
@@ -111,8 +112,9 @@ export const Head = ({
   const titleString = `${product.manufacturer.title} - ${product.title}`
   return (
     <>
-      <SEO title={titleString} />
-      <SEOProduct product={product} pathname={location.pathname} />
+      <SEO title={titleString} pathname={location.pathname} />
+      <SEOProductJsonLd product={product} pathname={location.pathname} />
+      <SEOBreadcrumbsJsonLd pathname={location.pathname} />
     </>
   )
 }
@@ -149,6 +151,12 @@ export const pageQuery = graphql`
         manufacturer {
           title
           slug
+          image_logo_dark {
+            id
+            imageFile {
+              publicURL
+            }
+          }
         }
       }
     }

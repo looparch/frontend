@@ -4,7 +4,7 @@
 
 @layer components {
   .button {
-    @apply flex items-center justify-center w-fit px-4 py-2 text-base font-semibold text-white hover:text-white border border-transparent rounded-sm bg-loop-400 hover:bg-loop-500 focus:outline-none no-underline;
+    @apply flex items-center justify-center w-fit px-4 py-2 text-base font-normal text-white hover:text-white border border-transparent rounded-sm bg-loop-400 hover:bg-loop-500 focus:outline-none no-underline;
   }
 
   .home-section {

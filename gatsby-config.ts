@@ -40,6 +40,7 @@ const config: GatsbyConfig = {
     siteUrl: `https://looparch.com`,
     instagramUrl: `https://www.instagram.com/looparch/`,
     linkedInUrl: `https://www.linkedin.com/company/loop-architectural-materials/`,
+    publisher: `Loop Architectural Materials`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
