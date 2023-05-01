@@ -23,11 +23,23 @@ interface OtherProps {
   message: string
   handleSubmit: (values: FormValues) => void
   className?: string
+  selectedManufacturer?: string
+  manufacturer?: string
 }
 
 // Aside: You may see InjectedFormikProps<OtherProps, FormValues> instead of what comes below in older code.. InjectedFormikProps was artifact of when Formik only exported a HoC. It is also less flexible as it MUST wrap all props (it passes them through).
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
-  const { touched, errors, isSubmitting, message, handleSubmit, className } = props
+  const {
+    touched,
+    errors,
+    isSubmitting,
+    message,
+    handleSubmit,
+    className,
+    manufacturer,
+  } = props
+
+  console.log(props)
   const manufacturers = usePublishedManufacturers()
 
   return (
@@ -41,7 +53,9 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
             className="block w-full mt-1 form-input"
             autoComplete="name"
           />
-          {touched.name && errors.name && <div className="form-error">{errors.name}</div>}
+          {touched.name && errors.name && (
+            <div className="form-error">{errors.name}</div>
+          )}
         </label>
 
         <label className="block">
@@ -52,7 +66,9 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
             className="block w-full mt-1 form-input"
             autoComplete="email"
           />
-          {touched.email && errors.email && <div className="form-error">{errors.email}</div>}
+          {touched.email && errors.email && (
+            <div className="form-error">{errors.email}</div>
+          )}
         </label>
 
         <label className="block">
@@ -62,8 +78,9 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
             name="manufacturer"
             as="select"
             className="block w-full mt-1 form-input"
+            placeholder="Select a manufacturer"
           >
-            <option value="none">Select a manufacturer</option>
+            {/* <option value="none">Select a manufacturer</option> */}
             {manufacturers.map((manufacturer: any) => (
               <option key={manufacturer.id} value={manufacturer.title}>
                 {manufacturer.title}
@@ -80,8 +97,11 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
             as="textarea"
             className="block w-full mt-1 form-input"
             placeholder="Your message..."
+            rows={5}
           />
-          {touched.message && errors.message && <div className="form-error">{errors.message}</div>}
+          {touched.message && errors.message && (
+            <div className="form-error">{errors.message}</div>
+          )}
         </label>
 
         <label className="block">
@@ -112,8 +132,9 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
 // The type of props MyForm receives
 interface MyFormProps {
-  message: string, // if this passed all the way through you might do this or make a union type
+  message: string // if this passed all the way through you might do this or make a union type
   className?: string
+  manufacturer?: string
 }
 
 // Wrap our form with the withFormik HoC
@@ -123,7 +144,7 @@ const MyForm = withFormik<MyFormProps, FormValues>({
     return {
       name: '',
       email: '',
-      manufacturer: '',
+      manufacturer: props.manufacturer || '',
       message: '',
       project_name: '',
       project_specifier: '',
@@ -141,6 +162,8 @@ const MyForm = withFormik<MyFormProps, FormValues>({
 })(InnerForm)
 
 // Use <MyForm /> wherevs
-const FormContact = () => <MyForm message="Contact Us" />
+const FormContact = ({ selected }: any) => {
+  return <MyForm message="Contact Us" manufacturer={selected} />
+}
 
 export default FormContact

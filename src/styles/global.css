@@ -7,6 +7,10 @@
     @apply flex items-center justify-center w-fit px-4 py-2 text-base font-normal text-white hover:text-white border border-transparent rounded-sm bg-loop-400 hover:bg-loop-500 focus:outline-none no-underline;
   }
 
+  .button.secondary {
+    @apply text-loop-800 hover:text-white bg-loop-200 hover:bg-loop-500;
+  }
+
   .home-section {
     @apply py-24 overflow-hidden bg-white sm:py-24;
   }

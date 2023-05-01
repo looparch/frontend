@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { HeadFC, graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import LayoutContent from '../components/layout-content'
 import ProductCard from '../components/product-card'
@@ -12,7 +12,10 @@ type DataProps = {
   data: {
     directus: {
       manufacturer: IManufacturer
-    }
+    },
+  }
+  location: {
+    pathname: string
   }
 }
 
@@ -34,7 +37,7 @@ const Manufacturer = ({
               <div className="mb-6 text-base leading-tight prose transition max-w-none">
                 <ReactMarkdown>{manufacturer.description}</ReactMarkdown>
               </div>
-              <div>
+              <div className="flex gap-4">
                 <a
                   href={manufacturer.href}
                   rel="noopener"
@@ -45,6 +48,13 @@ const Manufacturer = ({
                   {manufacturer.title}
                   <span className="sr-only">'s website</span>
                 </a>
+                <Link
+                  to={`/contact/?manufacturer=${manufacturer.title}`}
+                  className="button secondary"
+                >
+                  <span className="sr-only">Click here to inquire about {manufacturer.title}</span>
+                  Inquire
+                </Link>
               </div>
             </li>
             {manufacturer.products.map((product) => {
@@ -63,6 +73,7 @@ export const Head = ({
   data: {
     directus: { manufacturer },
   },
+  location,
 }: DataProps) => (
   <SEO title={`${manufacturer.title}`} pathname={location.pathname} />
 )

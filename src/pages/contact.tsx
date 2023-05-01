@@ -5,7 +5,16 @@ import Layout from '../components/layout'
 import { SEO } from '../components/seo'
 import FormContact from '../components/form-contact'
 
-const ContactPage = () => {
+type DataProps = {
+  location: {
+    search: string
+  }
+}
+const ContactPage = ({ location }: DataProps) => {
+  console.log(location.search)
+  const params = new URLSearchParams(location.search)
+  const manufacturer = params.get('manufacturer')
+
   return (
     <Layout>
       <div>
@@ -23,7 +32,7 @@ const ContactPage = () => {
           </div>
           <div className="grid grid-cols-1 gap-6 mb-8 md:grid-cols-3">
             <div className="order-last col-span-1 md:col-span-2 md:-order-last">
-              <FormContact />
+              <FormContact selected={manufacturer}/>
             </div>
             <div className="col-span-1 prose">
               <p>
@@ -47,6 +56,6 @@ const ContactPage = () => {
 
 export default ContactPage
 
-export const Head: HeadFC = () => {
+export const Head: HeadFC = ({ location }) => {
   return <SEO title="Contact Us" pathname={location.pathname} />
 }

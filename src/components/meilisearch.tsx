@@ -77,7 +77,7 @@ const MeiliSearch = () => {
             classNames={{
               root: 'max-w-full w-full sm:w-2/3 mx-auto my-6',
               list: 'flex justify-between',
-              item: 'w-8 h-8 flex rounded-full items-center justify-center bg-loop-400 text-white hover:bg-loop-500 font-medium',
+              item: 'w-12 h-12 flex rounded-full items-center justify-center bg-loop-400 text-white hover:bg-loop-500 font-medium',
               selectedItem: 'bg-loop-500',
               disabledItem: 'opacity-50 cursor-not-allowed',
             }}

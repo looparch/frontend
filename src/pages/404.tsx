@@ -47,6 +47,6 @@ const NotFoundPage = () => {
 
 export default NotFoundPage
 
-export const Head: HeadFC = () => (
+export const Head: HeadFC = ({ location }) => (
   <SEO title="Not Found" pathname={location.pathname} />
 )
