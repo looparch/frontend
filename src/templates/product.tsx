@@ -7,7 +7,6 @@ import Layout from '../components/layout'
 import { IProduct } from '../types/IProduct'
 import { SEO } from '../components/seo'
 import { SEOProductJsonLd } from '../components/seo-product-json-ld'
-import { SEOBreadcrumbsJsonLd } from '../components/seo-breadcrumbs-json-ld'
 import LayoutContent from '../components/layout-content'
 import MediumZoom from '../components/medium-zoom'
 
@@ -114,7 +113,6 @@ export const Head = ({
     <>
       <SEO title={titleString} pathname={location.pathname} />
       <SEOProductJsonLd product={product} pathname={location.pathname} />
-      <SEOBreadcrumbsJsonLd pathname={location.pathname} />
     </>
   )
 }

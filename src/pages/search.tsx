@@ -18,4 +18,4 @@ const SearchPage = () => {
 
 export default SearchPage
 
-export const Head : HeadFC= () => <SEO title="Search" />
+export const Head : HeadFC= () => <SEO title="Search" pathname={location.pathname}/>

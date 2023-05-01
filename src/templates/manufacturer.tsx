@@ -59,11 +59,13 @@ const Manufacturer = ({
 
 export default Manufacturer
 
-export const Head: HeadFC = ({
+export const Head = ({
   data: {
     directus: { manufacturer },
   },
-}: DataProps) => <SEO title={`${manufacturer.title}`} />
+}: DataProps) => (
+  <SEO title={`${manufacturer.title}`} pathname={location.pathname} />
+)
 
 export const pageQuery = graphql`
   query ManufacturerById($id: ID!) {

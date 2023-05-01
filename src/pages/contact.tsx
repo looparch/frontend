@@ -10,7 +10,12 @@ const ContactPage = () => {
     <Layout>
       <div>
         <div className="hidden md:block">
-          <StaticImage src="../images/map@2x.png" alt="map" layout="constrained" imgClassName="object-cover"/>
+          <StaticImage
+            src="../images/map@2x.png"
+            alt="map"
+            layout="constrained"
+            imgClassName="object-cover"
+          />
         </div>
         <div className="max-w-6xl px-4 py-6 mx-auto sm:px-6 lg:py-8 lg:px-8">
           <div className="">
@@ -43,9 +48,5 @@ const ContactPage = () => {
 export default ContactPage
 
 export const Head: HeadFC = () => {
-  return (
-    <>
-      <SEO title="Contact Us" />
-    </>
-  )
+  return <SEO title="Contact Us" pathname={location.pathname} />
 }

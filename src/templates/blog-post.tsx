@@ -34,7 +34,8 @@ export const Head = ({
     blogPost,
   },
 }: DataProps) => (
-  <SEO title={`${blogPost.title}`} />
+  <SEO title={`${blogPost.title}`} pathname={location.pathname}
+  />
 )
 
 export const pageQuery = graphql`

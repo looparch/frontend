@@ -16,4 +16,6 @@ const AboutUsPage = () => {
 
 export default AboutUsPage
 
-export const Head: HeadFC = () => <SEO title="About Us" />
+export const Head: HeadFC = () => (
+  <SEO title="About Us" pathname={location.pathname} />
+)

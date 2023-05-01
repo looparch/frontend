@@ -1,6 +1,7 @@
-import React from "react"
-import useSiteMetadata from "../hooks/use-site-metadata"
-import { SEOSiteJsonLD } from "./seo-site-json-ld"
+import React from 'react'
+import useSiteMetadata from '../hooks/use-site-metadata'
+import { SEOSiteJsonLD } from './seo-site-json-ld'
+import { SEOBreadcrumbsJsonLd } from './seo-breadcrumbs-json-ld'
 
 type SEOProps = {
   title?: string
@@ -13,7 +14,14 @@ type SEOProps = {
 }
 
 export const SEO = ({ title, description, pathname, children }: SEOProps) => {
-  const { title: defaultTitle, description: defaultDescription, image, siteUrl, instagramUrl, linkedInUrl } = useSiteMetadata()
+  const {
+    title: defaultTitle,
+    description: defaultDescription,
+    image,
+    siteUrl,
+    instagramUrl,
+    linkedInUrl,
+  } = useSiteMetadata()
   const siteTitle = defaultTitle
 
   const seo = {
@@ -35,6 +43,7 @@ export const SEO = ({ title, description, pathname, children }: SEOProps) => {
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
       <SEOSiteJsonLD />
+      {pathname && <SEOBreadcrumbsJsonLd pathname={pathname} />}
       {children}
     </>
   )
