@@ -19,82 +19,9 @@ export default function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="px-0 py-12 mx-auto border-t max-w-8xl md:px-6 lg:py-16 lg:px-8">
-        <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
-          <div className="grid grid-cols-2 gap-8 xl:col-span-4">
-            {/* <div className="md:grid md:grid-cols-2 md:gap-8"> */}
-            <div>
-              <h3 className="text-base font-medium text-dark-text">
-                Manufacturers
-              </h3>
-              <ul role="list" className="grid grid-cols-2 gap-4 mt-4">
-                {manufacturers.map(
-                  (item: {
-                    id: string | number | null | undefined
-                    href: string | undefined
-                    title:
-                      | string
-                      | number
-                      | boolean
-                      | React.ReactElement<
-                          any,
-                          string | React.JSXElementConstructor<any>
-                        >
-                      | React.ReactFragment
-                      | React.ReactPortal
-                      | null
-                      | undefined
-                  }) => (
-                    <li key={item.id}>
-                      <a
-                        href={item.href}
-                        className="text-base text-medium-text hover:text-light-text"
-                      >
-                        {item.title}
-                      </a>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-            <div className="mt-12 md:mt-0">
-              <h3 className="text-base font-medium text-dark-text">
-                Announcements
-              </h3>
-              <ul role="list" className="flex flex-col flex-wrap gap-4 mt-4">
-                {blogPosts.map(
-                  (item: {
-                    id: string | number | null | undefined
-                    slug: string | undefined
-                    title:
-                      | string
-                      | number
-                      | boolean
-                      | React.ReactElement<
-                          any,
-                          string | React.JSXElementConstructor<any>
-                        >
-                      | React.ReactFragment
-                      | React.ReactPortal
-                      | null
-                      | undefined
-                  }) => (
-                    <li key={item.id}>
-                      <a
-                        href={item.slug}
-                        className="text-base text-medium-text hover:text-light-text"
-                      >
-                        {item.title}
-                      </a>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-            {/* </div> */}
-          </div>
-        </div>
-        <div className="pt-8 border-t border-gray-700 lg:flex lg:items-center lg:justify-between xl:mt-0">
+      <div className="px-0 py-12 mx-auto max-w-8xl md:px-6 lg:py-16 lg:px-8">
+        
+        <div className="pt-8 border-t border-loop-300 lg:flex lg:items-center lg:justify-between xl:mt-0">
           <div>
             <h3 className="text-base font-medium text-dark-text">
               Subscribe to our newsletter
@@ -120,14 +47,14 @@ export default function Footer() {
             <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
               <button
                 type="submit"
-                className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md bg-loop-400 hover:bg-loop-500 focus:outline-none focus:ring-2 focus:ring-loop-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                className="button"
               >
                 Subscribe
               </button>
             </div>
           </form>
         </div>
-        <div className="pt-8 mt-8 border-t border-medium-text md:flex md:items-center md:justify-between">
+        <div className="pt-8 mt-8 border-t border-loop-300 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             <a
               href={'https://twitter.com/loop_io'}

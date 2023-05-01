@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import type { HeadFC, PageProps } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import type { PageProps } from 'gatsby'
+import { getImage } from 'gatsby-plugin-image'
 import ReactMarkdown from 'react-markdown'
 import Layout from '../components/layout'
 import { IProduct } from '../types/IProduct'
 import { SEO } from '../components/seo'
+import { SEOProduct } from '../components/seo-product'
 import LayoutContent from '../components/layout-content'
 import MediumZoom from '../components/medium-zoom'
 
@@ -19,9 +20,11 @@ const Product = ({
   data: {
     directus: { product },
   },
+  location,
 }: PageProps<DataProps>) => {
   const primaryImage = getImage(product.image_primary.imageFile.childImageSharp)
   const designer = product.designer || product.manufacturer.title
+  console.log(location)
 
   let secondaryImage = undefined
   if (product.image_secondary) {
@@ -42,11 +45,6 @@ const Product = ({
                     image={product.image_primary.imageFile.childImageSharp}
                     title={`${product.title} Primary`}
                   />
-                  {/* <GatsbyImage
-                    image={primaryImage}
-                    alt={`${product.title} Primary`}
-                    className="object-cover w-full h-full mb-3 border border-gray-400"
-                  /> */}
                 </>
               )}
               {secondaryImage !== undefined && (
@@ -55,11 +53,6 @@ const Product = ({
                     image={product.image_secondary.imageFile.childImageSharp}
                     title={`${product.title} Secondary`}
                   />
-                  {/* <GatsbyImage
-                    image={secondaryImage}
-                    alt={`${product.title} Secondary`}
-                    className="object-cover w-full h-full mb-3 border border-gray-400"
-                  /> */}
                 </>
               )}
             </div>
@@ -109,13 +102,19 @@ const Product = ({
 
 export default Product
 
-export const Head: HeadFC = ({
+export const Head = ({
   data: {
     directus: { product },
   },
+  location,
 }: PageProps<DataProps>) => {
   const titleString = `${product.manufacturer.title} - ${product.title}`
-  return <SEO title={titleString} />
+  return (
+    <>
+      <SEO title={titleString} />
+      <SEOProduct product={product} pathname={location.pathname} />
+    </>
+  )
 }
 
 export const pageQuery = graphql`

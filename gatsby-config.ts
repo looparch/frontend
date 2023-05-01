@@ -36,7 +36,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `Loop Architectural Materials`,
     description: `Design & technical partner to the Arizona Architecture and Design community, Loop Architectural Materials represents leading brands in contract furniture, acoustics, and architectural/interior design finishes.`,
-    image: `/loop_icon.png`,
+    image: `/images/loop_icon.png`,
     siteUrl: `https://looparch.com`,
     instagramUrl: `https://www.instagram.com/looparch/`,
     linkedInUrl: `https://www.linkedin.com/company/loop-architectural-materials/`,

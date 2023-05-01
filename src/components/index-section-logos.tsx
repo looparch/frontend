@@ -37,18 +37,16 @@ const IndexSectionLogos = () => {
               const ManufacturerLogo = Logos[item.slug]
 
               return (
-                <>
-                  <Link
-                    to={`/${item.slug}`}
-                    className="grid place-content-center-center justify-items-center place-items-center group"
-                    key={item.id}
-                  >
-                    <h3 className="flex w-full h-24 md:h-32 lg:h-36">
-                      <ManufacturerLogo className="z-20 w-full transition group-hover:scale-110 fill-black" />
-                      <span className="sr-only">{item.title}</span>
-                    </h3>
-                  </Link>
-                </>
+                <Link
+                  to={`/${item.slug}`}
+                  className="grid place-content-center-center justify-items-center place-items-center group"
+                  key={item.id}
+                >
+                  <h3 className="flex w-full h-24 md:h-32 lg:h-36">
+                    <ManufacturerLogo className="z-20 w-full transition group-hover:scale-110 fill-black" />
+                    <span className="sr-only">{item.title}</span>
+                  </h3>
+                </Link>
               )
             })}
           </article>
