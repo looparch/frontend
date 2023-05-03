@@ -3,8 +3,7 @@ node_modules/
 public
 src/gatsby-types.d.ts
 .DS_Store
-.env.development
-.env.production
+.env*
 
 # Partytown
 static/~partytown
