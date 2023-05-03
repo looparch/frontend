@@ -9,7 +9,7 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <SizeIndicator />
+      {/* <SizeIndicator /> */}
       <Slice alias="navbar" />
       <main className="w-full min-h-full mx-auto bg-white print:bg-transparent max-w-8xl">{children}</main>
       <Slice alias="footer" />

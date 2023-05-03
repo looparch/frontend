@@ -24,7 +24,6 @@ const Product = ({
 }: PageProps<DataProps>) => {
   const primaryImage = getImage(product.image_primary.imageFile.childImageSharp)
   const designer = product.designer || product.manufacturer.title
-  console.log(location)
 
   let secondaryImage = undefined
   if (product.image_secondary) {

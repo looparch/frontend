@@ -11,6 +11,10 @@
     @apply text-loop-800 hover:text-white bg-loop-200 hover:bg-loop-500;
   }
 
+  .button.inactive {
+    @apply text-gray-800  bg-gray-200 hover:bg-gray-800 cursor-none;
+  }
+
   .home-section {
     @apply py-24 overflow-hidden bg-white sm:py-24;
   }
@@ -21,6 +25,10 @@
 
   .form-error {
     @apply text-red-500 text-sm
+  }
+
+  .form-success {
+    @apply text-loop-700 text-sm
   }
 
   .transitional-product-card-inner {

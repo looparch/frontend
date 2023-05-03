@@ -31,5 +31,5 @@ const IndexPage = () => {
 export default IndexPage
 
 export const Head: HeadFC = () => {
-  return <SEO />
+  return <SEO title=""/>
 }

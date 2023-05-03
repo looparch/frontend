@@ -11,11 +11,7 @@ type SEOProps = {
   linkedInUrl?: string
 }
 
-export const SEOSiteJsonLD = ({
-  title,
-  description,
-  pathname,
-}: SEOProps) => {
+export const SEOSiteJsonLD = ({ title, description, pathname }: SEOProps) => {
   const {
     title: defaultTitle,
     description: defaultDescription,
@@ -31,8 +27,6 @@ export const SEOSiteJsonLD = ({
     image: `${siteUrl}${image}`,
     url: `${siteUrl}${pathname || ``}`,
   }
-
-  console.log(seo)
 
   // Default Website Schema
   const schemaOrgJSONLD = [
@@ -104,8 +98,6 @@ export const SEOSiteJsonLD = ({
       ],
     },
   ]
-
-  console.log(schemaOrgJSONLD)
 
   return (
     <>

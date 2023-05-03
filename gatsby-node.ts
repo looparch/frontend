@@ -1,6 +1,10 @@
 import path from 'path'
-import fs from 'fs/promises'
 import { GatsbyNode } from "gatsby";
+import { copyLibFiles } from '@builder.io/partytown/utils'
+
+export const onPreBuild: GatsbyNode['onPreBuild'] = async () => {
+  await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
+}
 
 type TypeResult = {
   directus: {

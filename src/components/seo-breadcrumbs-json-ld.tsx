@@ -46,7 +46,6 @@ const getBreadcrumbsFromPathname = (pathname: string) => {
         name: titleCase(parts[i].replace(/\-/g, ' ')),
       },
     }
-    console.log(breadcrumb)
     breadcrumbObj.itemListElement.push(breadcrumb)
   }
 

@@ -5,3 +5,6 @@ src/gatsby-types.d.ts
 .DS_Store
 .env.development
 .env.production
+
+# Partytown
+static/~partytown

@@ -48,9 +48,6 @@ export const SEOProductJsonLd = ({ product, pathname, children }: SEOProps) => {
     manufacturer,
   }
 
-  console.log('pathname', pathname)
-  console.log('publisher', publisher)
-
   const schemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
