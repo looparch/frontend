@@ -19,7 +19,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
             style={{ gridArea: '1/1' }}
           />
           <div
-            className="z-20 grid items-center content-center justify-center w-full h-full p-6 mx-auto md:p-0"
+            className="z-20 flex items-center content-center justify-center w-full h-full p-6 mx-auto md:p-0"
             style={{ gridArea: '1/1' }}
           >
             <ManufacturerLogo className="absolute w-3/4 mx-auto md:w-1/2 2xl:w-1/5 place-self-center fill-white" />
@@ -31,17 +31,6 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
           ></div>
         </div>
       </div>
-      {/* <div className="p-2 mx-auto md:p-8 md:pb-0 max-w-7xl">
-        <ReactMarkdown className="mb-6 font-light leading-tight prose max-w-7xl">
-          {description}
-        </ReactMarkdown>
-        <div>
-          <a href={href} rel="noopener" target="_blank" className="button">
-            <span className="sr-only">Click here to </span>Visit {title}
-            <span className="sr-only">'s website</span>
-          </a>
-        </div>
-      </div> */}
     </>
   )
 }
