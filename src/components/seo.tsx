@@ -34,17 +34,17 @@ export const SEO = ({ title, description, pathname, children }: SEOProps) => {
 
   return (
     <>
-      {seo.title === siteTitle && <title>{seo.title}</title>}
-      {seo.title !== siteTitle && <title>{`${seo.title} - ${siteTitle}`}</title>}
-      <meta name="description" content={seo.description} />
-      <meta name="image" content={seo.image} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={seo.title} />
-      <meta name="twitter:url" content={seo.pathname} />
-      <meta name="twitter:description" content={seo.description} />
-      <meta name="twitter:image" content={seo.image} />
-      <SEOSiteJsonLD />
-      {pathname && <SEOBreadcrumbsJsonLd pathname={pathname} />}
+      {seo.title === siteTitle && <title key="title">{seo.title}</title>}
+      {seo.title !== siteTitle && <title key="title">{`${seo.title} - ${siteTitle}`}</title>}
+      <meta name="description" key="description" content={seo.description} />
+      <meta name="image" key="image" content={seo.image} />
+      <meta name="twitter:card" key="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" key="twitter:title" content={seo.title} />
+      <meta name="twitter:url" key="twitter:url" content={seo.pathname} />
+      <meta name="twitter:description" key="twitter:description" content={seo.description} />
+      <meta name="twitter:image" key="twitter:image" content={seo.image} />
+      <SEOSiteJsonLD key="site-seo"/>
+      {pathname && <SEOBreadcrumbsJsonLd key="seo-breadcrumbs" pathname={pathname} />}
       {children}
     </>
   )
