@@ -69,7 +69,7 @@ const MeiliSearch = () => {
             classNames={{
               root: 'grid',
               list: 'grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6',
-              item: 'flex items-start justify-start p-6 bg-pure-white bg-opacity-70 rounded-lg',
+              item: 'flex items-start justify-start p-6 bg-pure-white bg-opacity-50 rounded-lg',
             }}
           />
           <Pagination

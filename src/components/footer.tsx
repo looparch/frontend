@@ -19,8 +19,7 @@ export default function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="px-0 py-12 mx-auto max-w-8xl md:px-6 lg:py-16 lg:px-8">
-        
+      <div className="px-0 py-12 mx-auto max-w-7xl md:px-6 lg:py-16 lg:px-8">
         <div className="pt-8 border-t border-loop-300 lg:flex lg:items-center lg:justify-between xl:mt-0">
           <div>
             <h3 className="text-base font-medium text-dark-text">
@@ -45,10 +44,7 @@ export default function Footer() {
               placeholder="Enter your email"
             />
             <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-              <button
-                type="submit"
-                className="button"
-              >
+              <button type="submit" className="button">
                 Subscribe
               </button>
             </div>

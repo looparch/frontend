@@ -25,7 +25,7 @@ export default function Navbar(props: any) {
 
   return (
     <div
-      className={`${_className} ${navbarClasses.wrapperClass} group sticky top-0 transition-all duration-300 z-50 max-w-8xl print:hidden mx-auto w-full`}
+      className={`${_className} ${navbarClasses.wrapperClass} group sticky top-0 transition-all duration-300 z-50 max-w-7xl print:hidden mx-auto w-full`}
       style={props.style}
     >
       <Popover>

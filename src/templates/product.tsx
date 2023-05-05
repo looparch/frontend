@@ -13,6 +13,9 @@ import MediumZoom from '../components/medium-zoom'
 type DataProps = {
   directus: {
     product: IProduct
+  },
+  location: {
+    pathname: string
   }
 }
 
@@ -20,7 +23,6 @@ const Product = ({
   data: {
     directus: { product },
   },
-  location,
 }: PageProps<DataProps>) => {
   const primaryImage = getImage(product.image_primary.imageFile.childImageSharp)
   const designer = product.designer || product.manufacturer.title

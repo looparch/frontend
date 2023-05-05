@@ -117,23 +117,6 @@ const config: GatsbyConfig = {
         apiKey: process.env.MEILISEARCH_KEY,
         indexes: [
           {
-            indexUid: 'pages_url',
-            transformer: (data: any) =>
-              data.allSitePage.nodes.map((node: any, index: any) => ({
-                id: index,
-                ...node,
-              })),
-              query: `
-                query AllPagesQuery {
-                  allSitePage {
-                    nodes {
-                      path
-                    }
-                  }
-                }
-              `
-          },
-          {
             indexUid: 'all_products',
             transformer: (data: any) =>
               data.directus.products.map((product: any) => ({
