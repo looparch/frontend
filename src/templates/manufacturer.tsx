@@ -7,12 +7,13 @@ import ManufacturerHero from '../components/manufacturer-hero'
 import type { IManufacturer } from '../types'
 import { SEO } from '../components/seo'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 type DataProps = {
   data: {
     directus: {
       manufacturer: IManufacturer
-    },
+    }
   }
   location: {
     pathname: string
@@ -28,6 +29,34 @@ const Manufacturer = ({
     <Layout>
       <div className="bg-white">
         <ManufacturerHero {...manufacturer} />
+        {/* <LayoutContent>
+          <div className="block grid-cols-2 gap-6 sm:grid">
+            <div>
+              <p>Blars</p>
+            </div>
+            <div className="pt-6">
+              <div className="grid auto-rows-[200px] grid-cols-3 gap-2">
+                {[...Array(7)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`row-span-1 rounded-md border-2 border-slate-400/10 bg-neutral-100 dark:bg-neutral-300 ${
+                      i === 3 || i === 6 ? 'col-span-2' : ''
+                    }`}
+                  >
+                    <GatsbyImage
+                      image={
+                        manufacturer.image_hero.imageFile.childImageSharp
+                          .gatsbyImageData
+                      }
+                      alt="hello"
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </LayoutContent> */}
         <LayoutContent>
           <ul
             role="list"
@@ -52,7 +81,9 @@ const Manufacturer = ({
                   to={`/contact/?manufacturer=${manufacturer.title}`}
                   className="button secondary"
                 >
-                  <span className="sr-only">Click here to inquire about {manufacturer.title}</span>
+                  <span className="sr-only">
+                    Click here to inquire about {manufacturer.title}
+                  </span>
                   Inquire
                 </Link>
               </div>

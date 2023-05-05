@@ -26,7 +26,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
           </div>
 
           <div
-            className="z-10 bg-[#000000] opacity-50 mix-blend-multiply"
+            className="z-10 bg-[#000000] opacity-30 mix-blend-multiply"
             style={{ gridArea: '1/1' }}
           ></div>
         </div>
