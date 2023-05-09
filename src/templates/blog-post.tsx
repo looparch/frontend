@@ -9,13 +9,16 @@ type DataProps = {
   data: {
     blogPost: IBlogPost
   }
+  location: {
+    pathname: string
+  }
 }
 
 const BlogPost = ({ data: { blogPost } }: DataProps) => {
   return (
     <Layout>
       <>
-        <BlogPostHero {...blogPost}/>
+        <BlogPostHero {...blogPost} />
         <div
           className="max-w-3xl px-4 mx-auto my-8 text-lg prose text-dark-text md:px-0"
           dangerouslySetInnerHTML={{
@@ -29,13 +32,8 @@ const BlogPost = ({ data: { blogPost } }: DataProps) => {
 
 export default BlogPost
 
-export const Head = ({
-  data: {
-    blogPost,
-  },
-}: DataProps) => (
-  <SEO title={`${blogPost.title}`} pathname={location.pathname}
-  />
+export const Head = ({ data: { blogPost }, location }: DataProps) => (
+  <SEO title={`${blogPost.title}`} pathname={location.pathname} />
 )
 
 export const pageQuery = graphql`

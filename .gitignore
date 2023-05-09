@@ -5,5 +5,9 @@ src/gatsby-types.d.ts
 .DS_Store
 .env*
 
+
 # Partytown
 static/~partytown
+
+# Yarn
+yarn-error.log

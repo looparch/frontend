@@ -12,7 +12,7 @@ const IndexSectionPioneeringLines = () => {
                 Pioneering Lines
               </h2>
               <p className="my-6 text-lg leading-8">
-                Loop carefully curates it’s stable of lines to bring you the
+                Loop carefully curates its stable of lines to bring you the
                 newest, highest quality and most innovative products available.
               </p>
               <p className="my-6 text-lg leading-8">

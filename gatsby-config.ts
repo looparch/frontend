@@ -114,25 +114,8 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-plugin-meilisearch',
       options: {
         host: process.env.MEILISEARCH_HOST,
-        apiKey: process.env.MEILISEARCH_KEY,
+        apiKey: process.env.MEILISEARCH_ADMIN_KEY,
         indexes: [
-          {
-            indexUid: 'pages_url',
-            transformer: (data: any) =>
-              data.allSitePage.nodes.map((node: any, index: any) => ({
-                id: index,
-                ...node,
-              })),
-              query: `
-                query AllPagesQuery {
-                  allSitePage {
-                    nodes {
-                      path
-                    }
-                  }
-                }
-              `
-          },
           {
             indexUid: 'all_products',
             transformer: (data: any) =>
