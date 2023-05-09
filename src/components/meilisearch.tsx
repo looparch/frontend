@@ -23,7 +23,7 @@ const MeiliSearch = () => {
     return instantMeiliSearch(
       // @ts-ignore next-line
       process.env.MEILISEARCH_HOST,
-      process.env.MEILISEARCH_KEY,
+      process.env.MEILISEARCH_SEARCH_KEY,
       {
         placeholderSearch: true,
         finitePagination: true,

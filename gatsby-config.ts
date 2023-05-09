@@ -114,7 +114,7 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-plugin-meilisearch',
       options: {
         host: process.env.MEILISEARCH_HOST,
-        apiKey: process.env.MEILISEARCH_KEY,
+        apiKey: process.env.MEILISEARCH_ADMIN_KEY,
         indexes: [
           {
             indexUid: 'all_products',
