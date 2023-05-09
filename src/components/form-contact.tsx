@@ -179,8 +179,6 @@ const MyForm = withFormik<MyFormProps, FormValues>({
   validationSchema: contactUsSchema,
 
   handleSubmit: async (values, formikBag) => {
-    console.log(values)
-    console.log(formikBag)
     fetch('http://127.0.0.1:8787/contact-form/', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
