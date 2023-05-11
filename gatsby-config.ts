@@ -9,19 +9,19 @@ dotenv.config({
 let contentfulConfig
 
 try {
-  contentfulConfig = require('./.contentful')
+  contentfulConfig = require(`./.contentful`)
 } catch (_) {
   contentfulConfig = {
     spaceId: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    downloadLocal: false,
+    downloadLocal: true,
   }
 } finally {
   const { spaceId, accessToken } = contentfulConfig
 
   if (!spaceId || !accessToken) {
     throw new Error(
-      'Contentful spaceId and the delivery token need to be provided.'
+      `Contentful SpaceId and DeliveryToken need to be provided.`
     )
   }
 }
@@ -45,7 +45,7 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    'gatsby-plugin-postcss',
+    `gatsby-plugin-postcss`,
     // {
     //   resolve: 'gatsby-plugin-google-analytics',
     //   options: {
@@ -53,58 +53,63 @@ const config: GatsbyConfig = {
     //   }
     // },
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
     },
     {
-      resolve: '@directus/gatsby-source-directus',
+      resolve: `@directus/gatsby-source-directus`,
       options: {
-        url: 'http://looparch.test:8055',
+        url: `http://looparch.test:8055`,
         auth: {
-          // token: 'MLVe5QBmJl2XfvEobTHfwWyz_dqobTBw',
           token: process.env.DIRECTUS_TOKEN,
         },
       }
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-images-contentful',
+            resolve: `gatsby-remark-images-contentful`,
             options: {
               maxWidth: 800,
               linkImagesToOriginal: false,
               withWebp: true,
-              wrapperStyle: 'border: 1px solid #221a11; margin-bottom: 1rem;',
+              wrapperStyle: `border: 1px solid #221a11; margin-bottom: 1rem;`,
             }
           }
         ]
       }
     },
-    "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sitemap`,
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        "icon": "src/images/loop_icon.png"
+        name: `Loop Architectural Materials`,
+        short_name: `Loop`,
+        start_url: `/`,
+        background_color: `#F3F8F1`,
+        theme_color: `#83B668`,
+        icon: `src/images/loop_icon.png`,
+        display: `standalone`,
       }
     },
-    // "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp", {
-      resolve: 'gatsby-source-filesystem',
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, {
+      resolve: `gatsby-source-filesystem`,
       options: {
-        "name": "images",
-        "path": "./src/images/"
+        name: `images`,
+        path: `./src/images/`
       },
-      __key: "images"
+      __key: `images`
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "pages",
-        "path": "./src/pages/"
+        name: `pages`,
+        path: `./src/pages/`
       },
       __key: "pages"
     },
@@ -115,7 +120,7 @@ const config: GatsbyConfig = {
         apiKey: process.env.MEILISEARCH_ADMIN_KEY,
         indexes: [
           {
-            indexUid: 'all_products',
+            indexUid: `all_products`,
             transformer: (data: any) =>
               data.directus.products.map((product: any) => ({
                 id: product.id,
