@@ -12,7 +12,7 @@ type DataProps = {
 }
 const ContactPage = ({ location }: DataProps) => {
   const params = new URLSearchParams(location.search)
-  const manufacturer = params.get('manufacturer')
+  const manufacturer = params.get('manufacturer') || ''
 
   return (
     <Layout>
@@ -31,7 +31,7 @@ const ContactPage = ({ location }: DataProps) => {
           </div>
           <div className="grid grid-cols-1 gap-6 mb-8 md:grid-cols-3">
             <div className="order-last col-span-1 md:col-span-2 md:-order-last">
-              <FormContact />
+              <FormContact manufacturer={manufacturer}/>
             </div>
             <div className="col-span-1 prose">
               <p>
