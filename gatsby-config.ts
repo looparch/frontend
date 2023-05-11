@@ -93,6 +93,9 @@ const config: GatsbyConfig = {
         background_color: `#F3F8F1`,
         theme_color: `#83B668`,
         icon: `src/images/loop_icon.png`,
+        icon_options: {
+          purpose: `any maskable`,
+        },
         display: `standalone`,
       }
     },
@@ -164,6 +167,74 @@ const config: GatsbyConfig = {
               `
           }
         ]
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlogPost } }: any) => {
+              return allContentfulBlogPost.edges.map((edge: any) => {
+                return Object.assign(
+                  {},
+                  {
+                    title: edge.node.title,
+                    description: `<img src="https:${edge.node.heroImage.file.url}"><br /><br />${edge.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.excerpt}`,
+                    date: edge.node.publishDate,
+                    url: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
+                    guid: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
+                    custom_elements: [
+                      {
+                        'content:encoded':
+                          edge.node.childContentfulBlogPostBodyTextNode
+                            .childMarkdownRemark.html,
+                      },
+                    ],
+                  }
+                )
+              })
+            },
+            query: `
+              {
+                allContentfulBlogPost(sort: {order: DESC, fields: publishDate}) {
+                  edges {
+                    node {
+                      title
+                      slug
+                      publishDate
+                      heroImage {
+                        file {
+                          url
+                        }
+                      }
+                      childContentfulBlogPostBodyTextNode {
+                        childMarkdownRemark {
+                          excerpt
+                          html
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Loop Architectural Materials',
+          },
+        ],
       },
     },
   ]
