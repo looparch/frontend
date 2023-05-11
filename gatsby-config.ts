@@ -194,8 +194,8 @@ const config: GatsbyConfig = {
                     title: edge.node.title,
                     description: `<img src="https:${edge.node.heroImage.file.url}"><br /><br />${edge.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.excerpt}`,
                     date: edge.node.publishDate,
-                    url: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
-                    guid: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
+                    url: `${site.siteMetadata.siteUrl}/blogPosts/${edge.node.slug}`,
+                    guid: `${site.siteMetadata.siteUrl}/blogPosts/${edge.node.slug}`,
                     custom_elements: [
                       {
                         'content:encoded':
@@ -209,7 +209,7 @@ const config: GatsbyConfig = {
             },
             query: `
               {
-                allContentfulBlogPost(sort: {order: DESC, fields: publishDate}) {
+                allContentfulBlogPost(sort: {publishDate: DESC}) {
                   edges {
                     node {
                       title
