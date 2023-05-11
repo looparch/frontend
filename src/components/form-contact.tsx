@@ -198,8 +198,8 @@ const MyForm = withFormik<MyFormProps, FormValues>({
 })(InnerForm)
 
 // Use <MyForm /> wherevs
-const FormContact = () => {
-  return <MyForm />
+const FormContact = ({manufacturer}: MyFormProps) => {
+  return <MyForm manufacturer={manufacturer}/>
 }
 
 export default FormContact

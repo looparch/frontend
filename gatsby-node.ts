@@ -49,12 +49,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
             title
             slug
           }
-          image_logo_dark {
-            id
-            imageFile {
-              publicURL
-            }
-          }
         }
       }
       blogPosts: allContentfulBlogPost(sort: {publishDate: DESC}) {
