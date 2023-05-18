@@ -4,6 +4,8 @@ import usePublishedBlogPosts from '../hooks/use-published-blog-posts'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
 import useSiteMetadata from '../hooks/use-site-metadata'
 
+import FormSignup from './form-signup'
+
 export default function Footer() {
   const manufacturers = usePublishedManufacturers()
   const blogPosts = usePublishedBlogPosts()
@@ -30,7 +32,8 @@ export default function Footer() {
               weekly.
             </p>
           </div>
-          <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
+          <FormSignup />
+          {/* <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
             <label htmlFor="email-address" className="sr-only">
               Email address
             </label>
@@ -48,7 +51,7 @@ export default function Footer() {
                 Subscribe
               </button>
             </div>
-          </form>
+          </form> */}
         </div>
         <div className="pt-8 mt-8 border-t border-loop-300 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
