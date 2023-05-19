@@ -33,7 +33,7 @@ export default function IndexCarousel({ articles }: DataProps) {
       {articles.map((article, index) => {
         return (
           <SwiperSlide className="" key={index}>
-            <GraphicTextHero title={article.title} description={article.description} image={article.heroImage.gatsbyImageData} link={`/blogPosts/${article.slug}`} />
+            <GraphicTextHero title={article.title} description={article.description} image={article.heroImage.gatsbyImageData} link={`/announcements/${article.slug}`} />
           </SwiperSlide>
         )
       })}
