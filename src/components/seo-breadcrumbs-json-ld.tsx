@@ -1,6 +1,6 @@
 import React from 'react'
 import useSiteMetadata from '../hooks/use-site-metadata'
-import { titleCase } from 'voca'
+import voca from 'voca'
 
 interface IListItemElement {
   '@type': string
@@ -14,7 +14,8 @@ interface IListItemElement {
 interface IBreadcrumbObj {
   '@context': string
   '@type': string
-  itemListElement: Array<IListItemElement>,
+  name: string
+  itemListElement: Array<IListItemElement>
 }
 
 type SEOProps = {
@@ -29,13 +30,14 @@ type SEOProps = {
 
 const getBreadcrumbsFromPathname = (pathname: string) => {
   const { siteUrl } = useSiteMetadata()
-  const parts = pathname.split('/').slice(1,3)
+  const parts = pathname.split('/').filter((part) => part !== '')
   const breadcrumbObj: IBreadcrumbObj = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    'name': 'Breadcrumbs',
     itemListElement: [],
   }
-  let pathnameBuild=`${siteUrl}`
+  let pathnameBuild = `${siteUrl}`
   for (let i = 0; i < parts.length; i++) {
     pathnameBuild += `/${parts[i]}`
     const breadcrumb = {
@@ -43,7 +45,7 @@ const getBreadcrumbsFromPathname = (pathname: string) => {
       position: i + 1,
       item: {
         '@id': pathnameBuild,
-        name: titleCase(parts[i].replace(/\-/g, ' ')),
+        name: voca.titleCase(parts[i].replace(/\-/g, ' ')),
       },
     }
     breadcrumbObj.itemListElement.push(breadcrumb)
@@ -52,9 +54,7 @@ const getBreadcrumbsFromPathname = (pathname: string) => {
   return breadcrumbObj
 }
 
-export const SEOBreadcrumbsJsonLd = ({
-  pathname,
-}: SEOProps) => {
+export const SEOBreadcrumbsJsonLd = ({ pathname }: SEOProps) => {
   const schemaOrgJSONLD = getBreadcrumbsFromPathname(pathname)
 
   return (
