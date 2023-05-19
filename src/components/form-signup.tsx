@@ -22,7 +22,7 @@ const FormSignup = () => {
             placeholder=""
           />
         </label>
-        <label className="block">
+        {/* <label className="block">
           <span className="form-label">First Name</span>
           <input
             type="text"
@@ -43,7 +43,7 @@ const FormSignup = () => {
             className="block w-full mt-1 required email input form-input"
             placeholder=""
           />
-        </label>
+        </label> */}
         <div id="mce-responses" className="clear">
           <div className="response" id="mce-error-response" />
           <div className="response" id="mce-success-response" />
