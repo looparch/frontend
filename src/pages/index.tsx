@@ -17,10 +17,10 @@ const IndexPage = () => {
     <Layout>
       <div className="w-full h-full">
         <IndexCarousel articles={blogPosts.slice(0, 3)} />
+        <IndexSectionLogos />
         <IndexSectionPioneeringLines />
         <IndexSectionProjectDiversity />
         <IndexSectionEndToEnd />
-        <IndexSectionLogos />
         <IndexSectionFeaturedProducts />
         <IndexSectionArticles />
       </div>

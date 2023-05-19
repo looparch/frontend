@@ -52,7 +52,7 @@ export const SEOProductJsonLd = ({ product, pathname, children }: SEOProps) => {
     {
       '@context': 'http://schema.org',
       '@type': 'Product',
-      name: seo.title,
+      name: `${product.manufacturer.title} - ${product.title}`,
       image: [
         `${siteUrl}${getSrc(
           product.image_primary.imageFile.childImageSharp.gatsbyImageData

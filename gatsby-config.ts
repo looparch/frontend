@@ -29,7 +29,7 @@ try {
 const config: GatsbyConfig = {
   flags: {
     FAST_DEV: true,
-    // PARALLEL_SOURCING: true,
+    PARALLEL_SOURCING: true,
   },
   siteMetadata: {
     title: `Loop Architectural Materials`,
