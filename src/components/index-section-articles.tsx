@@ -34,6 +34,7 @@ const IndexSectionArticles = () => {
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
               <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Announcements</h2>
+              <Link to="/announcements" className="h-full button">View all →</Link>
             </div>
           </div>
           <article className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 md:gap-4">
