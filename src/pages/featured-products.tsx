@@ -6,7 +6,7 @@ import { IProduct } from '../types'
 
 const FeaturedProductsPage = () => {
   const products = useAllFeaturedProducts()
-  console.log(products)
+
   return (
     <Layout>
       <div className="max-w-6xl px-4 py-6 mx-auto sm:px-6 lg:py-8 lg:px-8">
