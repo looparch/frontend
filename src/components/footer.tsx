@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import Logos from '../components/logos'
 import usePublishedBlogPosts from '../hooks/use-published-blog-posts'
 import usePublishedManufacturers from '../hooks/use-published-manufacturers'
@@ -15,43 +16,66 @@ export default function Footer() {
 
   return (
     <footer
-      className="p-4 bg-loop-50 print:hidden md:p-6"
+      className="p-6 shadow-2xl bg-loop-50 print:hidden md:p-0 shadow-loop-600"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
       <div className="px-0 py-12 mx-auto max-w-7xl md:px-6 lg:py-16 lg:px-8">
-        <div className="pt-8 border-t border-loop-300 lg:flex lg:items-center lg:justify-between xl:mt-0">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <div>
-            <h3 className="text-base font-medium text-dark-text">
+            <h3 className="text-xl font-bold leading-tight text-dark-text">
+              Representing
+            </h3>
+            <div className="flex flex-wrap gap-2 my-6">
+              {manufacturers.map((item: any) => {
+                return (
+                  <Link
+                    key={item.id}
+                    to={`/${item.slug}`}
+                    className="p-2 text-xs font-semibold text-black hover:bg-loop-500 hover:text-white"
+                  >
+                    {item.title}
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold leading-tight text-dark-text">
+              Announcements
+            </h3>
+            <div className="flex flex-wrap gap-2 my-6">
+              {blogPosts.map((item: any) => {
+                return (
+                  <Link
+                    key={item.id}
+                    to={`/announcements/${item.slug}`}
+                    className="p-2 text-xs font-semibold text-black hover:bg-loop-500 hover:text-white"
+                  >
+                    {item.title}
+                  </Link>
+                )
+              })}
+              <Link
+                to={`/announcements/`}
+                className="p-2 text-xs font-semibold text-black hover:bg-loop-500 hover:text-white"
+              >
+                View more...
+              </Link>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold leading-tight text-dark-text">
               Subscribe to our newsletter
             </h3>
-            <p className="mt-2 text-base text-medium-text">
+            <p className="my-6 text-base text-medium-text">
               The latest news, articles, and resources, sent to your inbox
               weekly.
             </p>
+            <FormSignup />
           </div>
-          <FormSignup />
-          {/* <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
-            <label htmlFor="email-address" className="sr-only">
-              Email address
-            </label>
-            <input
-              type="email"
-              name="email-address"
-              id="email-address"
-              autoComplete="email"
-              required
-              className="w-full min-w-0 px-4 py-2 text-base"
-              placeholder="Enter your email"
-            />
-            <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-              <button type="submit" className="button">
-                Subscribe
-              </button>
-            </div>
-          </form> */}
         </div>
         <div className="pt-8 mt-8 border-t border-loop-300 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
@@ -60,21 +84,15 @@ export default function Footer() {
               className="text-medium-text hover:text-light-text"
             >
               <span className="sr-only">Instagram</span>
-              <InstagramLogo className="w-6 h-6" aria-hidden="true" />
+              <InstagramLogo aria-hidden="true" className="w-8 h-8" />
             </a>
             <a
               href={'https://twitter.com/loop_io'}
               className="text-medium-text hover:text-light-text"
             >
               <span className="sr-only">LinkedIn</span>
-              <LinkedInLogo className="w-6 h-6" aria-hidden="true" />
+              <LinkedInLogo aria-hidden="true" className="w-8 h-8" />
             </a>
-            {/* {navigation.social.map((item) => (
-              <a key={item.name} href={item.href} className="text-medium-text hover:text-light-text">
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="w-6 h-6" aria-hidden="true" />
-              </a>
-            ))} */}
           </div>
           <p className="mt-8 text-base text-light-text md:order-1 md:mt-0">
             &copy; 2023 {siteMetadata.title} All rights reserved.

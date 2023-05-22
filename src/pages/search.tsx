@@ -7,11 +7,12 @@ import MeiliSearch from '../components/meilisearch'
 const SearchPage = () => {
   return (
     <Layout>
-      <>
-        <div className="max-w-5xl px-4 mx-auto my-6 text-lg text-dark-text md:px-6 min-h-[80vh]">
-          <MeiliSearch />
-        </div>
-      </>
+      <div className="max-w-6xl px-4 py-6 mx-auto sm:px-6 lg:py-8 lg:px-8">
+        <h1 className="mt-2 mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
+          Search
+        </h1>
+        <MeiliSearch />
+      </div>
     </Layout>
   )
 }

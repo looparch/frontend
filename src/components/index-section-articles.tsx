@@ -28,12 +28,13 @@ type ArticleProps = {
 const IndexSectionArticles = () => {
   const articles = usePublishedArticles().slice(3, 6)
   return (
-    <div className="home-section">
+    <div className="shadow-2xl home-section shadow-loop-600">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="grid max-w-2xl grid-cols-1 mx-auto gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
               <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Announcements</h2>
+              <Link to="/announcements" className="h-full button">View all →</Link>
             </div>
           </div>
           <article className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 md:gap-4">
@@ -41,7 +42,7 @@ const IndexSectionArticles = () => {
               return (
                 <CardTitleDescription
                   key={item.id}
-                  link={`/blogPosts/${item.slug}`}
+                  link={`/announcements/${item.slug}`}
                   gatsbyImage={item.heroImage.gatsbyImageData}
                   title={item.title}
                   description={item.body.childMarkdownRemark.excerpt}

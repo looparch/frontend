@@ -36,7 +36,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   const { createPage, createSlice } = actions
   const manufacturerTemplate = path.resolve(`src/templates/manufacturer.tsx`)
   const productTemplate = path.resolve(`src/templates/product.tsx`)
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.tsx`)
+  const blogPostTemplate = path.resolve(`src/templates/announcement.tsx`)
   const result = await graphql<TypeResult>(`
     query StartupQuery {
       directus {
@@ -101,7 +101,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   // Create a page for each blog post
   result.data?.blogPosts.nodes.forEach(async (blogPost) => {
     createPage({
-      path: `/blogPosts/${blogPost.slug}`,
+      path: `/announcements/${blogPost.slug}`,
       component: blogPostTemplate,
       context: {
         id: blogPost.id

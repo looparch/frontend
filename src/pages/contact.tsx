@@ -26,12 +26,12 @@ const ContactPage = ({ location }: DataProps) => {
           />
         </div>
         <div className="max-w-6xl px-4 py-6 mx-auto sm:px-6 lg:py-8 lg:px-8">
-          <div className="">
-            <h1 className="my-6 text-2xl font-semibold">Contact Us</h1>
-          </div>
+          <h1 className="mt-2 mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
+            Contact Us
+          </h1>
           <div className="grid grid-cols-1 gap-6 mb-8 md:grid-cols-3">
             <div className="order-last col-span-1 md:col-span-2 md:-order-last">
-              <FormContact manufacturer={manufacturer}/>
+              <FormContact manufacturer={manufacturer} />
             </div>
             <div className="col-span-1 prose">
               <p>

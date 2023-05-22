@@ -32,7 +32,7 @@ const IndexSectionLogos = () => {
               </h2>
             </div>
           </div>
-          <article className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 md:gap-4">
+          <article className="grid grid-cols-2 gap-6 lg:grid-cols-4 md:gap-4">
             {manufacturers.map((item: ManufacturerProps) => {
               const ManufacturerLogo = Logos[item.slug]
 
@@ -42,7 +42,7 @@ const IndexSectionLogos = () => {
                   className="grid place-content-center-center justify-items-center place-items-center group"
                   key={item.id}
                 >
-                  <h3 className="flex w-full h-24 md:h-32 lg:h-36">
+                  <h3 className="flex w-full h-16 md:h-32 lg:h-36">
                     <ManufacturerLogo className="z-20 w-full transition group-hover:scale-110 fill-black" />
                     <span className="sr-only">{item.title}</span>
                   </h3>

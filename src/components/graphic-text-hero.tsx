@@ -45,9 +45,8 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
   const { image, title, description, link } = params
 
   return (
-    <div className="max-w-full mx-auto h-[40vh] md:h-[60vh]">
+    <div className="max-w-full mx-auto h-[80vh] md:h-[60vh]">
       <div className="grid object-cover w-full h-full mx-auto">
-        {/* <Navbar style={{ gridArea: '1/1' }} /> */}
         <GatsbyImage
           image={image}
           alt={`${title} Banner`}
@@ -56,7 +55,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
         />
 
         <div
-          className="relative z-20 grid content-center w-2/3 mx-auto text-center text-white lg:w-1/2 align-items-center"
+          className="relative z-20 grid content-center w-full px-8 mx-auto text-center text-white md:w-1/2 align-items-center"
           style={{ gridArea: '1/1' }}
         >
           <ConditionalWrapper
