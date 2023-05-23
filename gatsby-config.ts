@@ -124,6 +124,18 @@ const config: GatsbyConfig = {
         indexes: [
           {
             indexUid: `all_products`,
+            settings: {
+              searchableAttributes: [
+                `manufacturer`,
+                `tags`,
+                `title`,
+                `designer`,
+                `description`,
+              ],
+              pagination: {
+                maxTotalHits: 100
+              }
+            },
             transformer: (data: any) =>
               data.directus.products.map((product: any) => ({
                 id: product.id,
@@ -135,7 +147,7 @@ const config: GatsbyConfig = {
                 tags: product.tags,
                 image: product.image_thumbnail.imageFile.childImageSharp.gatsbyImageData,
               })),
-              query: `
+            query: `
                 query IndexedProductsQuery {
                   directus {
                     products: Products(

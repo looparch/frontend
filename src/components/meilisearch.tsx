@@ -46,11 +46,12 @@ const MeiliSearch = () => {
   return (
     <>
       {searchClient && (
-        <InstantSearch indexName="all_products" searchClient={searchClient} routing={true}>
+        <InstantSearch indexName="all_products" searchClient={searchClient} routing={true} insights={true}>
           <Configure analytics={false} hitsPerPage={10} distinct={true} />
           <SearchBox
             placeholder="Search materials..."
-            searchAsYouType={false}
+            searchAsYouType={true}
+            autoFocus={true}
             classNames={{
               root: 'w-full',
               form: 'w-full flex mb-6 items-center',
