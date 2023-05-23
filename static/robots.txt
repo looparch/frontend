@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /thanks/
 
-Sitemap: https://looparch.com/sitemap.xml
+Sitemap: https://looparch.com/sitemap-index.xml

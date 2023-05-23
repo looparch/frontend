@@ -16,7 +16,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="p-6 shadow-2xl bg-loop-50 print:hidden md:p-0 shadow-loop-600"
+      className="p-6 bg-loop-50 print:hidden md:p-0"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">

@@ -33,7 +33,7 @@ type TypeResult = {
 }
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
-  const { createPage, createSlice } = actions
+  const { createPage, createSlice, createRedirect } = actions
   const manufacturerTemplate = path.resolve(`src/templates/manufacturer.tsx`)
   const productTemplate = path.resolve(`src/templates/product.tsx`)
   const blogPostTemplate = path.resolve(`src/templates/announcement.tsx`)
@@ -86,6 +86,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
       }
     })
 
+    createRedirect({
+      fromPath: `/manufacturers/${manufacturer.slug}`,
+      toPath: `/${manufacturer.slug}`,
+    })
+
     // Create a page for each manufacturer product
     manufacturer.products.forEach(async (product) => {
       createPage({
@@ -106,6 +111,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
       context: {
         id: blogPost.id
       }
+    })
+
+    createRedirect({
+      fromPath: `/articles/${blogPost.slug}`,
+      toPath: `/announcements/${blogPost.slug}`,
     })
   })
 }
