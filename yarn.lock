@@ -5888,6 +5888,13 @@ gatsby-parcel-config@1.10.0:
     "@parcel/transformer-js" "2.8.3"
     "@parcel/transformer-json" "2.8.3"
 
+gatsby-plugin-canonical-urls@^5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-canonical-urls/-/gatsby-plugin-canonical-urls-5.10.0.tgz#085c25a5f7a619567c0f6086bc7eb13768de3204"
+  integrity sha512-klB5EGv82tIXSQ11pu8fPJ5orzYYQAR9Lh6fsa6P1PNRFu8vYy87cK7DDZF48YtLaj+ggTWXk3SxU3nJp7IjYA==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+
 gatsby-plugin-feed@^5.9.0:
   version "5.10.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-5.10.0.tgz#d4ea4655091ee9f85a396683052bc8da29ea41bc"
@@ -5900,15 +5907,6 @@ gatsby-plugin-feed@^5.9.0:
     gatsby-plugin-utils "^4.10.0"
     lodash.merge "^4.6.2"
     rss "^1.2.2"
-
-gatsby-plugin-google-analytics@^5.7.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-5.10.0.tgz#a3744a323b400448be1bb0397879eabe994950d0"
-  integrity sha512-zMvqqOVyTx2IB3i3ObDL7mAAwyLW0ehniKeXj1oxx2gHF6hea0QxJ5GWl6+vtvCiBqI1/ZCwrS6zGwsxkMYd9w==
-  dependencies:
-    "@babel/runtime" "^7.20.13"
-    minimatch "^3.1.2"
-    web-vitals "^1.1.2"
 
 gatsby-plugin-image@^3.7.0:
   version "3.10.0"
@@ -12073,11 +12071,6 @@ web-namespaces@^1.0.0:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/web-namespaces/-/web-namespaces-1.1.4.tgz#bc98a3de60dadd7faefc403d1076d529f5e030ec"
   integrity sha512-wYxSGajtmoP4WxfejAPIr4l0fVh+jeMXZb08wNc0tMg6xsfZXj3cECqIK0G7ZAqUq0PP8WlMDtaOGVBTAWztNw==
-
-web-vitals@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-1.1.2.tgz#06535308168986096239aa84716e68b4c6ae6d1c"
-  integrity sha512-PFMKIY+bRSXlMxVAQ+m2aw9c/ioUYfDgrYot0YUa+/xa0sakubWhSDyxAKwzymvXVdF4CZI71g06W+mqhzu6ig==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"

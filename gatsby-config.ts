@@ -46,15 +46,15 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     `gatsby-plugin-postcss`,
-    // {
-    //   resolve: 'gatsby-plugin-google-analytics',
-    //   options: {
-    //     "trackingId": "267250995"
-    //   }
-    // },
     {
       resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://looparch.com`,
+      },
     },
     {
       resolve: `@directus/gatsby-source-directus`,

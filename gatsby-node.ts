@@ -100,6 +100,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
           id: product.id,
         }
       })
+
+      createRedirect({
+        fromPath: `/manufacturers/${manufacturer.slug}/${product.slug}`,
+        toPath: `/${manufacturer.slug}/${product.slug}`,
+      })
     })
   })
 
