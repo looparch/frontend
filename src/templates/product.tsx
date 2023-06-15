@@ -77,7 +77,7 @@ const Product = ({
               </p>
             </div>
             <div className="">
-              <ReactMarkdown className="mb-6 prose text-black text-md print:text-sm max-w-none prose-h2:font-normal prose-h2:text-base prose-h2:text-black">
+              <ReactMarkdown className="mb-6 prose text-black text-md print:text-sm max-w-none prose-h2:font-light prose-h2:text-base prose-h2:text-black prose-h2:leading-relaxed">
                 {product.description}
               </ReactMarkdown>
               <p className="mb-6 print:hidden">

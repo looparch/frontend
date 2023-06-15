@@ -46,15 +46,15 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     `gatsby-plugin-postcss`,
-    // {
-    //   resolve: 'gatsby-plugin-google-analytics',
-    //   options: {
-    //     "trackingId": "267250995"
-    //   }
-    // },
     {
       resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://looparch.com`,
+      },
     },
     {
       resolve: `@directus/gatsby-source-directus`,
@@ -124,6 +124,18 @@ const config: GatsbyConfig = {
         indexes: [
           {
             indexUid: `all_products`,
+            settings: {
+              searchableAttributes: [
+                `manufacturer`,
+                `tags`,
+                `title`,
+                `designer`,
+                `description`,
+              ],
+              pagination: {
+                maxTotalHits: 100
+              }
+            },
             transformer: (data: any) =>
               data.directus.products.map((product: any) => ({
                 id: product.id,
@@ -135,7 +147,7 @@ const config: GatsbyConfig = {
                 tags: product.tags,
                 image: product.image_thumbnail.imageFile.childImageSharp.gatsbyImageData,
               })),
-              query: `
+            query: `
                 query IndexedProductsQuery {
                   directus {
                     products: Products(
@@ -194,8 +206,8 @@ const config: GatsbyConfig = {
                     title: edge.node.title,
                     description: `<img src="https:${edge.node.heroImage.file.url}"><br /><br />${edge.node.childContentfulBlogPostBodyTextNode.childMarkdownRemark.excerpt}`,
                     date: edge.node.publishDate,
-                    url: `${site.siteMetadata.siteUrl}/blogPosts/${edge.node.slug}`,
-                    guid: `${site.siteMetadata.siteUrl}/blogPosts/${edge.node.slug}`,
+                    url: `${site.siteMetadata.siteUrl}/announcements/${edge.node.slug}`,
+                    guid: `${site.siteMetadata.siteUrl}/announcements/${edge.node.slug}`,
                     custom_elements: [
                       {
                         'content:encoded':

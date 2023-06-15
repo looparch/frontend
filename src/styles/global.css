@@ -16,7 +16,7 @@
   }
 
   .home-section {
-    @apply py-24 overflow-hidden bg-white sm:py-24;
+    @apply py-6 md:py-8 overflow-hidden bg-white
   }
 
   .form-label {
