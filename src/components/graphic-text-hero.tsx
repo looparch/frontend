@@ -52,6 +52,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
           alt={`${title} Banner`}
           className="object-cover"
           style={{ gridArea: '1/1' }}
+          loading="eager"
         />
 
         <div

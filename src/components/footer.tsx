@@ -80,14 +80,18 @@ export default function Footer() {
         <div className="pt-8 mt-8 border-t border-loop-300 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             <a
-              href={'https://twitter.com/loop_io'}
+              href={siteMetadata.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-medium-text hover:text-light-text"
             >
               <span className="sr-only">Instagram</span>
               <InstagramLogo aria-hidden="true" className="w-8 h-8" />
             </a>
             <a
-              href={'https://twitter.com/loop_io'}
+              href={siteMetadata.linkedInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-medium-text hover:text-light-text"
             >
               <span className="sr-only">LinkedIn</span>
