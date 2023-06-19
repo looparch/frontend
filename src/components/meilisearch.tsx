@@ -47,7 +47,7 @@ const MeiliSearch = () => {
     <>
       {searchClient && (
         <InstantSearch indexName="all_products" searchClient={searchClient} routing={true} insights={true}>
-          <Configure analytics={false} hitsPerPage={10} distinct={true} />
+          <Configure insights={false} analytics={false} hitsPerPage={10} distinct={true} />
           <SearchBox
             placeholder="Search materials..."
             searchAsYouType={true}

@@ -98,8 +98,9 @@ export default function Footer() {
               <LinkedInLogo aria-hidden="true" className="w-8 h-8" />
             </a>
           </div>
-          <p className="mt-8 text-base text-light-text md:order-1 md:mt-0">
-            &copy; 2023 {siteMetadata.title} All rights reserved.
+          <p className="mt-8 text-base group text-light-text md:order-1 md:mt-0">
+            &copy; 2023 {siteMetadata.title} All rights reserved.{' '}
+            <span className='text-xs text-white group-hover:text-black'>{siteMetadata.version}</span>
           </p>
         </div>
       </div>
