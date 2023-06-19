@@ -118,6 +118,15 @@ const config: GatsbyConfig = {
       __key: "pages"
     },
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [`${process.env.GA_MEASUREMENT_ID}`],
+        pluginConfig: {
+          head: true
+        }
+      }
+    },
+    {
       resolve: 'gatsby-plugin-meilisearch',
       options: {
         host: process.env.MEILISEARCH_HOST,

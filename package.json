@@ -18,7 +18,6 @@
     "ghpages": "gh-pages -d public -b pages"
   },
   "dependencies": {
-    "@builder.io/partytown": "^0.8.0",
     "@contentful/rich-text-react-renderer": "^15.16.2",
     "@contentful/rich-text-types": "^16.0.2",
     "@directus/gatsby-source-directus": "^9.15.0",
@@ -32,6 +31,7 @@
     "gatsby": "^5.7.0",
     "gatsby-plugin-canonical-urls": "^5.10.0",
     "gatsby-plugin-feed": "^5.9.0",
+    "gatsby-plugin-google-gtag": "^5.11.0",
     "gatsby-plugin-image": "^3.7.0",
     "gatsby-plugin-manifest": "^5.7.0",
     "gatsby-plugin-meilisearch": "^0.3.1",
