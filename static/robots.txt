@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: /thanks/
 
 Sitemap: https://looparch.com/sitemap-index.xml

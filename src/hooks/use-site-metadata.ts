@@ -12,6 +12,7 @@ const useSiteMetadata = () => {
           instagramUrl
           linkedInUrl
           publisher
+          version
         }
       }
     }

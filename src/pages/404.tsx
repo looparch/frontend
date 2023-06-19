@@ -11,7 +11,7 @@ const NotFoundPage = () => {
         <h1 className="mt-2 mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
           Whoops!
         </h1>
-        <p>Page not found. Try searching for something else.</p>
+        <p className="mb-6">Page not found. Try searching for something else.</p>
         <MeiliSearch />
       </div>
     </Layout>
