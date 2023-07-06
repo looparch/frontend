@@ -10,7 +10,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
 
   return (
     <>
-      <div className="w-full h-[50vh] md:h-[50vh]">
+      <div className="w-full h-[50dvh]">
         <div className="grid w-full h-full mx-auto md:px-0 ">
           <GatsbyImage
             image={image_hero.imageFile.childImageSharp.gatsbyImageData}

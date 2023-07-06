@@ -26,7 +26,7 @@ type ArticleProps = {
 }
 
 const IndexSectionArticles = () => {
-  const articles = usePublishedArticles().slice(3, 6)
+  const articles = usePublishedArticles()
   return (
     <div className="home-section">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">

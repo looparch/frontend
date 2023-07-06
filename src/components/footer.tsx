@@ -16,19 +16,19 @@ export default function Footer() {
 
   return (
     <footer
-      className="p-6 bg-loop-50 print:hidden md:p-0"
+      className="p-6 mt-12 bg-loop-50 print:hidden md:p-0 md:px-12"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="px-0 py-12 mx-auto max-w-7xl md:px-6 lg:py-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="px-0 py-12 mx-auto mt-8 border-t max-w-7xl lg:py-16 border-loop-200">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div>
             <h3 className="text-xl font-bold leading-tight text-dark-text">
               Representing
             </h3>
-            <div className="flex flex-wrap gap-2 my-6">
+            <div className="flex flex-wrap gap-2 my-6 -mx-2">
               {manufacturers.map((item: any) => {
                 return (
                   <Link
@@ -46,7 +46,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold leading-tight text-dark-text">
               Announcements
             </h3>
-            <div className="flex flex-wrap gap-2 my-6">
+            <div className="flex flex-wrap gap-2 my-6 -mx-2">
               {blogPosts.map((item: any) => {
                 return (
                   <Link
@@ -68,16 +68,16 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="text-xl font-bold leading-tight text-dark-text">
-              Subscribe to our newsletter
+              Subscribe to Updates
             </h3>
-            <p className="my-6 text-base text-medium-text">
+            <p className="my-6 text-xs text-medium-text">
               The latest news, articles, and resources, sent to your inbox
               weekly.
             </p>
             <FormSignup />
           </div>
         </div>
-        <div className="pt-8 mt-8 border-t border-loop-300 md:flex md:items-center md:justify-between">
+        <div className="pt-8 mt-8 border-t border-loop-200 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             <a
               href={siteMetadata.instagramUrl}
@@ -98,7 +98,7 @@ export default function Footer() {
               <LinkedInLogo aria-hidden="true" className="w-8 h-8" />
             </a>
           </div>
-          <p className="mt-8 text-base group text-light-text md:order-1 md:mt-0">
+          <p className="mt-8 text-xs group text-light-text md:order-1 md:mt-0">
             &copy; 2023 {siteMetadata.title} All rights reserved.{' '}
             <span className='text-xs text-white group-hover:text-black'>{siteMetadata.version}</span>
           </p>

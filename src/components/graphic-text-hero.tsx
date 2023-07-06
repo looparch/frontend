@@ -45,7 +45,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
   const { image, title, description, link } = params
 
   return (
-    <div className="max-w-full mx-auto h-[80vh] md:h-[60vh]">
+    <div className="max-w-full mx-auto h-[40dvh] md:h-[80dvh]">
       <div className="grid object-cover w-full h-full mx-auto">
         <GatsbyImage
           image={image}
