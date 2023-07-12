@@ -73,7 +73,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 
   createSlice({
     id: "search",
-    component: path.resolve("./src/components/meilisearch.tsx"),
+    component: path.resolve("./src/components/algolia-search.tsx"),
   })
 
   // Create a page for each manufacturer

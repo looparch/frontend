@@ -2,7 +2,7 @@ import * as React from 'react'
 import { HeadFC } from 'gatsby'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
-import MeiliSearch from '../components/meilisearch'
+import AlgoliaSearch from '../components/algolia-search'
 
 const SearchPage = () => {
   return (
@@ -11,7 +11,7 @@ const SearchPage = () => {
         <h1 className="mt-2 mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
           Search
         </h1>
-        <MeiliSearch />
+        <AlgoliaSearch />
       </div>
     </Layout>
   )

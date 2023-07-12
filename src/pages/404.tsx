@@ -2,7 +2,7 @@ import * as React from 'react'
 import { HeadFC } from 'gatsby'
 import Layout from '../components/layout'
 import { SEO } from '../components/seo'
-import MeiliSearch from '../components/meilisearch'
+import AlgoliaSearch from '../components/algolia-search'
 
 const NotFoundPage = () => {
   return (
@@ -12,7 +12,7 @@ const NotFoundPage = () => {
           Whoops!
         </h1>
         <p className="mb-6">Page not found. Try searching for something else.</p>
-        <MeiliSearch />
+        <AlgoliaSearch />
       </div>
     </Layout>
   )

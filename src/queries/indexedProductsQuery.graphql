@@ -1,0 +1,31 @@
+query IndexedProductsQuery {
+  directus {
+    products: Products(
+      filter: {status: {_eq: "published"}}
+      sort: "title"
+      limit: -1
+    ) {
+      id
+      date_updated
+      title
+      slug
+      tags
+      designer
+      description
+      is_new
+      manufacturer {
+        title
+        slug
+      }
+      image_thumbnail {
+        id
+        imageFile {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+}
