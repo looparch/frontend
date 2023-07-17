@@ -1,14 +1,11 @@
 import React from 'react'
 import algoliasearch from 'algoliasearch/lite'
 import {
-  Highlight,
   Hits,
   InstantSearch,
   SearchBox,
   PoweredBy,
 } from 'react-instantsearch-hooks-web'
-import { Link } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import ProductCard from './product-card-search'
 
 const searchClient = algoliasearch(
@@ -16,13 +13,27 @@ const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APIKEY || ''
 )
 
-const SearchPage = () => (
-  <>
+const AlgoliaSearch = () => {
+  return (
     <InstantSearch
       searchClient={searchClient}
       indexName={process.env.GATSBY_ALGOLIA_INDEXNAME}
+      routing={true}
     >
-      <SearchBox />
+      <SearchBox
+        autoFocus={true}
+        placeholder="Search products by title, manufacturer or description..."
+        classNames={{
+          root: 'w-full',
+          form: 'mb-8 flex w-full justify-between',
+          input:
+            'focus:ring-1 focus:border-loop-500 focus:ring-loop-500 w-full',
+          loadingIndicator: 'm-5',
+          submit: 'm-5',
+          resetIcon: 'hidden',
+          loadingIcon: 'm-5',
+        }}
+      />
       <Hits
         hitComponent={DefaultHitComponent}
         classNames={{
@@ -39,28 +50,9 @@ const SearchPage = () => (
         }}
       />
     </InstantSearch>
-  </>
-)
+  )
+}
 
-const DefaultHitComponent = ({ hit }: any) => (
-  // <div className="">
-  //   <Link to={`/${hit.manufacturer.slug}/${hit.slug}`}>
-  //     <div>
-  //       title: <Highlight attribute="title" hit={hit} />,
-  //     </div>
-  //     <div>
-  //       <GatsbyImage
-  //         image={hit.image_thumbnail.imageFile.childImageSharp.gatsbyImageData}
-  //         alt={`${hit.title} Thumbnail`}
-  //         className='object-cover object-center w-full h-full'
-  //       />
-  //     </div>
-  //   </Link>
-  // </div>
-  <>
-    {/* <pre>{JSON.stringify(hit, null, 2)}</pre> */}
-    <ProductCard product={hit} />
-  </>
-)
+const DefaultHitComponent = ({ hit }: any) => <ProductCard product={hit} />
 
-export default SearchPage
+export default AlgoliaSearch
