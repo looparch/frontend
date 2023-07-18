@@ -29,7 +29,7 @@ const AlgoliaSearch = () => {
           input:
             'focus:ring-1 focus:border-loop-500 focus:ring-loop-500 w-full',
           loadingIndicator: 'm-5',
-          submit: 'm-5',
+          submit: 'hidden',
           resetIcon: 'hidden',
           loadingIcon: 'm-5',
         }}
@@ -39,7 +39,7 @@ const AlgoliaSearch = () => {
         classNames={{
           root: 'MyCustomHits',
           emptyRoot: 'bg-gray-100',
-          list: 'grid grid-cols-3 gap-4',
+          list: 'grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4',
           item: 'w-full bg-pure-white',
         }}
       />

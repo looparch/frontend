@@ -27,6 +27,7 @@ type IGraphicTextHeroProps = {
   description: any
   image: IGatsbyImageData
   link?: string
+  is_index?: boolean
 }
 
 type IConditionalWrapperProps = {
@@ -42,10 +43,13 @@ const ConditionalWrapper = ({
 }: IConditionalWrapperProps) => (condition ? wrapper(children) : children)
 
 export default function GraphicTextHero(params: IGraphicTextHeroProps) {
-  const { image, title, description, link } = params
+  const { image, title, description, link, is_index } = params
+
+  const index_classNames = "max-w-full mx-auto h-full"
+  const content_classNames = "max-w-full mx-auto h-[40dvh]"
 
   return (
-    <div className="max-w-full mx-auto h-[40dvh] md:h-[80dvh]">
+    <div className={is_index ? index_classNames : content_classNames}>
       <div className="grid object-cover w-full h-full mx-auto">
         <GatsbyImage
           image={image}
@@ -66,7 +70,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
             }}
           >
             <Fragment>
-              <h1 className="mb-6 text-4xl font-bold leading-none md:text-5xl drop-shadow-md">
+              <h1 className="mb-6 text-3xl font-bold leading-none md:text-5xl drop-shadow-md">
                 {title}
               </h1>
 

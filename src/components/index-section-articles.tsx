@@ -32,12 +32,12 @@ const IndexSectionArticles = () => {
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="grid max-w-2xl grid-cols-1 mx-auto gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none">
           <div className="lg:pr-8 lg:pt-4">
-            <div className="flex items-center place-content-between lg:max-w-full">
-              <h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl sm:text-4xl">
+            <div className="flex items-center mt-2 place-content-between lg:max-w-full">
+              <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
                 Announcements
               </h2>
-              <Link to="/announcements" className="h-full button">
-                View all →
+              <Link to="/announcements" className="text-base font-normal underline">
+                View all
               </Link>
             </div>
           </div>
