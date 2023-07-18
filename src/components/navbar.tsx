@@ -1,8 +1,12 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { Popover, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Popover, Dialog, Transition } from '@headlessui/react'
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ExclamationTriangleIcon,
+} from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import NavLink from './navlink'
@@ -22,6 +26,8 @@ export default function Navbar(props: any) {
   }
 
   const manufacturers = usePublishedManufacturers()
+
+  const [open, setOpen] = useState(false)
 
   return (
     <div
@@ -53,6 +59,7 @@ export default function Navbar(props: any) {
           <div className="-my-2 -mr-2 md:hidden">
             <Popover.Button
               className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 hover:text-dark-text `}
+              onClick={() => setOpen(!open)}
             >
               <span className="sr-only">Open menu</span>
               <Bars3Icon className="w-6 h-6" aria-hidden="true" />
@@ -129,13 +136,6 @@ export default function Navbar(props: any) {
                   Contact
                 </Link>
               </NavLink>
-              {/* <Link
-                to="/contact"
-                className={`${navbarClasses.textClass}`}
-                activeClassName="underline"
-              >
-                Contact
-              </Link> */}
               <Link
                 to="/search"
                 className={`${navbarClasses.textClass}`}
@@ -147,78 +147,90 @@ export default function Navbar(props: any) {
             </div>
           </div>
         </div>
-
-        <Transition
-          as={Fragment}
-          enter="duration-200 ease-out"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="duration-100 ease-in"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          <Popover.Panel
-            focus
-            className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform md:hidden"
+      </Popover>
+      <Transition show={open} as={Fragment}>
+        <Dialog as="div" className="relative z-50" onClose={setOpen}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
-            <div className="bg-white divide-y-2 rounded-lg shadow-lg divide-gray-50 ring-1 ring-black ring-opacity-5">
-              <div className="px-5 pt-5 pb-6">
-                <div className="flex items-center justify-between">
-                  <div>
+            <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex items-start justify-center h-full text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative w-full h-full overflow-hidden transition-all transform bg-white">
+                  <div className="flex items-center justify-between w-full p-3 pr-0 border-b-[1px] border-loop-200">
                     <LoopLogo
-                      className="h-12 rounded-md"
+                      className="block h-12 rounded-md md:hidden"
                       fillcolor="rgb(131, 182, 104)"
+                      textcolor="rgb(255, 255, 255)"
                     />
-                  </div>
-                  <div className="-mr-2">
-                    <Popover.Button className="inline-flex items-center justify-center p-2 bg-white rounded-md text-medium-text hover:bg-gray-100 hover:text-dark-text ">
-                      <span className="sr-only">Close menu</span>
+                    <Dialog.Title
+                      as="h3"
+                      className="text-xl font-semibold leading-6 text-black "
+                    >
+                      Navigate
+                    </Dialog.Title>
+                    <button
+                      type="button"
+                      className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 hover:text-dark-text `}
+                      onClick={() => setOpen(false)}
+                    >
+                      <span className="sr-only">Close</span>
                       <XMarkIcon className="w-6 h-6" aria-hidden="true" />
-                    </Popover.Button>
+                    </button>
                   </div>
-                </div>
-                <div className="mt-6">
-                  <h2 className="px-4 mb-6 text-xl font-bold">Our Lines</h2>
-                  <nav className="grid grid-cols-2 gap-6">
+                  <div className="grid h-full grid-cols-1 overflow-y-scroll">
+                    <h4 className="block p-3 font-semibold text-left">Manufacturers</h4>
                     {manufacturers.map((item: IManufacturer) => (
                       <Link
                         key={item.id}
                         to={`/${item.slug}`}
-                        className="flex items-center content-center p-3 py-4 -m-3 rounded-lg hover:bg-loop-200"
+                        className="block p-3 text-left border-b border-loop-300 text-normal hover:bg-loop-100"
                       >
-                        <div className="ml-4 text-base font-medium text-dark-text">
-                          {item.title}
-                        </div>
+                        {item.title}
                       </Link>
                     ))}
-                  </nav>
-                </div>
-                <div className="mt-6">
-                  <hr className="mb-6" />
-                  <nav className="grid grid-cols-2 gap-6">
-                    <Link
-                      to={`/contact`}
-                      className="flex items-center content-center p-3 py-4 -m-3 rounded-lg hover:bg-loop-200"
-                    >
-                      <div className="ml-4 text-base font-medium text-dark-text">
-                        Contact Us
-                      </div>
-                    </Link>
-                    <Link
-                      to={`/search`}
-                      className="flex items-center content-center p-3 py-4 -m-3 rounded-lg hover:bg-loop-200"
-                    >
-                      <div className="ml-4 text-base font-medium text-dark-text">
+                    <h4 className="block p-3 font-semibold text-left">Sections</h4>
+                    <div className="grid grid-cols-2 border border-t border-loop-300">
+                      <Link
+                        key="search"
+                        to={`/search`}
+                        className="block p-3 text-left border-b border-loop-300 text-normal"
+                      >
                         Search
-                      </div>
-                    </Link>
-                  </nav>
-                </div>
-              </div>
+                      </Link>
+                      <Link
+                        key="contact"
+                        to={`/contact`}
+                        className="block p-3 text-left border-b border-l border-loop-300 text-normal"
+                      >
+                        Contact
+                      </Link>
+                      <div className="h-[20dvh]"></div>
+                    </div>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
             </div>
-          </Popover.Panel>
-        </Transition>
-      </Popover>
+          </div>
+        </Dialog>
+      </Transition>
     </div>
   )
 }

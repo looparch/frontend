@@ -45,8 +45,8 @@ const ConditionalWrapper = ({
 export default function GraphicTextHero(params: IGraphicTextHeroProps) {
   const { image, title, description, link, is_index } = params
 
-  const index_classNames = "max-w-full mx-auto h-full"
-  const content_classNames = "max-w-full mx-auto h-[40dvh]"
+  const index_classNames = "max-w-full mx-auto h-full z-10"
+  const content_classNames = "max-w-full mx-auto h-[40dvh] z-10"
 
   return (
     <div className={is_index ? index_classNames : content_classNames}>
@@ -60,7 +60,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
         />
 
         <div
-          className="relative z-20 grid content-center w-full px-8 mx-auto text-center text-white md:w-1/2 align-items-center"
+          className="relative z-10 grid content-center w-full px-8 mx-auto text-center text-white md:w-1/2 align-items-center"
           style={{ gridArea: '1/1' }}
         >
           <ConditionalWrapper
@@ -85,7 +85,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
         </div>
 
         <div
-          className="relative z-10 bg-[#000000] opacity-50 mix-blend-multiply"
+          className="relative z-0 bg-[#000000] opacity-50 mix-blend-multiply"
           style={{ gridArea: '1/1' }}
         ></div>
       </div>

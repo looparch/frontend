@@ -15,7 +15,7 @@ const FeaturedProductsPage = () => {
         </h1>
         <ul
           role="list"
-          className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 md:gap-4"
+          className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 md:gap-4"
         >
           {products.map((item: IProduct) => {
             return <ProductCard {...item} key={item.id} />
