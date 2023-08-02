@@ -12,7 +12,7 @@ const FormSignup = () => {
         target="_blank"
       >
         <label className="block w-full">
-          <span className="form-label">Email Address*</span>
+          <span className="text-xs form-label">Email Address*</span>
           <input
             type="email"
             name="EMAIL"

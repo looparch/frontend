@@ -1,10 +1,10 @@
 import path from 'path'
 import { GatsbyNode } from "gatsby";
-import { copyLibFiles } from '@builder.io/partytown/utils'
+// import { copyLibFiles } from '@builder.io/partytown/utils'
 
-export const onPreBuild: GatsbyNode['onPreBuild'] = async () => {
-  await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
-}
+// export const onPreBuild: GatsbyNode['onPreBuild'] = async () => {
+//   await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
+// }
 
 type TypeResult = {
   directus: {
@@ -73,7 +73,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 
   createSlice({
     id: "search",
-    component: path.resolve("./src/components/meilisearch.tsx"),
+    component: path.resolve("./src/components/algolia-search.tsx"),
   })
 
   // Create a page for each manufacturer

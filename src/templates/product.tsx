@@ -13,7 +13,7 @@ import MediumZoom from '../components/medium-zoom'
 type DataProps = {
   directus: {
     product: IProduct
-  },
+  }
   location: {
     pathname: string
   }
@@ -112,7 +112,11 @@ export const Head = ({
   const titleString = `${product.manufacturer.title} - ${product.title}`
   return (
     <>
-      <SEO title={titleString} pathname={location.pathname} />
+      <SEO
+        title={titleString}
+        pathname={location.pathname}
+        description={product.description}
+      />
       <SEOProductJsonLd product={product} pathname={location.pathname} />
     </>
   )

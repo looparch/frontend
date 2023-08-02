@@ -1,5 +1,8 @@
 import type { GatsbyConfig } from "gatsby";
 import dotenv from 'dotenv'
+import fs from 'fs'
+import path from 'path'
+import { createHash } from 'crypto'
 
 dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -26,6 +29,42 @@ try {
   }
 }
 
+const algoliaSearchQuery = fs.readFileSync(path.resolve(__dirname, 'src/queries/indexedProductsQuery.graphql'), 'utf8')
+const queries = [
+  {
+    query: algoliaSearchQuery,
+    queryVariables: {},
+    transformer: async ({ data }: any) => {
+      const products = await data.directus.products.map((product: any) => {
+        const hash = createHash('sha256').update(JSON.stringify(`${product.slug}${product.date_updated}${product.description}`)).digest('hex')
+        return {
+          id: product.id,
+          title: product.title,
+          tags: product.tags,
+          designer: product.designer,
+          description: product.description,
+          is_new: product.is_new,
+          image_thumbnail: {
+            imageFile: product.image_thumbnail.imageFile,
+          },
+          manufacturer: {
+            title: product.manufacturer.title,
+            slug: product.manufacturer.slug,
+          },
+          slug: product.slug,
+          internal: {
+            contentDigest: hash,
+          },
+        }
+      })
+
+      return products
+    },
+    settings: {},
+    mergeSettings: false,
+  }
+]
+
 const config: GatsbyConfig = {
   flags: {
     FAST_DEV: true,
@@ -39,6 +78,7 @@ const config: GatsbyConfig = {
     instagramUrl: `https://www.instagram.com/looparch/`,
     linkedInUrl: `https://www.linkedin.com/company/loop-architectural-materials/`,
     publisher: `Loop Architectural Materials`,
+    version: `1.0.3`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -81,7 +121,6 @@ const config: GatsbyConfig = {
         ]
       }
     },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sitemap`,
     {
@@ -99,6 +138,7 @@ const config: GatsbyConfig = {
         display: `standalone`,
       }
     },
+    `gatsby-plugin-offline`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, {
       resolve: `gatsby-source-filesystem`,
@@ -117,69 +157,29 @@ const config: GatsbyConfig = {
       __key: "pages"
     },
     {
-      resolve: 'gatsby-plugin-meilisearch',
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        host: process.env.MEILISEARCH_HOST,
-        apiKey: process.env.MEILISEARCH_ADMIN_KEY,
-        indexes: [
-          {
-            indexUid: `all_products`,
-            settings: {
-              searchableAttributes: [
-                `manufacturer`,
-                `tags`,
-                `title`,
-                `designer`,
-                `description`,
-              ],
-              pagination: {
-                maxTotalHits: 100
-              }
-            },
-            transformer: (data: any) =>
-              data.directus.products.map((product: any) => ({
-                id: product.id,
-                title: product.title,
-                designer: product.designer,
-                description: product.description,
-                slug: `/${product.manufacturer.slug}/${product.slug}`,
-                manufacturer: product.manufacturer.title,
-                tags: product.tags,
-                image: product.image_thumbnail.imageFile.childImageSharp.gatsbyImageData,
-              })),
-            query: `
-                query IndexedProductsQuery {
-                  directus {
-                    products: Products(
-                      filter: {status: {_eq: "published"}}
-                      sort: "title"
-                      limit: -1
-                    ) {
-                      id
-                      title
-                      designer
-                      description
-                      slug
-                      tags
-                      manufacturer {
-                        title
-                        slug
-                      }
-                      image_thumbnail {
-                        id
-                        imageFile {
-                          childImageSharp {
-                            gatsbyImageData
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              `
-          }
-        ]
-      },
+        trackingIds: [`${process.env.GA_MEASUREMENT_ID}`],
+        pluginConfig: {
+          head: true
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-algolia',
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
+        queries,
+        chunkSize: 10000,
+        settings: {},
+        mergeSettings: false,
+        concurrentQueries: false,
+        dryRun: false,
+        continueOnFailure: false,
+        algoliasearchOptions: undefined,
+      }
     },
     {
       resolve: `gatsby-plugin-feed`,

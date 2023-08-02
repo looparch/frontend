@@ -7,7 +7,7 @@ const useFeaturedProducts = () => {
         products: Products(
           filter: {status: {_eq: "published"}, featured: {_eq: true}}
           sort: "date_updated"
-          limit: 3
+          limit: 6
         ) {
           id
           title

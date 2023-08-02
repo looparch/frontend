@@ -27,6 +27,7 @@ type IGraphicTextHeroProps = {
   description: any
   image: IGatsbyImageData
   link?: string
+  is_index?: boolean
 }
 
 type IConditionalWrapperProps = {
@@ -42,20 +43,24 @@ const ConditionalWrapper = ({
 }: IConditionalWrapperProps) => (condition ? wrapper(children) : children)
 
 export default function GraphicTextHero(params: IGraphicTextHeroProps) {
-  const { image, title, description, link } = params
+  const { image, title, description, link, is_index } = params
+
+  const index_classNames = "max-w-full mx-auto h-full z-10"
+  const content_classNames = "max-w-full mx-auto h-[40dvh] z-10"
 
   return (
-    <div className="max-w-full mx-auto h-[80vh] md:h-[60vh]">
+    <div className={is_index ? index_classNames : content_classNames}>
       <div className="grid object-cover w-full h-full mx-auto">
         <GatsbyImage
           image={image}
           alt={`${title} Banner`}
           className="object-cover"
           style={{ gridArea: '1/1' }}
+          loading="eager"
         />
 
         <div
-          className="relative z-20 grid content-center w-full px-8 mx-auto text-center text-white md:w-1/2 align-items-center"
+          className="relative z-10 grid content-center w-full px-8 mx-auto text-center text-white md:w-1/2 align-items-center"
           style={{ gridArea: '1/1' }}
         >
           <ConditionalWrapper
@@ -65,7 +70,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
             }}
           >
             <Fragment>
-              <h1 className="mb-6 text-4xl font-bold leading-none md:text-5xl drop-shadow-md">
+              <h1 className="mb-6 text-3xl font-bold leading-none md:text-5xl drop-shadow-md">
                 {title}
               </h1>
 
@@ -80,7 +85,7 @@ export default function GraphicTextHero(params: IGraphicTextHeroProps) {
         </div>
 
         <div
-          className="relative z-10 bg-[#000000] opacity-50 mix-blend-multiply"
+          className="relative z-0 bg-[#000000] opacity-50 mix-blend-multiply"
           style={{ gridArea: '1/1' }}
         ></div>
       </div>
