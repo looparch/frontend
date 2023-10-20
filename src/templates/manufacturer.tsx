@@ -6,8 +6,7 @@ import ProductCard from '../components/product-card'
 import ManufacturerHero from '../components/manufacturer-hero'
 import type { IManufacturer } from '../types'
 import { SEO } from '../components/seo'
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import ReactMarkdown from 'react-markdown'
 
 type DataProps = {
   data: {
