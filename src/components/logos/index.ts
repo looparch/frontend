@@ -13,6 +13,7 @@ import JunckersLogo from './junckers'
 import LinkedInLogo from './linked-in'
 import OffecctLogo from './offecct'
 import RbwLogo from './rbw'
+import StackablLogo from './stackabl'
 import ToMarketLogo from './to-market'
 import LoopLogo from './loop-logo'
 import LoopLogoText from './loop-logo-text'
@@ -37,6 +38,7 @@ const Logos: logoOptions = {
   'linked-in': LinkedInLogo,
   'offecct': OffecctLogo,
   'rbw': RbwLogo,
+  'stackabl': StackablLogo,
   'to-market': ToMarketLogo,
   'loop': LoopLogo,
   'loop-text': LoopLogoText,
