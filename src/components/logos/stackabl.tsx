@@ -5,12 +5,12 @@ interface SvgComponentProps {
 }
 
 function SvgComponent(props: SvgComponentProps) {
-  const fillColor = props.fillcolor || 'rgb(61, 61, 61)'
+  // const fillColor = props.fillcolor || 'rgb(61, 61, 61)'
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 65">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 65" {...props}>
       <defs>
-        <style>{`.cls-1{fill:${fillColor};fill-rule:evenodd}`}</style>
+        {/* <style>{`.cls-1{fill:${fillColor};fill-rule:evenodd}`}</style> */}
       </defs>
       <g id="_stackabl" data-name="#stackabl">
         <path
