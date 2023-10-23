@@ -10,6 +10,7 @@ import GengroseLogo from './genrose'
 import InstagramLogo from './instagram'
 import JFContractLogo from './jf-contract'
 import JunckersLogo from './junckers'
+import LambertEtFilsLogo from './lambert-et-fils'
 import LinkedInLogo from './linked-in'
 import OffecctLogo from './offecct'
 import RbwLogo from './rbw'
@@ -35,6 +36,7 @@ const Logos: logoOptions = {
   'instagram': InstagramLogo,
   'jf-contract': JFContractLogo,
   'junckers': JunckersLogo,
+  'lambert-et-fils': LambertEtFilsLogo,
   'linked-in': LinkedInLogo,
   'offecct': OffecctLogo,
   'rbw': RbwLogo,
