@@ -1,5 +1,5 @@
 import path from 'path'
-import { GatsbyNode } from "gatsby";
+import { GatsbyNode } from 'gatsby';
 // import { copyLibFiles } from '@builder.io/partytown/utils'
 
 // export const onPreBuild: GatsbyNode['onPreBuild'] = async () => {
@@ -32,12 +32,13 @@ type TypeResult = {
   },
 }
 
+// @ts-ignore
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage, createSlice, createRedirect } = actions
   const manufacturerTemplate = path.resolve(`src/templates/manufacturer.tsx`)
   const productTemplate = path.resolve(`src/templates/product.tsx`)
   const blogPostTemplate = path.resolve(`src/templates/announcement.tsx`)
-  const result = await graphql<TypeResult>(`
+  const result = await graphql(`
     query StartupQuery {
       directus {
         Manufacturers(filter: {status: {_eq: "published"}}) {
@@ -77,7 +78,8 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   })
 
   // Create a page for each manufacturer
-  result.data?.directus.Manufacturers.forEach(async (manufacturer) => {
+  // @ts-ignore
+  result.data?.directus.Manufacturers.forEach(async (manufacturer: any) => {
     createPage({
       path: `/${manufacturer.slug}`,
       component: manufacturerTemplate,
@@ -92,7 +94,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     })
 
     // Create a page for each manufacturer product
-    manufacturer.products.forEach(async (product) => {
+    manufacturer.products.forEach(async (product: any) => {
       createPage({
         path: `/${manufacturer.slug}/${product.slug}`,
         component: productTemplate,
@@ -109,7 +111,8 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   })
 
   // Create a page for each blog post
-  result.data?.blogPosts.nodes.forEach(async (blogPost) => {
+  // @ts-ignore
+  result.data?.blogPosts.nodes.forEach(async (blogPost: any) => {
     createPage({
       path: `/announcements/${blogPost.slug}`,
       component: blogPostTemplate,

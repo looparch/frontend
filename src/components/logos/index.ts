@@ -10,9 +10,11 @@ import GengroseLogo from './genrose'
 import InstagramLogo from './instagram'
 import JFContractLogo from './jf-contract'
 import JunckersLogo from './junckers'
+import LambertEtFilsLogo from './lambert-et-fils'
 import LinkedInLogo from './linked-in'
 import OffecctLogo from './offecct'
 import RbwLogo from './rbw'
+import StackablLogo from './stackabl'
 import ToMarketLogo from './to-market'
 import LoopLogo from './loop-logo'
 import LoopLogoText from './loop-logo-text'
@@ -34,9 +36,11 @@ const Logos: logoOptions = {
   'instagram': InstagramLogo,
   'jf-contract': JFContractLogo,
   'junckers': JunckersLogo,
+  'lambert-et-fils': LambertEtFilsLogo,
   'linked-in': LinkedInLogo,
   'offecct': OffecctLogo,
   'rbw': RbwLogo,
+  'stackabl': StackablLogo,
   'to-market': ToMarketLogo,
   'loop': LoopLogo,
   'loop-text': LoopLogoText,
