@@ -18,7 +18,7 @@ export default function ProductCard(product: IProduct) {
           className="object-cover object-center w-full h-full transition duration-500 group-hover:scale-110"
         />
         {product.is_new && (
-          <span className="bg-red-400 text-white z-20 text-sm tracking-wider uppercase rounded-br-md absolute left-0 top-0 px-3 py-1.5">
+          <span className="bg-red-400 text-white z-20 text-sm tracking-wider uppercase rounded-sm absolute left-0 top-0 px-2 py-1 m-4">
             New
           </span>
         )}
