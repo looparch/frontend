@@ -22,7 +22,7 @@ export default function ManufacturerHero(manufacturer: IManufacturer) {
             className="z-20 flex items-center content-center justify-center w-full h-full p-6 mx-auto md:p-0"
             style={{ gridArea: '1/1' }}
           >
-            <ManufacturerLogo className="absolute w-3/4 mx-auto md:w-1/2 2xl:w-1/5 place-self-center fill-white" />
+            <ManufacturerLogo className="absolute w-3/4 mx-auto md:w-1/2 place-self-center fill-white" />
           </div>
 
           <div

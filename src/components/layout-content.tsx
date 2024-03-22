@@ -8,7 +8,7 @@ type LayoutContentProps = {
 export default function LayoutContent({ children }: LayoutContentProps) {
   return (
     <>
-      <div className="px-3 md:px-12">
+      <div className="">
         {children}
       </div>
     </>
