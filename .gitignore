@@ -11,3 +11,6 @@ static/~partytown
 
 # Yarn
 yarn-error.log
+
+# Jampack
+.jampack
