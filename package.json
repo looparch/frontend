@@ -10,7 +10,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop -o",
-    "build": "gatsby build",
+    "build": "gatsby build && jampack ./public",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "info": "gatsby info",
@@ -54,6 +54,7 @@
     "react-instantsearch-hooks-web": "^6.41.0",
     "react-markdown": "^8.0.3",
     "react-medium-image-zoom": "^5.1.3",
+    "sharp": "^0.33.3",
     "swiper": "^9.0.0",
     "voca": "^1.4.0",
     "yup": "^1.0.2"
