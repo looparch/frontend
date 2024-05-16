@@ -1,1 +1,374 @@
-(m=>{const[a,b,n,j,K,B,S,I,D]=m.$bridgeToMedia$;delete m.$bridgeToMedia$;const O=Symbol(),v=Symbol(),M=Symbol(),R=Symbol(),p=Symbol(),E=Symbol(),$=[],g=(f,u,x)=>f[u]=w(u,x),w=(f,u)=>Object.defineProperty(u,"name",{value:f}),_=(f,u)=>{const x={getContext:{value(o,y){return this[O]||(this[O]=(o.includes("webgl")?P:C)(this,o,y)),this[O]}}},i=g(u,"CanvasGradient",class extends f{addColorStop(...o){n(this,["addColorStop"],o,2)}}),k=g(u,"CanvasPattern",class extends f{setTransform(...o){n(this,["setTransform"],o,2)}}),C=(o,y,c)=>{const L=o[S],T=B(),l={[S]:L,[I]:T,[D]:[]},h=n(o,["getContext"],[y,c],1,T),t="getContextAttributes,getImageData,getLineDash,getTransform,isPointInPath,isPointInStroke,measureText".split(","),e={get:(r,s)=>typeof s=="string"&&s in h?typeof h[s]=="function"?(...d)=>{if(s.startsWith("create")){const H=B();return n(l,[s],d,2,H),s==="createImageData"||s==="createPattern"?((Y=>{console.warn(`${Y} not implemented`)})(`${s}()`),{setTransform:()=>{}}):new i(L,H)}const W=t.includes(s)?1:2;return n(l,[s],d,W)}:h[s]:r[s],set(r,s,d){return typeof s=="string"&&s in h?(h[s]!==d&&typeof d!="function"&&b(l,[s],d),h[s]=d):r[s]=d,!0}};return new Proxy(h,e)},P=(o,y,c)=>{const L=o[S],T=B(),l={[S]:L,[I]:T,[D]:[]},h=n(o,["getContext"],[y,c],1,T),t={get:(e,r)=>typeof r=="string"?typeof h[r]!="function"?h[r]:(...s)=>n(l,[r],s,U(r)):e[r],set(e,r,s){return typeof r=="string"&&r in h?(h[r]!==s&&typeof s!="function"&&b(l,[r],s),h[r]=s):e[r]=s,!0}};return new Proxy(h,t)},A="checkFramebufferStatus,makeXRCompatible".split(","),U=o=>o.startsWith("create")||o.startsWith("get")||o.startsWith("is")||A.includes(o)?1:2;g(u,"CanvasGradient",i),g(u,"CanvasPattern",k),K(u.HTMLCanvasElement,x)},F=(f,u,x,i)=>{var k,C;i.Audio=w("HTMLAudioElement",class{constructor(t){const e=x.$createNode$("audio",B());return e.src=t,e}});const P=class extends f{get enabled(){return a(this,["enabled"])}set enabled(t){b(this,["enabled"],t)}get id(){return a(this,["id"])}get kind(){return a(this,["kind"])}get label(){return a(this,["label"])}get language(){return a(this,["language"])}get sourceBuffer(){return new o(this)}},A=class{constructor(t){const e=t[S],r=t[I],s={addEventListener(...d){n(t,["audioTracks","addEventListener"],d,3)},getTrackById:(...d)=>n(t,["audioTracks","getTrackById"],d),get length(){return a(t,["audioTracks","length"])},removeEventListener(...d){n(t,["audioTracks","removeEventListener"],d,3)}};return new Proxy(s,{get:(d,W)=>typeof W=="number"?new P(e,r,["audioTracks",W]):d[W]})}},U=g(i,"SourceBufferList",class extends Array{constructor(t){super(),this[v]=t}addEventListener(...t){n(this[v],["sourceBuffers","addEventListener"],t,3)}removeEventListener(...t){n(this[v],["sourceBuffers","removeEventListener"],t,3)}}),o=g(i,"SourceBuffer",(C=class extends u{constructor(t){super(t[S],t[I],["sourceBuffers"]),this[k]=[],this[v]=t}abort(){const t=c(this);n(this,[t,"appendWindowStart"],$,1)}addEventListener(...t){const e=c(this);n(this,[e,"addEventListener"],t,3)}appendBuffer(t){this[p].push(["appendBuffer",[t],t]),L(this)}get appendWindowStart(){const t=c(this);return a(this,[t,"appendWindowStart"])}set appendWindowStart(t){const e=c(this);b(this,[e,"appendWindowStart"],t)}get appendWindowEnd(){const t=c(this);return a(this,[t,"appendWindowEnd"])}set appendWindowEnd(t){const e=c(this);b(this,[e,"appendWindowEnd"],t)}get buffered(){const t=this[v],e=c(this);return new y(t[S],t[I],["sourceBuffers",e,"buffered"])}changeType(t){const e=c(this);n(this,[e,"changeType"],[t],2)}get mode(){const t=c(this);return a(this,[t,"mode"])}set mode(t){const e=c(this);b(this,[e,"mode"],t)}remove(t,e){this[p].push(["remove",[t,e]]),L(this)}removeEventListener(...t){const e=c(this);n(this,[e,"removeEventListener"],t,3)}get timestampOffset(){const t=c(this);return a(this,[t,"timestampOffset"])}set timestampOffset(t){const e=c(this);b(this,[e,"timestampOffset"],t)}get updating(){const t=c(this);return a(this,[t,"updating"])}},k=p,C)),y=g(i,"TimeRanges",class extends f{start(...t){return n(this,["start"],t)}end(...t){return n(this,["end"],t)}get length(){return a(this,["length"])}}),c=t=>t?t[v][R].indexOf(t):-1,L=t=>{if(t[p].length){if(!t.updating){const e=t[p].shift();if(e){const r=c(t);n(t,[r,e[0]],e[1],3,void 0,e[2])}}setTimeout(()=>L(t),50)}},T={buffered:{get(){return this[E]||(this[E]=new y(this[S],this[I],["buffered"]),setTimeout(()=>{this[E]=void 0},5e3)),this[E]}},readyState:{get(){return this[M]===4?4:(typeof this[M]!="number"&&(this[M]=a(this,["readyState"]),setTimeout(()=>{this[M]=void 0},1e3)),this[M])}}};g(i,"MediaSource",class extends u{constructor(){super(x.$winId$),this[R]=new U(this),j(this,"MediaSource",$)}get activeSourceBuffers(){return[]}addSourceBuffer(t){const e=new o(this);return this[R].push(e),n(this,["addSourceBuffer"],[t]),e}clearLiveSeekableRange(){n(this,["clearLiveSeekableRange"],$,2)}get duration(){return a(this,["duration"])}set duration(t){b(this,["duration"],t)}endOfStream(t){n(this,["endOfStream"],[t],3)}get readyState(){return a(this,["readyState"])}removeSourceBuffer(t){const e=c(t);e>-1&&(this[R].splice(e,1),n(this,["removeSourceBuffer"],[e],1))}setLiveSeekableRange(t,e){n(this,["setLiveSeekableRange"],[t,e],2)}get sourceBuffers(){return this[R]}static isTypeSupported(t){if(!G.has(t)){const e=n(i,["MediaSource","isTypeSupported"],[t]);G.set(t,e)}return G.get(t)}});const l=i.URL=w("URL",class extends URL{});"audioTracks"in i.HTMLMediaElement.prototype&&(g(i,"AudioTrackList",A),g(i,"AudioTrack",P),T.audioTracks={get(){return new A(this)}}),K(i.HTMLMediaElement,T),l.createObjectURL=t=>n(i,["URL","createObjectURL"],[t]),l.revokeObjectURL=t=>n(i,["URL","revokeObjectURL"],[t])},G=new Map;m.$bridgeFromMedia$=(f,u,x,i,k)=>{k.map(C=>{delete i[C]}),_(f,i),F(f,u,x,i)}})(self);
+/* Partytown 0.7.6 - MIT builder.io */
+(self => {
+    const [getter, setter, callMethod, constructGlobal, definePrototypePropertyDescriptor, randomId, WinIdKey, InstanceIdKey, ApplyPathKey] = self.$bridgeToMedia$;
+    delete self.$bridgeToMedia$;
+    const ContextKey = Symbol();
+    const MediaSourceKey = Symbol();
+    const ReadyStateKey = Symbol();
+    const SourceBuffersKey = Symbol();
+    const SourceBufferTasksKey = Symbol();
+    const TimeRangesKey = Symbol();
+    const EMPTY_ARRAY = [];
+    const defineCstr = (win, cstrName, Cstr) => win[cstrName] = defineCstrName(cstrName, Cstr);
+    const defineCstrName = (cstrName, Cstr) => Object.defineProperty(Cstr, "name", {
+        value: cstrName
+    });
+    const initCanvas = (WorkerBase, win) => {
+        const HTMLCanvasDescriptorMap = {
+            getContext: {
+                value(contextType, contextAttributes) {
+                    this[ContextKey] || (this[ContextKey] = (contextType.includes("webgl") ? createContextWebGL : createContext2D)(this, contextType, contextAttributes));
+                    return this[ContextKey];
+                }
+            }
+        };
+        const WorkerCanvasGradient = defineCstr(win, "CanvasGradient", class extends WorkerBase {
+            addColorStop(...args) {
+                callMethod(this, [ "addColorStop" ], args, 2);
+            }
+        });
+        const WorkerCanvasPattern = defineCstr(win, "CanvasPattern", class extends WorkerBase {
+            setTransform(...args) {
+                callMethod(this, [ "setTransform" ], args, 2);
+            }
+        });
+        const createContext2D = (canvasInstance, contextType, contextAttributes) => {
+            const winId = canvasInstance[WinIdKey];
+            const ctxInstanceId = randomId();
+            const ctxInstance = {
+                [WinIdKey]: winId,
+                [InstanceIdKey]: ctxInstanceId,
+                [ApplyPathKey]: []
+            };
+            const ctx = callMethod(canvasInstance, [ "getContext" ], [ contextType, contextAttributes ], 1, ctxInstanceId);
+            const ctx2dGetterMethods = "getContextAttributes,getImageData,getLineDash,getTransform,isPointInPath,isPointInStroke,measureText".split(",");
+            const CanvasRenderingContext2D = {
+                get: (target, propName) => "string" == typeof propName && propName in ctx ? "function" == typeof ctx[propName] ? (...args) => {
+                    if (propName.startsWith("create")) {
+                        const instanceId = randomId();
+                        callMethod(ctxInstance, [ propName ], args, 2, instanceId);
+                        if ("createImageData" === propName || "createPattern" === propName) {
+                            (api => {
+                                console.warn(`${api} not implemented`);
+                            })(`${propName}()`);
+                            return {
+                                setTransform: () => {}
+                            };
+                        }
+                        return new WorkerCanvasGradient(winId, instanceId);
+                    }
+                    const methodCallType = ctx2dGetterMethods.includes(propName) ? 1 : 2;
+                    return callMethod(ctxInstance, [ propName ], args, methodCallType);
+                } : ctx[propName] : target[propName],
+                set(target, propName, value) {
+                    if ("string" == typeof propName && propName in ctx) {
+                        ctx[propName] !== value && "function" != typeof value && setter(ctxInstance, [ propName ], value);
+                        ctx[propName] = value;
+                    } else {
+                        target[propName] = value;
+                    }
+                    return true;
+                }
+            };
+            return new Proxy(ctx, CanvasRenderingContext2D);
+        };
+        const createContextWebGL = (canvasInstance, contextType, contextAttributes) => {
+            const winId = canvasInstance[WinIdKey];
+            const ctxInstanceId = randomId();
+            const ctxInstance = {
+                [WinIdKey]: winId,
+                [InstanceIdKey]: ctxInstanceId,
+                [ApplyPathKey]: []
+            };
+            const ctx = callMethod(canvasInstance, [ "getContext" ], [ contextType, contextAttributes ], 1, ctxInstanceId);
+            const WebGLRenderingContextHandler = {
+                get: (target, propName) => "string" == typeof propName ? "function" != typeof ctx[propName] ? ctx[propName] : (...args) => callMethod(ctxInstance, [ propName ], args, getWebGlMethodCallType(propName)) : target[propName],
+                set(target, propName, value) {
+                    if ("string" == typeof propName && propName in ctx) {
+                        ctx[propName] !== value && "function" != typeof value && setter(ctxInstance, [ propName ], value);
+                        ctx[propName] = value;
+                    } else {
+                        target[propName] = value;
+                    }
+                    return true;
+                }
+            };
+            return new Proxy(ctx, WebGLRenderingContextHandler);
+        };
+        const ctxWebGLGetterMethods = "checkFramebufferStatus,makeXRCompatible".split(",");
+        const getWebGlMethodCallType = methodName => methodName.startsWith("create") || methodName.startsWith("get") || methodName.startsWith("is") || ctxWebGLGetterMethods.includes(methodName) ? 1 : 2;
+        defineCstr(win, "CanvasGradient", WorkerCanvasGradient);
+        defineCstr(win, "CanvasPattern", WorkerCanvasPattern);
+        definePrototypePropertyDescriptor(win.HTMLCanvasElement, HTMLCanvasDescriptorMap);
+    };
+    const initMedia = (WorkerBase, WorkerEventTargetProxy, env, win) => {
+        var _a, _b;
+        win.Audio = defineCstrName("HTMLAudioElement", class {
+            constructor(src) {
+                const audio = env.$createNode$("audio", randomId());
+                audio.src = src;
+                return audio;
+            }
+        });
+        const WorkerAudioTrack = class extends WorkerBase {
+            get enabled() {
+                return getter(this, [ "enabled" ]);
+            }
+            set enabled(value) {
+                setter(this, [ "enabled" ], value);
+            }
+            get id() {
+                return getter(this, [ "id" ]);
+            }
+            get kind() {
+                return getter(this, [ "kind" ]);
+            }
+            get label() {
+                return getter(this, [ "label" ]);
+            }
+            get language() {
+                return getter(this, [ "language" ]);
+            }
+            get sourceBuffer() {
+                return new WorkerSourceBuffer(this);
+            }
+        };
+        const WorkerAudioTrackList = class {
+            constructor(mediaElm) {
+                const winId = mediaElm[WinIdKey];
+                const instanceId = mediaElm[InstanceIdKey];
+                const instance = {
+                    addEventListener(...args) {
+                        callMethod(mediaElm, [ "audioTracks", "addEventListener" ], args, 3);
+                    },
+                    getTrackById: (...args) => callMethod(mediaElm, [ "audioTracks", "getTrackById" ], args),
+                    get length() {
+                        return getter(mediaElm, [ "audioTracks", "length" ]);
+                    },
+                    removeEventListener(...args) {
+                        callMethod(mediaElm, [ "audioTracks", "removeEventListener" ], args, 3);
+                    }
+                };
+                return new Proxy(instance, {
+                    get: (target, propName) => "number" == typeof propName ? new WorkerAudioTrack(winId, instanceId, [ "audioTracks", propName ]) : target[propName]
+                });
+            }
+        };
+        const WorkerSourceBufferList = defineCstr(win, "SourceBufferList", class extends Array {
+            constructor(mediaSource) {
+                super();
+                this[MediaSourceKey] = mediaSource;
+            }
+            addEventListener(...args) {
+                callMethod(this[MediaSourceKey], [ "sourceBuffers", "addEventListener" ], args, 3);
+            }
+            removeEventListener(...args) {
+                callMethod(this[MediaSourceKey], [ "sourceBuffers", "removeEventListener" ], args, 3);
+            }
+        });
+        const WorkerSourceBuffer = defineCstr(win, "SourceBuffer", (_b = class extends WorkerEventTargetProxy {
+            constructor(mediaSource) {
+                super(mediaSource[WinIdKey], mediaSource[InstanceIdKey], [ "sourceBuffers" ]);
+                this[_a] = [];
+                this[MediaSourceKey] = mediaSource;
+            }
+            abort() {
+                const sbIndex = getSourceBufferIndex(this);
+                callMethod(this, [ sbIndex, "appendWindowStart" ], EMPTY_ARRAY, 1);
+            }
+            addEventListener(...args) {
+                const sbIndex = getSourceBufferIndex(this);
+                callMethod(this, [ sbIndex, "addEventListener" ], args, 3);
+            }
+            appendBuffer(buf) {
+                this[SourceBufferTasksKey].push([ "appendBuffer", [ buf ], buf ]);
+                drainSourceBufferQueue(this);
+            }
+            get appendWindowStart() {
+                const sbIndex = getSourceBufferIndex(this);
+                return getter(this, [ sbIndex, "appendWindowStart" ]);
+            }
+            set appendWindowStart(value) {
+                const sbIndex = getSourceBufferIndex(this);
+                setter(this, [ sbIndex, "appendWindowStart" ], value);
+            }
+            get appendWindowEnd() {
+                const sbIndex = getSourceBufferIndex(this);
+                return getter(this, [ sbIndex, "appendWindowEnd" ]);
+            }
+            set appendWindowEnd(value) {
+                const sbIndex = getSourceBufferIndex(this);
+                setter(this, [ sbIndex, "appendWindowEnd" ], value);
+            }
+            get buffered() {
+                const mediaSource = this[MediaSourceKey];
+                const sbIndex = getSourceBufferIndex(this);
+                const timeRanges = new WorkerTimeRanges(mediaSource[WinIdKey], mediaSource[InstanceIdKey], [ "sourceBuffers", sbIndex, "buffered" ]);
+                return timeRanges;
+            }
+            changeType(mimeType) {
+                const sbIndex = getSourceBufferIndex(this);
+                callMethod(this, [ sbIndex, "changeType" ], [ mimeType ], 2);
+            }
+            get mode() {
+                const sbIndex = getSourceBufferIndex(this);
+                return getter(this, [ sbIndex, "mode" ]);
+            }
+            set mode(value) {
+                const sbIndex = getSourceBufferIndex(this);
+                setter(this, [ sbIndex, "mode" ], value);
+            }
+            remove(start, end) {
+                this[SourceBufferTasksKey].push([ "remove", [ start, end ] ]);
+                drainSourceBufferQueue(this);
+            }
+            removeEventListener(...args) {
+                const sbIndex = getSourceBufferIndex(this);
+                callMethod(this, [ sbIndex, "removeEventListener" ], args, 3);
+            }
+            get timestampOffset() {
+                const sbIndex = getSourceBufferIndex(this);
+                return getter(this, [ sbIndex, "timestampOffset" ]);
+            }
+            set timestampOffset(value) {
+                const sbIndex = getSourceBufferIndex(this);
+                setter(this, [ sbIndex, "timestampOffset" ], value);
+            }
+            get updating() {
+                const sbIndex = getSourceBufferIndex(this);
+                return getter(this, [ sbIndex, "updating" ]);
+            }
+        }, _a = SourceBufferTasksKey, _b));
+        const WorkerTimeRanges = defineCstr(win, "TimeRanges", class extends WorkerBase {
+            start(...args) {
+                return callMethod(this, [ "start" ], args);
+            }
+            end(...args) {
+                return callMethod(this, [ "end" ], args);
+            }
+            get length() {
+                return getter(this, [ "length" ]);
+            }
+        });
+        const getSourceBufferIndex = sourceBuffer => {
+            if (sourceBuffer) {
+                const mediaSource = sourceBuffer[MediaSourceKey];
+                const sourceBufferList = mediaSource[SourceBuffersKey];
+                return sourceBufferList.indexOf(sourceBuffer);
+            }
+            return -1;
+        };
+        const drainSourceBufferQueue = sourceBuffer => {
+            if (sourceBuffer[SourceBufferTasksKey].length) {
+                if (!sourceBuffer.updating) {
+                    const task = sourceBuffer[SourceBufferTasksKey].shift();
+                    if (task) {
+                        const sbIndex = getSourceBufferIndex(sourceBuffer);
+                        callMethod(sourceBuffer, [ sbIndex, task[0] ], task[1], 3, void 0, task[2]);
+                    }
+                }
+                setTimeout((() => drainSourceBufferQueue(sourceBuffer)), 50);
+            }
+        };
+        const HTMLMediaDescriptorMap = {
+            buffered: {
+                get() {
+                    if (!this[TimeRangesKey]) {
+                        this[TimeRangesKey] = new WorkerTimeRanges(this[WinIdKey], this[InstanceIdKey], [ "buffered" ]);
+                        setTimeout((() => {
+                            this[TimeRangesKey] = void 0;
+                        }), 5e3);
+                    }
+                    return this[TimeRangesKey];
+                }
+            },
+            readyState: {
+                get() {
+                    if (4 === this[ReadyStateKey]) {
+                        return 4;
+                    }
+                    if ("number" != typeof this[ReadyStateKey]) {
+                        this[ReadyStateKey] = getter(this, [ "readyState" ]);
+                        setTimeout((() => {
+                            this[ReadyStateKey] = void 0;
+                        }), 1e3);
+                    }
+                    return this[ReadyStateKey];
+                }
+            }
+        };
+        defineCstr(win, "MediaSource", class extends WorkerEventTargetProxy {
+            constructor() {
+                super(env.$winId$);
+                this[SourceBuffersKey] = new WorkerSourceBufferList(this);
+                constructGlobal(this, "MediaSource", EMPTY_ARRAY);
+            }
+            get activeSourceBuffers() {
+                return [];
+            }
+            addSourceBuffer(mimeType) {
+                const sourceBuffer = new WorkerSourceBuffer(this);
+                this[SourceBuffersKey].push(sourceBuffer);
+                callMethod(this, [ "addSourceBuffer" ], [ mimeType ]);
+                return sourceBuffer;
+            }
+            clearLiveSeekableRange() {
+                callMethod(this, [ "clearLiveSeekableRange" ], EMPTY_ARRAY, 2);
+            }
+            get duration() {
+                return getter(this, [ "duration" ]);
+            }
+            set duration(value) {
+                setter(this, [ "duration" ], value);
+            }
+            endOfStream(endOfStreamError) {
+                callMethod(this, [ "endOfStream" ], [ endOfStreamError ], 3);
+            }
+            get readyState() {
+                return getter(this, [ "readyState" ]);
+            }
+            removeSourceBuffer(sourceBuffer) {
+                const index = getSourceBufferIndex(sourceBuffer);
+                if (index > -1) {
+                    this[SourceBuffersKey].splice(index, 1);
+                    callMethod(this, [ "removeSourceBuffer" ], [ index ], 1);
+                }
+            }
+            setLiveSeekableRange(start, end) {
+                callMethod(this, [ "setLiveSeekableRange" ], [ start, end ], 2);
+            }
+            get sourceBuffers() {
+                return this[SourceBuffersKey];
+            }
+            static isTypeSupported(mimeType) {
+                if (!isStaticTypeSupported.has(mimeType)) {
+                    const isSupported = callMethod(win, [ "MediaSource", "isTypeSupported" ], [ mimeType ]);
+                    isStaticTypeSupported.set(mimeType, isSupported);
+                }
+                return isStaticTypeSupported.get(mimeType);
+            }
+        });
+        const winURL = win.URL = defineCstrName("URL", class extends URL {});
+        const hasAudioTracks = "audioTracks" in win.HTMLMediaElement.prototype;
+        if (hasAudioTracks) {
+            defineCstr(win, "AudioTrackList", WorkerAudioTrackList);
+            defineCstr(win, "AudioTrack", WorkerAudioTrack);
+            HTMLMediaDescriptorMap.audioTracks = {
+                get() {
+                    return new WorkerAudioTrackList(this);
+                }
+            };
+        }
+        definePrototypePropertyDescriptor(win.HTMLMediaElement, HTMLMediaDescriptorMap);
+        winURL.createObjectURL = obj => callMethod(win, [ "URL", "createObjectURL" ], [ obj ]);
+        winURL.revokeObjectURL = obj => callMethod(win, [ "URL", "revokeObjectURL" ], [ obj ]);
+    };
+    const isStaticTypeSupported = new Map;
+    self.$bridgeFromMedia$ = (WorkerBase, WorkerEventTargetProxy, env, win, windowMediaConstructors) => {
+        windowMediaConstructors.map((mediaCstrName => {
+            delete win[mediaCstrName];
+        }));
+        initCanvas(WorkerBase, win);
+        initMedia(WorkerBase, WorkerEventTargetProxy, env, win);
+    };
+})(self);
