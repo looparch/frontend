@@ -16,6 +16,7 @@ import OffecctLogo from './offecct'
 import RbwLogo from './rbw'
 import StackablLogo from './stackabl'
 import ToMarketLogo from './to-market'
+import TranswallLogo from './transwall'
 import LoopLogo from './loop-logo'
 import LoopLogoText from './loop-logo-text'
 
@@ -42,6 +43,7 @@ const Logos: logoOptions = {
   'rbw': RbwLogo,
   'stackabl': StackablLogo,
   'to-market': ToMarketLogo,
+  'transwall': TranswallLogo,
   'loop': LoopLogo,
   'loop-text': LoopLogoText,
 }

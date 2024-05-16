@@ -100,7 +100,7 @@ export const pageQuery = graphql`
         tags
         products(
           limit: -1
-          sort: "featured, collection, title"
+          sort: "-is_new, -featured, collection, title"
           filter: { status: { _eq: "published" } }
         ) {
           id

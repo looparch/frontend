@@ -99,7 +99,7 @@ const config: GatsbyConfig = {
     {
       resolve: `@directus/gatsby-source-directus`,
       options: {
-        url: `http://looparch.test:8055`,
+        url: `http://localhost:8055`,
         auth: {
           token: process.env.DIRECTUS_TOKEN,
         },
@@ -115,7 +115,6 @@ const config: GatsbyConfig = {
               maxWidth: 800,
               linkImagesToOriginal: false,
               withWebp: true,
-              wrapperStyle: `border: 1px solid #221a11; margin-bottom: 1rem;`,
             }
           }
         ]

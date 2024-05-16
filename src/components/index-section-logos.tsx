@@ -25,13 +25,7 @@ const IndexSectionLogos = () => {
     <div className="home-section">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="grid max-w-2xl grid-cols-1 mx-auto gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none ">
-          <div className="lg:pr-8 lg:pt-4">
-            <div className="lg:max-w-lg">
-              <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-                Representing
-              </h2>
-            </div>
-          </div>
+          
           <article className="grid grid-cols-2 gap-6 lg:grid-cols-4 md:gap-4">
             {manufacturers.map((item: ManufacturerProps) => {
               const ManufacturerLogo = Logos[item.slug]

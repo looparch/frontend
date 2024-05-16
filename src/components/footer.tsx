@@ -16,14 +16,14 @@ export default function Footer() {
 
   return (
     <footer
-      className="mx-auto mt-12 bg-loop-50 print:hidden"
+      className="mx-auto mt-12 bg-gray-100 print:hidden"
       aria-labelledby="footer-heading"
       id="footer"
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="py-12 mx-auto mt-8 border-t max-w-7xl lg:py-16 border-loop-200">
+      <div className="py-12 mx-auto mt-8 max-w-7xl lg:py-16">
         <div className="grid grid-cols-1 gap-12 px-3 md:px-12 md:grid-cols-3">
           <div>
             <h3 className="text-xl font-bold leading-tight text-dark-text">
@@ -78,7 +78,7 @@ export default function Footer() {
             <FormSignup />
           </div>
         </div>
-        <div className="px-3 pt-8 mt-8 border-t md:px-12 border-loop-200 md:flex md:items-center md:justify-between">
+        <div className="px-3 pt-8 mt-8 border-t md:px-12 border-gray-300 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             <a
               href={siteMetadata.instagramUrl}

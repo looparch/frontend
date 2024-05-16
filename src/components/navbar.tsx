@@ -18,7 +18,7 @@ import LoopLogoText from './logos/loop-logo-text'
 export default function Navbar(props: any) {
   const _className = props.className || ''
   const navbarClasses = {
-    wrapperClass: 'px-0 md:px-0 border-b border-loop-200',
+    wrapperClass: 'px-0 md:px-0',
     navbarClass: 'px-3 py-3 md:px-12 md:py-6 bg-white',
     textClass:
       'text-dark-text text-xs uppercase underline-offset-8 focus:outline-none inline-flex items-center justify-center px-4 py-2',
@@ -46,13 +46,13 @@ export default function Navbar(props: any) {
               <span className="sr-only">Loop Architectural Materials</span>
               <LoopLogoText
                 className="hidden h-12 rounded-md md:block"
-                fillcolor="rgb(131, 182, 104)"
+                fillcolor="rgb(4, 149, 95)"
                 textcolor={`${navbarClasses.textFillStyle}`}
               />
               <LoopLogo
                 className="block h-12 rounded-md md:hidden"
-                fillcolor="rgb(131, 182, 104)"
-                textcolor="rgb(255, 255, 255)"
+                fillcolor="rgb(4, 149, 95)"
+                textcolor={`${navbarClasses.textFillStyle}`}
               />
             </Link>
           </div>
@@ -94,7 +94,7 @@ export default function Navbar(props: any) {
                               <Link
                                 key={item.id}
                                 to={`/${item.slug}`}
-                                className="flex items-center p-0 -m-0 rounded-md md:-m-3 md:p-3 hover:bg-loop-50"
+                                className="flex items-center p-0 -m-0 rounded-md md:-m-3 md:p-3 hover:bg-gray-50"
                               >
                                 <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 overflow-hidden text-white rounded-sm lg:w-32 lg:h-16">
                                   <GatsbyImage
@@ -167,25 +167,20 @@ export default function Navbar(props: any) {
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
-                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                enterFrom="opacity-0 translate-x-full"
+                enterTo="opacity-100 translate-x-0"
                 leave="ease-in duration-200"
-                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                leaveFrom="opacity-100 translate-x-0"
+                leaveTo="opacity-0 translate-x-full"
               >
                 <Dialog.Panel className="relative w-full h-full overflow-hidden transition-all transform bg-white">
-                  <div className="flex items-center justify-between w-full p-3 pr-0 border-b-[1px] border-loop-200">
+                  <div className="flex items-center justify-between w-full p-3 pr-0">
                     <LoopLogo
                       className="block h-12 rounded-md md:hidden"
-                      fillcolor="rgb(131, 182, 104)"
+                      fillcolor="rgb(4, 149, 95)"
                       textcolor="rgb(255, 255, 255)"
                     />
-                    <Dialog.Title
-                      as="h3"
-                      className="text-xl font-semibold leading-6 text-black "
-                    >
-                      Navigate
-                    </Dialog.Title>
+                    
                     <button
                       type="button"
                       className={`${navbarClasses.textClass} inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 hover:text-dark-text `}
@@ -196,34 +191,34 @@ export default function Navbar(props: any) {
                     </button>
                   </div>
                   <div className="grid h-full grid-cols-1 overflow-y-scroll">
-                    <h4 className="block p-3 font-semibold text-left">Manufacturers</h4>
+                    <h4 className="block p-3 pb-1 font-semibold text-left">
+                      Manufacturers
+                    </h4>
                     {manufacturers.map((item: IManufacturer) => (
                       <Link
                         key={item.id}
                         to={`/${item.slug}`}
-                        className="block p-3 text-left border-b border-loop-300 text-normal hover:bg-loop-100"
+                        className="block pl-6 p-3 pb-1 text-left text-normal hover:bg-gray-100"
                       >
                         {item.title}
                       </Link>
                     ))}
-                    <h4 className="block p-3 font-semibold text-left">Sections</h4>
-                    <div className="grid grid-cols-2 border border-t border-loop-300">
-                      <Link
-                        key="search"
-                        to={`/search`}
-                        className="block p-3 text-left border-b border-loop-300 text-normal"
-                      >
-                        Search
-                      </Link>
-                      <Link
-                        key="contact"
-                        to={`/contact`}
-                        className="block p-3 text-left border-b border-l border-loop-300 text-normal"
-                      >
-                        Contact
-                      </Link>
-                      <div className="h-[20dvh]"></div>
-                    </div>
+
+                    <Link
+                      key="search"
+                      to={`/search`}
+                      className="block p-3 pb-1 text-left font-semibold hover:bg-gray-100"
+                    >
+                      Search
+                    </Link>
+                    <Link
+                      key="contact"
+                      to={`/contact`}
+                      className="block p-3 pb-1 text-left font-semibold hover:bg-gray-100"
+                    >
+                      Contact
+                    </Link>
+                    <div className="h-[20dvh]"></div>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
