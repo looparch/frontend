@@ -15,6 +15,7 @@ import LedC4Logo from './leds-c4'
 import LinkedInLogo from './linked-in'
 import OffecctLogo from './offecct'
 import RbwLogo from './rbw'
+import SkloLogo from './sklo'
 import StackablLogo from './stackabl'
 import ToMarketLogo from './to-market'
 import TranswallLogo from './transwall'
@@ -43,6 +44,7 @@ const Logos: logoOptions = {
   'linked-in': LinkedInLogo,
   'offecct': OffecctLogo,
   'rbw': RbwLogo,
+  'sklo': SkloLogo,
   'stackabl': StackablLogo,
   'to-market': ToMarketLogo,
   'transwall': TranswallLogo,
